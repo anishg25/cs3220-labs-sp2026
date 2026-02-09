@@ -1,4 +1,4 @@
- `include "define.vh" 
+`include "define.vh" 
 
 
 module FE_STAGE(
@@ -47,6 +47,9 @@ module FE_STAGE(
   wire stall_pipe_FE; // signal to indicate when a front-end needs to be stall
   
   wire [`FE_latch_WIDTH-1:0] FE_latch_contents;  // the signals that will be FE latch contents 
+
+  // counts instructions 
+  assign valid_FE = !(reset || br_mispred_AGEX || stall_pipe_FE) && |inst_FE;
   
   // reading instruction from imem 
   assign inst_FE = imem[PC_FE_latch[`IMEMADDRBITS-1:`IMEMWORDBITS]];  // this code works. imem is stored 4B together 

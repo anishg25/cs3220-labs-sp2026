@@ -1,0 +1,772 @@
+
+TESTING: /Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/add.mem
+-- VERILATE ----------------
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/add.mem
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+sed -i'' -e 's|define IDMEMINITFILE.*|define IDMEMINITFILE "/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/add.mem"|g'  /Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+verilator --exe -cc pipeline.v --top-module pipeline --trace --trace-structs --assert -Wpedantic -Wno-DECLFILENAME -Wno-UNUSED --x-initial unique --x-assign unique sim_main.cpp fe_stage.v de_stage.v mem_stage.v wb_stage.v agex_stage.v -CFLAGS '-DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/add.mem -DVCD_OUTPUT -DDPRINTF'
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.222 MB sources in 7 modules, into 0.339 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.034 s (elab=0.002, cvt=0.021, bld=0.000); cpu 0.034 s on 1 threads; alloced 14.984 MB
+-- COMPILE -----------------
+/Library/Developer/CommandLineTools/usr/bin/make -j 4 -C obj_dir -f Vpipeline.mk
+c++  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/add.mem -DVCD_OUTPUT -DDPRINTF   -Os  -c -o sim_main.o ../sim_main.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/add.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/add.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_dpi.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_dpi.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/add.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_vcd_c.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_vcd_c.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/add.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_threads.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_threads.cpp
+python3 /opt/homebrew/Cellar/verilator/5.044/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vpipeline.cpp Vpipeline___024root__0.cpp Vpipeline_pipeline__0.cpp Vpipeline_WB_STAGE__0.cpp Vpipeline__Dpi.cpp Vpipeline__Trace__0.cpp Vpipeline__ConstPool__0__Slow.cpp Vpipeline___024root__Slow.cpp Vpipeline___024root__0__Slow.cpp Vpipeline_pipeline__Slow.cpp Vpipeline_pipeline__0__Slow.cpp Vpipeline_WB_STAGE__Slow.cpp Vpipeline_WB_STAGE__0__Slow.cpp Vpipeline__Syms__Slow.cpp Vpipeline__Trace__0__Slow.cpp Vpipeline__TraceDecls__0__Slow.cpp > Vpipeline__ALL.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/add.mem -DVCD_OUTPUT -DDPRINTF   -c -o Vpipeline__ALL.o Vpipeline__ALL.cpp
+c++  -Wl,-U,__Z15vl_time_stamp64v,-U,__Z13sc_time_stampv   sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vpipeline__ALL.a    -pthread -lpthread   -o Vpipeline
+rm Vpipeline__ALL.verilator_deplist.tmp
+-- RUN ---------------------
+obj_dir/Vpipeline
+[18]  PC=0x200 Inst=0x93 Op=12 wr_reg=1 wregno=1 regval=0
+[20]  PC=0x204 Inst=0x113 Op=12 wr_reg=1 wregno=2 regval=0
+[22]  PC=0x208 Inst=0x193 Op=12 wr_reg=1 wregno=3 regval=0
+[24]  PC=0x20c Inst=0x213 Op=12 wr_reg=1 wregno=4 regval=0
+[26]  PC=0x210 Inst=0x293 Op=12 wr_reg=1 wregno=5 regval=0
+[28]  PC=0x214 Inst=0x313 Op=12 wr_reg=1 wregno=6 regval=0
+[30]  PC=0x218 Inst=0x393 Op=12 wr_reg=1 wregno=7 regval=0
+[32]  PC=0x21c Inst=0x413 Op=12 wr_reg=1 wregno=8 regval=0
+[34]  PC=0x220 Inst=0x493 Op=12 wr_reg=1 wregno=9 regval=0
+[36]  PC=0x224 Inst=0x513 Op=12 wr_reg=1 wregno=10 regval=0
+[38]  PC=0x228 Inst=0x593 Op=12 wr_reg=1 wregno=11 regval=0
+[40]  PC=0x22c Inst=0x613 Op=12 wr_reg=1 wregno=12 regval=0
+[42]  PC=0x230 Inst=0x693 Op=12 wr_reg=1 wregno=13 regval=0
+[44]  PC=0x234 Inst=0x713 Op=12 wr_reg=1 wregno=14 regval=0
+[46]  PC=0x238 Inst=0x793 Op=12 wr_reg=1 wregno=15 regval=0
+[48]  PC=0x23c Inst=0x813 Op=12 wr_reg=1 wregno=16 regval=0
+[50]  PC=0x240 Inst=0x893 Op=12 wr_reg=1 wregno=17 regval=0
+[52]  PC=0x244 Inst=0x913 Op=12 wr_reg=1 wregno=18 regval=0
+[54]  PC=0x248 Inst=0x993 Op=12 wr_reg=1 wregno=19 regval=0
+[56]  PC=0x24c Inst=0xa13 Op=12 wr_reg=1 wregno=20 regval=0
+[58]  PC=0x250 Inst=0xa93 Op=12 wr_reg=1 wregno=21 regval=0
+[60]  PC=0x254 Inst=0xb13 Op=12 wr_reg=1 wregno=22 regval=0
+[62]  PC=0x258 Inst=0xb93 Op=12 wr_reg=1 wregno=23 regval=0
+[64]  PC=0x25c Inst=0xc13 Op=12 wr_reg=1 wregno=24 regval=0
+[66]  PC=0x260 Inst=0xc93 Op=12 wr_reg=1 wregno=25 regval=0
+[68]  PC=0x264 Inst=0xd13 Op=12 wr_reg=1 wregno=26 regval=0
+[70]  PC=0x268 Inst=0xd93 Op=12 wr_reg=1 wregno=27 regval=0
+[72]  PC=0x26c Inst=0xe13 Op=12 wr_reg=1 wregno=28 regval=0
+[74]  PC=0x270 Inst=0xe93 Op=12 wr_reg=1 wregno=29 regval=0
+[76]  PC=0x274 Inst=0xf13 Op=12 wr_reg=1 wregno=30 regval=0
+[78]  PC=0x278 Inst=0xf93 Op=12 wr_reg=1 wregno=31 regval=0
+[80]  PC=0x27c Inst=0x300093 Op=12 wr_reg=1 wregno=1 regval=3
+[82]  PC=0x280 Inst=0x700113 Op=12 wr_reg=1 wregno=2 regval=7
+[90]  PC=0x284 Inst=0x208733 Op=1 wr_reg=1 wregno=14 regval=10
+[92]  PC=0x288 Inst=0xa00393 Op=12 wr_reg=1 wregno=7 regval=10
+[94]  PC=0x28c Inst=0x200193 Op=12 wr_reg=1 wregno=3 regval=2
+[100]  PC=0x290 Inst=0x2771a63 Op=29
+[102]  PC=0x294 Inst=0x213 Op=12 wr_reg=1 wregno=4 regval=0
+[104]  PC=0x298 Inst=0x1900093 Op=12 wr_reg=1 wregno=1 regval=25
+[106]  PC=0x29c Inst=0x4b00113 Op=12 wr_reg=1 wregno=2 regval=75
+[114]  PC=0x2a0 Inst=0x208733 Op=1 wr_reg=1 wregno=14 regval=100
+[122]  PC=0x2a4 Inst=0x70313 Op=12 wr_reg=1 wregno=6 regval=100
+[124]  PC=0x2a8 Inst=0x120213 Op=12 wr_reg=1 wregno=4 regval=1
+[126]  PC=0x2ac Inst=0x200293 Op=12 wr_reg=1 wregno=5 regval=2
+[134]  PC=0x2b0 Inst=0xfe5214e3 Op=29
+[140]  PC=0x298 Inst=0x1900093 Op=12 wr_reg=1 wregno=1 regval=25
+[142]  PC=0x29c Inst=0x4b00113 Op=12 wr_reg=1 wregno=2 regval=75
+[150]  PC=0x2a0 Inst=0x208733 Op=1 wr_reg=1 wregno=14 regval=100
+[158]  PC=0x2a4 Inst=0x70313 Op=12 wr_reg=1 wregno=6 regval=100
+[160]  PC=0x2a8 Inst=0x120213 Op=12 wr_reg=1 wregno=4 regval=2
+[162]  PC=0x2ac Inst=0x200293 Op=12 wr_reg=1 wregno=5 regval=2
+[170]  PC=0x2b0 Inst=0xfe5214e3 Op=29
+[172]  PC=0x2b4 Inst=0x6400393 Op=12 wr_reg=1 wregno=7 regval=100
+[174]  PC=0x2b8 Inst=0x300193 Op=12 wr_reg=1 wregno=3 regval=3
+[180]  PC=0x2bc Inst=0x731463 Op=29
+[182]  PC=0x2c0 Inst=0x301e63 Op=29
+[188]  PC=0x2dc Inst=0x100193 Op=12 wr_reg=1 wregno=3 regval=1
+[190]  PC=0x2e0 Inst=0x13 Op=12
+[192]  PC=0x2e4 Inst=0x13 Op=12
+[194]  PC=0x2e8 Inst=0x13 Op=12
+[196]  PC=0x2ec Inst=0x13 Op=12
+[198]  PC=0x2f0 Inst=0x13 Op=12
+[200]  PC=0x2f4 Inst=0x13 Op=12
+Total instructions=63, cycles=95, IPC=0.663158
+Passed!
+-- DONE --------------------
+
+TESTING: /Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/addi.mem
+-- VERILATE ----------------
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/addi.mem
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+sed -i'' -e 's|define IDMEMINITFILE.*|define IDMEMINITFILE "/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/addi.mem"|g'  /Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+verilator --exe -cc pipeline.v --top-module pipeline --trace --trace-structs --assert -Wpedantic -Wno-DECLFILENAME -Wno-UNUSED --x-initial unique --x-assign unique sim_main.cpp fe_stage.v de_stage.v mem_stage.v wb_stage.v agex_stage.v -CFLAGS '-DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/addi.mem -DVCD_OUTPUT -DDPRINTF'
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.222 MB sources in 7 modules, into 0.339 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.033 s (elab=0.002, cvt=0.020, bld=0.000); cpu 0.033 s on 1 threads; alloced 13.203 MB
+-- COMPILE -----------------
+/Library/Developer/CommandLineTools/usr/bin/make -j 4 -C obj_dir -f Vpipeline.mk
+c++  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/addi.mem -DVCD_OUTPUT -DDPRINTF   -Os  -c -o sim_main.o ../sim_main.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/addi.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_dpi.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_dpi.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/addi.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_vcd_c.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_vcd_c.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/addi.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_threads.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_threads.cpp
+python3 /opt/homebrew/Cellar/verilator/5.044/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vpipeline.cpp Vpipeline___024root__0.cpp Vpipeline_pipeline__0.cpp Vpipeline_WB_STAGE__0.cpp Vpipeline__Dpi.cpp Vpipeline__Trace__0.cpp Vpipeline__ConstPool__0__Slow.cpp Vpipeline___024root__Slow.cpp Vpipeline___024root__0__Slow.cpp Vpipeline_pipeline__Slow.cpp Vpipeline_pipeline__0__Slow.cpp Vpipeline_WB_STAGE__Slow.cpp Vpipeline_WB_STAGE__0__Slow.cpp Vpipeline__Syms__Slow.cpp Vpipeline__Trace__0__Slow.cpp Vpipeline__TraceDecls__0__Slow.cpp > Vpipeline__ALL.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/addi.mem -DVCD_OUTPUT -DDPRINTF   -c -o Vpipeline__ALL.o Vpipeline__ALL.cpp
+c++  -Wl,-U,__Z15vl_time_stamp64v,-U,__Z13sc_time_stampv   sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vpipeline__ALL.a    -pthread -lpthread   -o Vpipeline
+-- RUN ---------------------
+obj_dir/Vpipeline
+[18]  PC=0x200 Inst=0x93 Op=12 wr_reg=1 wregno=1 regval=0
+[20]  PC=0x204 Inst=0x113 Op=12 wr_reg=1 wregno=2 regval=0
+[22]  PC=0x208 Inst=0x193 Op=12 wr_reg=1 wregno=3 regval=0
+[24]  PC=0x20c Inst=0x213 Op=12 wr_reg=1 wregno=4 regval=0
+[26]  PC=0x210 Inst=0x293 Op=12 wr_reg=1 wregno=5 regval=0
+[28]  PC=0x214 Inst=0x313 Op=12 wr_reg=1 wregno=6 regval=0
+[30]  PC=0x218 Inst=0x393 Op=12 wr_reg=1 wregno=7 regval=0
+[32]  PC=0x21c Inst=0x413 Op=12 wr_reg=1 wregno=8 regval=0
+[34]  PC=0x220 Inst=0x493 Op=12 wr_reg=1 wregno=9 regval=0
+[36]  PC=0x224 Inst=0x513 Op=12 wr_reg=1 wregno=10 regval=0
+[38]  PC=0x228 Inst=0x593 Op=12 wr_reg=1 wregno=11 regval=0
+[40]  PC=0x22c Inst=0x613 Op=12 wr_reg=1 wregno=12 regval=0
+[42]  PC=0x230 Inst=0x693 Op=12 wr_reg=1 wregno=13 regval=0
+[44]  PC=0x234 Inst=0x713 Op=12 wr_reg=1 wregno=14 regval=0
+[46]  PC=0x238 Inst=0x793 Op=12 wr_reg=1 wregno=15 regval=0
+[48]  PC=0x23c Inst=0x813 Op=12 wr_reg=1 wregno=16 regval=0
+[50]  PC=0x240 Inst=0x893 Op=12 wr_reg=1 wregno=17 regval=0
+[52]  PC=0x244 Inst=0x913 Op=12 wr_reg=1 wregno=18 regval=0
+[54]  PC=0x248 Inst=0x993 Op=12 wr_reg=1 wregno=19 regval=0
+[56]  PC=0x24c Inst=0xa13 Op=12 wr_reg=1 wregno=20 regval=0
+[58]  PC=0x250 Inst=0xa93 Op=12 wr_reg=1 wregno=21 regval=0
+[60]  PC=0x254 Inst=0xb13 Op=12 wr_reg=1 wregno=22 regval=0
+[62]  PC=0x258 Inst=0xb93 Op=12 wr_reg=1 wregno=23 regval=0
+[64]  PC=0x25c Inst=0xc13 Op=12 wr_reg=1 wregno=24 regval=0
+[66]  PC=0x260 Inst=0xc93 Op=12 wr_reg=1 wregno=25 regval=0
+[68]  PC=0x264 Inst=0xd13 Op=12 wr_reg=1 wregno=26 regval=0
+[70]  PC=0x268 Inst=0xd93 Op=12 wr_reg=1 wregno=27 regval=0
+[72]  PC=0x26c Inst=0xe13 Op=12 wr_reg=1 wregno=28 regval=0
+[74]  PC=0x270 Inst=0xe93 Op=12 wr_reg=1 wregno=29 regval=0
+[76]  PC=0x274 Inst=0xf13 Op=12 wr_reg=1 wregno=30 regval=0
+[78]  PC=0x278 Inst=0xf93 Op=12 wr_reg=1 wregno=31 regval=0
+[80]  PC=0x27c Inst=0x300093 Op=12 wr_reg=1 wregno=1 regval=3
+[88]  PC=0x280 Inst=0x708713 Op=12 wr_reg=1 wregno=14 regval=10
+[90]  PC=0x284 Inst=0xa00393 Op=12 wr_reg=1 wregno=7 regval=10
+[92]  PC=0x288 Inst=0x200193 Op=12 wr_reg=1 wregno=3 regval=2
+[98]  PC=0x28c Inst=0xa771a63 Op=29
+[100]  PC=0x290 Inst=0x800000b7 Op=21 wr_reg=1 wregno=1 regval=-2147483648
+[108]  PC=0x294 Inst=0xfff08093 Op=12 wr_reg=1 wregno=1 regval=2147483647
+[116]  PC=0x298 Inst=0x7ff08713 Op=12 wr_reg=1 wregno=14 regval=-2147481602
+[118]  PC=0x29c Inst=0x800003b7 Op=21 wr_reg=1 wregno=7 regval=-2147483648
+[126]  PC=0x2a0 Inst=0x7fe38393 Op=12 wr_reg=1 wregno=7 regval=-2147481602
+[128]  PC=0x2a4 Inst=0x300193 Op=12 wr_reg=1 wregno=3 regval=3
+[134]  PC=0x2a8 Inst=0x8771c63 Op=29
+[136]  PC=0x2ac Inst=0x800000b7 Op=21 wr_reg=1 wregno=1 regval=-2147483648
+[144]  PC=0x2b0 Inst=0xfff08093 Op=12 wr_reg=1 wregno=1 regval=2147483647
+[152]  PC=0x2b4 Inst=0x108713 Op=12 wr_reg=1 wregno=14 regval=-2147483648
+[154]  PC=0x2b8 Inst=0x800003b7 Op=21 wr_reg=1 wregno=7 regval=-2147483648
+[156]  PC=0x2bc Inst=0x400193 Op=12 wr_reg=1 wregno=3 regval=4
+[162]  PC=0x2c0 Inst=0x8771063 Op=29
+[164]  PC=0x2c4 Inst=0x213 Op=12 wr_reg=1 wregno=4 regval=0
+[166]  PC=0x2c8 Inst=0xd00093 Op=12 wr_reg=1 wregno=1 regval=13
+[174]  PC=0x2cc Inst=0x908713 Op=12 wr_reg=1 wregno=14 regval=22
+[176]  PC=0x2d0 Inst=0x13 Op=12
+[178]  PC=0x2d4 Inst=0x13 Op=12
+[182]  PC=0x2d8 Inst=0x70313 Op=12 wr_reg=1 wregno=6 regval=22
+[184]  PC=0x2dc Inst=0x120213 Op=12 wr_reg=1 wregno=4 regval=1
+[186]  PC=0x2e0 Inst=0x200293 Op=12 wr_reg=1 wregno=5 regval=2
+[194]  PC=0x2e4 Inst=0xfe5212e3 Op=29
+[200]  PC=0x2c8 Inst=0xd00093 Op=12 wr_reg=1 wregno=1 regval=13
+[208]  PC=0x2cc Inst=0x908713 Op=12 wr_reg=1 wregno=14 regval=22
+[210]  PC=0x2d0 Inst=0x13 Op=12
+[212]  PC=0x2d4 Inst=0x13 Op=12
+[216]  PC=0x2d8 Inst=0x70313 Op=12 wr_reg=1 wregno=6 regval=22
+[218]  PC=0x2dc Inst=0x120213 Op=12 wr_reg=1 wregno=4 regval=2
+[220]  PC=0x2e0 Inst=0x200293 Op=12 wr_reg=1 wregno=5 regval=2
+[228]  PC=0x2e4 Inst=0xfe5212e3 Op=29
+[230]  PC=0x2e8 Inst=0x1600393 Op=12 wr_reg=1 wregno=7 regval=22
+[232]  PC=0x2ec Inst=0x500193 Op=12 wr_reg=1 wregno=3 regval=5
+[238]  PC=0x2f0 Inst=0x4731863 Op=29
+[240]  PC=0x2f4 Inst=0x213 Op=12 wr_reg=1 wregno=4 regval=0
+[242]  PC=0x2f8 Inst=0xd00093 Op=12 wr_reg=1 wregno=1 regval=13
+[250]  PC=0x2fc Inst=0xb08713 Op=12 wr_reg=1 wregno=14 regval=24
+[252]  PC=0x300 Inst=0x120213 Op=12 wr_reg=1 wregno=4 regval=1
+[254]  PC=0x304 Inst=0x200293 Op=12 wr_reg=1 wregno=5 regval=2
+[262]  PC=0x308 Inst=0xfe5218e3 Op=29
+[268]  PC=0x2f8 Inst=0xd00093 Op=12 wr_reg=1 wregno=1 regval=13
+[276]  PC=0x2fc Inst=0xb08713 Op=12 wr_reg=1 wregno=14 regval=24
+[278]  PC=0x300 Inst=0x120213 Op=12 wr_reg=1 wregno=4 regval=2
+[280]  PC=0x304 Inst=0x200293 Op=12 wr_reg=1 wregno=5 regval=2
+[288]  PC=0x308 Inst=0xfe5218e3 Op=29
+[290]  PC=0x30c Inst=0x1800393 Op=12 wr_reg=1 wregno=7 regval=24
+[292]  PC=0x310 Inst=0x600193 Op=12 wr_reg=1 wregno=3 regval=6
+[298]  PC=0x314 Inst=0x2771663 Op=29
+[300]  PC=0x318 Inst=0x2000093 Op=12 wr_reg=1 wregno=1 regval=32
+[302]  PC=0x31c Inst=0x2000393 Op=12 wr_reg=1 wregno=7 regval=32
+[304]  PC=0x320 Inst=0x700193 Op=12 wr_reg=1 wregno=3 regval=7
+[310]  PC=0x324 Inst=0x709e63 Op=29
+[312]  PC=0x328 Inst=0x2100093 Op=12 wr_reg=1 wregno=1 regval=33
+[320]  PC=0x32c Inst=0x3208013 Op=12
+[322]  PC=0x330 Inst=0x393 Op=12 wr_reg=1 wregno=7 regval=0
+[324]  PC=0x334 Inst=0x800193 Op=12 wr_reg=1 wregno=3 regval=8
+[330]  PC=0x338 Inst=0x701463 Op=29
+[332]  PC=0x33c Inst=0x301e63 Op=29
+[338]  PC=0x358 Inst=0x100193 Op=12 wr_reg=1 wregno=3 regval=1
+[340]  PC=0x35c Inst=0x13 Op=12
+[342]  PC=0x360 Inst=0x13 Op=12
+[344]  PC=0x364 Inst=0x13 Op=12
+[346]  PC=0x368 Inst=0x13 Op=12
+[348]  PC=0x36c Inst=0x13 Op=12
+[350]  PC=0x370 Inst=0x13 Op=12
+Total instructions=100, cycles=170, IPC=0.588235
+Passed!
+-- DONE --------------------
+
+TESTING: /Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/auipc.mem
+-- VERILATE ----------------
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/auipc.mem
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+sed -i'' -e 's|define IDMEMINITFILE.*|define IDMEMINITFILE "/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/auipc.mem"|g'  /Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+verilator --exe -cc pipeline.v --top-module pipeline --trace --trace-structs --assert -Wpedantic -Wno-DECLFILENAME -Wno-UNUSED --x-initial unique --x-assign unique sim_main.cpp fe_stage.v de_stage.v mem_stage.v wb_stage.v agex_stage.v -CFLAGS '-DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/auipc.mem -DVCD_OUTPUT -DDPRINTF'
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.222 MB sources in 7 modules, into 0.339 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.033 s (elab=0.002, cvt=0.020, bld=0.000); cpu 0.033 s on 1 threads; alloced 14.906 MB
+-- COMPILE -----------------
+/Library/Developer/CommandLineTools/usr/bin/make -j 4 -C obj_dir -f Vpipeline.mk
+c++  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/auipc.mem -DVCD_OUTPUT -DDPRINTF   -Os  -c -o sim_main.o ../sim_main.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/auipc.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated.cpp
+c++  -Wl,-U,__Z15vl_time_stamp64v,-U,__Z13sc_time_stampv   sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vpipeline__ALL.a    -pthread -lpthread   -o Vpipeline
+-- RUN ---------------------
+obj_dir/Vpipeline
+[18]  PC=0x200 Inst=0x93 Op=12 wr_reg=1 wregno=1 regval=0
+[20]  PC=0x204 Inst=0x113 Op=12 wr_reg=1 wregno=2 regval=0
+[22]  PC=0x208 Inst=0x193 Op=12 wr_reg=1 wregno=3 regval=0
+[24]  PC=0x20c Inst=0x213 Op=12 wr_reg=1 wregno=4 regval=0
+[26]  PC=0x210 Inst=0x293 Op=12 wr_reg=1 wregno=5 regval=0
+[28]  PC=0x214 Inst=0x313 Op=12 wr_reg=1 wregno=6 regval=0
+[30]  PC=0x218 Inst=0x393 Op=12 wr_reg=1 wregno=7 regval=0
+[32]  PC=0x21c Inst=0x413 Op=12 wr_reg=1 wregno=8 regval=0
+[34]  PC=0x220 Inst=0x493 Op=12 wr_reg=1 wregno=9 regval=0
+[36]  PC=0x224 Inst=0x513 Op=12 wr_reg=1 wregno=10 regval=0
+[38]  PC=0x228 Inst=0x593 Op=12 wr_reg=1 wregno=11 regval=0
+[40]  PC=0x22c Inst=0x613 Op=12 wr_reg=1 wregno=12 regval=0
+[42]  PC=0x230 Inst=0x693 Op=12 wr_reg=1 wregno=13 regval=0
+[44]  PC=0x234 Inst=0x713 Op=12 wr_reg=1 wregno=14 regval=0
+[46]  PC=0x238 Inst=0x793 Op=12 wr_reg=1 wregno=15 regval=0
+[48]  PC=0x23c Inst=0x813 Op=12 wr_reg=1 wregno=16 regval=0
+[50]  PC=0x240 Inst=0x893 Op=12 wr_reg=1 wregno=17 regval=0
+[52]  PC=0x244 Inst=0x913 Op=12 wr_reg=1 wregno=18 regval=0
+[54]  PC=0x248 Inst=0x993 Op=12 wr_reg=1 wregno=19 regval=0
+[56]  PC=0x24c Inst=0xa13 Op=12 wr_reg=1 wregno=20 regval=0
+[58]  PC=0x250 Inst=0xa93 Op=12 wr_reg=1 wregno=21 regval=0
+[60]  PC=0x254 Inst=0xb13 Op=12 wr_reg=1 wregno=22 regval=0
+[62]  PC=0x258 Inst=0xb93 Op=12 wr_reg=1 wregno=23 regval=0
+[64]  PC=0x25c Inst=0xc13 Op=12 wr_reg=1 wregno=24 regval=0
+[66]  PC=0x260 Inst=0xc93 Op=12 wr_reg=1 wregno=25 regval=0
+[68]  PC=0x264 Inst=0xd13 Op=12 wr_reg=1 wregno=26 regval=0
+[70]  PC=0x268 Inst=0xd93 Op=12 wr_reg=1 wregno=27 regval=0
+[72]  PC=0x26c Inst=0xe13 Op=12 wr_reg=1 wregno=28 regval=0
+[74]  PC=0x270 Inst=0xe93 Op=12 wr_reg=1 wregno=29 regval=0
+[76]  PC=0x274 Inst=0xf13 Op=12 wr_reg=1 wregno=30 regval=0
+[78]  PC=0x278 Inst=0xf93 Op=12 wr_reg=1 wregno=31 regval=0
+[80]  PC=0x27c Inst=0x300093 Op=12 wr_reg=1 wregno=1 regval=3
+[88]  PC=0x280 Inst=0x708713 Op=12 wr_reg=1 wregno=14 regval=10
+[90]  PC=0x284 Inst=0xa00393 Op=12 wr_reg=1 wregno=7 regval=10
+[92]  PC=0x288 Inst=0x200193 Op=12 wr_reg=1 wregno=3 regval=2
+[98]  PC=0x28c Inst=0xa771a63 Op=29
+[100]  PC=0x290 Inst=0x800000b7 Op=21 wr_reg=1 wregno=1 regval=-2147483648
+[108]  PC=0x294 Inst=0xfff08093 Op=12 wr_reg=1 wregno=1 regval=2147483647
+[116]  PC=0x298 Inst=0x7ff08713 Op=12 wr_reg=1 wregno=14 regval=-2147481602
+[118]  PC=0x29c Inst=0x800003b7 Op=21 wr_reg=1 wregno=7 regval=-2147483648
+[126]  PC=0x2a0 Inst=0x7fe38393 Op=12 wr_reg=1 wregno=7 regval=-2147481602
+[128]  PC=0x2a4 Inst=0x300193 Op=12 wr_reg=1 wregno=3 regval=3
+[134]  PC=0x2a8 Inst=0x8771c63 Op=29
+[136]  PC=0x2ac Inst=0x800000b7 Op=21 wr_reg=1 wregno=1 regval=-2147483648
+[144]  PC=0x2b0 Inst=0xfff08093 Op=12 wr_reg=1 wregno=1 regval=2147483647
+[152]  PC=0x2b4 Inst=0x108713 Op=12 wr_reg=1 wregno=14 regval=-2147483648
+[154]  PC=0x2b8 Inst=0x800003b7 Op=21 wr_reg=1 wregno=7 regval=-2147483648
+[156]  PC=0x2bc Inst=0x400193 Op=12 wr_reg=1 wregno=3 regval=4
+[162]  PC=0x2c0 Inst=0x8771063 Op=29
+[164]  PC=0x2c4 Inst=0x213 Op=12 wr_reg=1 wregno=4 regval=0
+[166]  PC=0x2c8 Inst=0xd00093 Op=12 wr_reg=1 wregno=1 regval=13
+[174]  PC=0x2cc Inst=0x908713 Op=12 wr_reg=1 wregno=14 regval=22
+[176]  PC=0x2d0 Inst=0x13 Op=12
+[178]  PC=0x2d4 Inst=0x13 Op=12
+[182]  PC=0x2d8 Inst=0x70313 Op=12 wr_reg=1 wregno=6 regval=22
+[184]  PC=0x2dc Inst=0x120213 Op=12 wr_reg=1 wregno=4 regval=1
+[186]  PC=0x2e0 Inst=0x200293 Op=12 wr_reg=1 wregno=5 regval=2
+[194]  PC=0x2e4 Inst=0xfe5212e3 Op=29
+[200]  PC=0x2c8 Inst=0xd00093 Op=12 wr_reg=1 wregno=1 regval=13
+[208]  PC=0x2cc Inst=0x908713 Op=12 wr_reg=1 wregno=14 regval=22
+[210]  PC=0x2d0 Inst=0x13 Op=12
+[212]  PC=0x2d4 Inst=0x13 Op=12
+[216]  PC=0x2d8 Inst=0x70313 Op=12 wr_reg=1 wregno=6 regval=22
+[218]  PC=0x2dc Inst=0x120213 Op=12 wr_reg=1 wregno=4 regval=2
+[220]  PC=0x2e0 Inst=0x200293 Op=12 wr_reg=1 wregno=5 regval=2
+[228]  PC=0x2e4 Inst=0xfe5212e3 Op=29
+[230]  PC=0x2e8 Inst=0x1600393 Op=12 wr_reg=1 wregno=7 regval=22
+[232]  PC=0x2ec Inst=0x500193 Op=12 wr_reg=1 wregno=3 regval=5
+[238]  PC=0x2f0 Inst=0x4731863 Op=29
+[240]  PC=0x2f4 Inst=0x213 Op=12 wr_reg=1 wregno=4 regval=0
+[242]  PC=0x2f8 Inst=0xd00093 Op=12 wr_reg=1 wregno=1 regval=13
+[250]  PC=0x2fc Inst=0xb08713 Op=12 wr_reg=1 wregno=14 regval=24
+[252]  PC=0x300 Inst=0x120213 Op=12 wr_reg=1 wregno=4 regval=1
+[254]  PC=0x304 Inst=0x200293 Op=12 wr_reg=1 wregno=5 regval=2
+[262]  PC=0x308 Inst=0xfe5218e3 Op=29
+[268]  PC=0x2f8 Inst=0xd00093 Op=12 wr_reg=1 wregno=1 regval=13
+[276]  PC=0x2fc Inst=0xb08713 Op=12 wr_reg=1 wregno=14 regval=24
+[278]  PC=0x300 Inst=0x120213 Op=12 wr_reg=1 wregno=4 regval=2
+[280]  PC=0x304 Inst=0x200293 Op=12 wr_reg=1 wregno=5 regval=2
+[288]  PC=0x308 Inst=0xfe5218e3 Op=29
+[290]  PC=0x30c Inst=0x1800393 Op=12 wr_reg=1 wregno=7 regval=24
+[292]  PC=0x310 Inst=0x600193 Op=12 wr_reg=1 wregno=3 regval=6
+[298]  PC=0x314 Inst=0x2771663 Op=29
+[300]  PC=0x318 Inst=0x2000093 Op=12 wr_reg=1 wregno=1 regval=32
+[302]  PC=0x31c Inst=0x2000393 Op=12 wr_reg=1 wregno=7 regval=32
+[304]  PC=0x320 Inst=0x700193 Op=12 wr_reg=1 wregno=3 regval=7
+[310]  PC=0x324 Inst=0x709e63 Op=29
+[312]  PC=0x328 Inst=0x2100093 Op=12 wr_reg=1 wregno=1 regval=33
+[320]  PC=0x32c Inst=0x3208013 Op=12
+[322]  PC=0x330 Inst=0x393 Op=12 wr_reg=1 wregno=7 regval=0
+[324]  PC=0x334 Inst=0x800193 Op=12 wr_reg=1 wregno=3 regval=8
+[330]  PC=0x338 Inst=0x701463 Op=29
+[332]  PC=0x33c Inst=0x301e63 Op=29
+[338]  PC=0x358 Inst=0x100193 Op=12 wr_reg=1 wregno=3 regval=1
+[340]  PC=0x35c Inst=0x13 Op=12
+[342]  PC=0x360 Inst=0x13 Op=12
+[344]  PC=0x364 Inst=0x13 Op=12
+[346]  PC=0x368 Inst=0x13 Op=12
+[348]  PC=0x36c Inst=0x13 Op=12
+[350]  PC=0x370 Inst=0x13 Op=12
+Total instructions=100, cycles=170, IPC=0.588235
+Passed!
+-- DONE --------------------
+
+TESTING: /Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/beq.mem
+-- VERILATE ----------------
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/beq.mem
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+sed -i'' -e 's|define IDMEMINITFILE.*|define IDMEMINITFILE "/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/beq.mem"|g'  /Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+verilator --exe -cc pipeline.v --top-module pipeline --trace --trace-structs --assert -Wpedantic -Wno-DECLFILENAME -Wno-UNUSED --x-initial unique --x-assign unique sim_main.cpp fe_stage.v de_stage.v mem_stage.v wb_stage.v agex_stage.v -CFLAGS '-DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/beq.mem -DVCD_OUTPUT -DDPRINTF'
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.222 MB sources in 7 modules, into 0.339 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.033 s (elab=0.002, cvt=0.020, bld=0.000); cpu 0.033 s on 1 threads; alloced 13.203 MB
+-- COMPILE -----------------
+/Library/Developer/CommandLineTools/usr/bin/make -j 4 -C obj_dir -f Vpipeline.mk
+c++  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/beq.mem -DVCD_OUTPUT -DDPRINTF   -Os  -c -o sim_main.o ../sim_main.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/beq.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_dpi.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_dpi.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/beq.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_vcd_c.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_vcd_c.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/beq.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_threads.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_threads.cpp
+python3 /opt/homebrew/Cellar/verilator/5.044/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vpipeline.cpp Vpipeline___024root__0.cpp Vpipeline_pipeline__0.cpp Vpipeline_WB_STAGE__0.cpp Vpipeline__Dpi.cpp Vpipeline__Trace__0.cpp Vpipeline__ConstPool__0__Slow.cpp Vpipeline___024root__Slow.cpp Vpipeline___024root__0__Slow.cpp Vpipeline_pipeline__Slow.cpp Vpipeline_pipeline__0__Slow.cpp Vpipeline_WB_STAGE__Slow.cpp Vpipeline_WB_STAGE__0__Slow.cpp Vpipeline__Syms__Slow.cpp Vpipeline__Trace__0__Slow.cpp Vpipeline__TraceDecls__0__Slow.cpp > Vpipeline__ALL.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/beq.mem -DVCD_OUTPUT -DDPRINTF   -c -o Vpipeline__ALL.o Vpipeline__ALL.cpp
+c++  -Wl,-U,__Z15vl_time_stamp64v,-U,__Z13sc_time_stampv   sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vpipeline__ALL.a    -pthread -lpthread   -o Vpipeline
+-- RUN ---------------------
+obj_dir/Vpipeline
+[18]  PC=0x200 Inst=0x93 Op=12 wr_reg=1 wregno=1 regval=0
+[20]  PC=0x204 Inst=0x113 Op=12 wr_reg=1 wregno=2 regval=0
+[22]  PC=0x208 Inst=0x193 Op=12 wr_reg=1 wregno=3 regval=0
+[24]  PC=0x20c Inst=0x213 Op=12 wr_reg=1 wregno=4 regval=0
+[26]  PC=0x210 Inst=0x293 Op=12 wr_reg=1 wregno=5 regval=0
+[28]  PC=0x214 Inst=0x313 Op=12 wr_reg=1 wregno=6 regval=0
+[30]  PC=0x218 Inst=0x393 Op=12 wr_reg=1 wregno=7 regval=0
+[32]  PC=0x21c Inst=0x413 Op=12 wr_reg=1 wregno=8 regval=0
+[34]  PC=0x220 Inst=0x493 Op=12 wr_reg=1 wregno=9 regval=0
+[36]  PC=0x224 Inst=0x513 Op=12 wr_reg=1 wregno=10 regval=0
+[38]  PC=0x228 Inst=0x593 Op=12 wr_reg=1 wregno=11 regval=0
+[40]  PC=0x22c Inst=0x613 Op=12 wr_reg=1 wregno=12 regval=0
+[42]  PC=0x230 Inst=0x693 Op=12 wr_reg=1 wregno=13 regval=0
+[44]  PC=0x234 Inst=0x713 Op=12 wr_reg=1 wregno=14 regval=0
+[46]  PC=0x238 Inst=0x793 Op=12 wr_reg=1 wregno=15 regval=0
+[48]  PC=0x23c Inst=0x813 Op=12 wr_reg=1 wregno=16 regval=0
+[50]  PC=0x240 Inst=0x893 Op=12 wr_reg=1 wregno=17 regval=0
+[52]  PC=0x244 Inst=0x913 Op=12 wr_reg=1 wregno=18 regval=0
+[54]  PC=0x248 Inst=0x993 Op=12 wr_reg=1 wregno=19 regval=0
+[56]  PC=0x24c Inst=0xa13 Op=12 wr_reg=1 wregno=20 regval=0
+[58]  PC=0x250 Inst=0xa93 Op=12 wr_reg=1 wregno=21 regval=0
+[60]  PC=0x254 Inst=0xb13 Op=12 wr_reg=1 wregno=22 regval=0
+[62]  PC=0x258 Inst=0xb93 Op=12 wr_reg=1 wregno=23 regval=0
+[64]  PC=0x25c Inst=0xc13 Op=12 wr_reg=1 wregno=24 regval=0
+[66]  PC=0x260 Inst=0xc93 Op=12 wr_reg=1 wregno=25 regval=0
+[68]  PC=0x264 Inst=0xd13 Op=12 wr_reg=1 wregno=26 regval=0
+[70]  PC=0x268 Inst=0xd93 Op=12 wr_reg=1 wregno=27 regval=0
+[72]  PC=0x26c Inst=0xe13 Op=12 wr_reg=1 wregno=28 regval=0
+[74]  PC=0x270 Inst=0xe93 Op=12 wr_reg=1 wregno=29 regval=0
+[76]  PC=0x274 Inst=0xf13 Op=12 wr_reg=1 wregno=30 regval=0
+[78]  PC=0x278 Inst=0xf93 Op=12 wr_reg=1 wregno=31 regval=0
+[80]  PC=0x27c Inst=0x100193 Op=12 wr_reg=1 wregno=3 regval=1
+[82]  PC=0x280 Inst=0x93 Op=12 wr_reg=1 wregno=1 regval=0
+[84]  PC=0x284 Inst=0x113 Op=12 wr_reg=1 wregno=2 regval=0
+[92]  PC=0x288 Inst=0x208663 Op=28
+[98]  PC=0x294 Inst=0xfe208ee3 Op=28
+[104]  PC=0x290 Inst=0x301663 Op=29
+[110]  PC=0x29c Inst=0x200193 Op=12 wr_reg=1 wregno=3 regval=2
+[112]  PC=0x2a0 Inst=0x93 Op=12 wr_reg=1 wregno=1 regval=0
+[114]  PC=0x2a4 Inst=0x100113 Op=12 wr_reg=1 wregno=2 regval=1
+[122]  PC=0x2a8 Inst=0x208463 Op=28
+[124]  PC=0x2ac Inst=0x301463 Op=29
+[130]  PC=0x2b4 Inst=0xfe208ee3 Op=28
+[132]  PC=0x2b8 Inst=0x300193 Op=12 wr_reg=1 wregno=3 regval=3
+[134]  PC=0x2bc Inst=0x213 Op=12 wr_reg=1 wregno=4 regval=0
+[136]  PC=0x2c0 Inst=0x93 Op=12 wr_reg=1 wregno=1 regval=0
+[138]  PC=0x2c4 Inst=0xfff00113 Op=12 wr_reg=1 wregno=2 regval=-1
+[146]  PC=0x2c8 Inst=0x4208063 Op=28
+[148]  PC=0x2cc Inst=0x120213 Op=12 wr_reg=1 wregno=4 regval=1
+[150]  PC=0x2d0 Inst=0x200293 Op=12 wr_reg=1 wregno=5 regval=2
+[158]  PC=0x2d4 Inst=0xfe5216e3 Op=29
+[164]  PC=0x2c0 Inst=0x93 Op=12 wr_reg=1 wregno=1 regval=0
+[166]  PC=0x2c4 Inst=0xfff00113 Op=12 wr_reg=1 wregno=2 regval=-1
+[174]  PC=0x2c8 Inst=0x4208063 Op=28
+[176]  PC=0x2cc Inst=0x120213 Op=12 wr_reg=1 wregno=4 regval=2
+[178]  PC=0x2d0 Inst=0x200293 Op=12 wr_reg=1 wregno=5 regval=2
+[186]  PC=0x2d4 Inst=0xfe5216e3 Op=29
+[188]  PC=0x2d8 Inst=0x100093 Op=12 wr_reg=1 wregno=1 regval=1
+[190]  PC=0x2dc Inst=0xa63 Op=28
+[196]  PC=0x2f0 Inst=0x108093 Op=12 wr_reg=1 wregno=1 regval=2
+[204]  PC=0x2f4 Inst=0x108093 Op=12 wr_reg=1 wregno=1 regval=3
+[206]  PC=0x2f8 Inst=0x300393 Op=12 wr_reg=1 wregno=7 regval=3
+[208]  PC=0x2fc Inst=0x400193 Op=12 wr_reg=1 wregno=3 regval=4
+[214]  PC=0x300 Inst=0x709463 Op=29
+[216]  PC=0x304 Inst=0x301e63 Op=29
+[222]  PC=0x320 Inst=0x100193 Op=12 wr_reg=1 wregno=3 regval=1
+[224]  PC=0x324 Inst=0x13 Op=12
+[226]  PC=0x328 Inst=0x13 Op=12
+[228]  PC=0x32c Inst=0x13 Op=12
+[230]  PC=0x330 Inst=0x13 Op=12
+[232]  PC=0x334 Inst=0x13 Op=12
+[234]  PC=0x338 Inst=0x13 Op=12
+Total instructions=72, cycles=112, IPC=0.642857
+Passed!
+-- DONE --------------------
+
+TESTING: /Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/bge.mem
+-- VERILATE ----------------
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/bge.mem
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+sed -i'' -e 's|define IDMEMINITFILE.*|define IDMEMINITFILE "/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/bge.mem"|g'  /Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+verilator --exe -cc pipeline.v --top-module pipeline --trace --trace-structs --assert -Wpedantic -Wno-DECLFILENAME -Wno-UNUSED --x-initial unique --x-assign unique sim_main.cpp fe_stage.v de_stage.v mem_stage.v wb_stage.v agex_stage.v -CFLAGS '-DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/bge.mem -DVCD_OUTPUT -DDPRINTF'
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.222 MB sources in 7 modules, into 0.339 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.035 s (elab=0.002, cvt=0.021, bld=0.000); cpu 0.034 s on 1 threads; alloced 14.109 MB
+-- COMPILE -----------------
+/Library/Developer/CommandLineTools/usr/bin/make -j 4 -C obj_dir -f Vpipeline.mk
+c++  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/bge.mem -DVCD_OUTPUT -DDPRINTF   -Os  -c -o sim_main.o ../sim_main.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/bge.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/bge.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_dpi.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_dpi.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/bge.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_threads.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_threads.cpp
+python3 /opt/homebrew/Cellar/verilator/5.044/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vpipeline.cpp Vpipeline___024root__0.cpp Vpipeline_pipeline__0.cpp Vpipeline_WB_STAGE__0.cpp Vpipeline__Dpi.cpp Vpipeline__Trace__0.cpp Vpipeline__ConstPool__0__Slow.cpp Vpipeline___024root__Slow.cpp Vpipeline___024root__0__Slow.cpp Vpipeline_pipeline__Slow.cpp Vpipeline_pipeline__0__Slow.cpp Vpipeline_WB_STAGE__Slow.cpp Vpipeline_WB_STAGE__0__Slow.cpp Vpipeline__Syms__Slow.cpp Vpipeline__Trace__0__Slow.cpp Vpipeline__TraceDecls__0__Slow.cpp > Vpipeline__ALL.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/bge.mem -DVCD_OUTPUT -DDPRINTF   -c -o Vpipeline__ALL.o Vpipeline__ALL.cpp
+c++  -Wl,-U,__Z15vl_time_stamp64v,-U,__Z13sc_time_stampv   sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vpipeline__ALL.a    -pthread -lpthread   -o Vpipeline
+rm Vpipeline__ALL.verilator_deplist.tmp
+-- RUN ---------------------
+obj_dir/Vpipeline
+[18]  PC=0x200 Inst=0x93 Op=12 wr_reg=1 wregno=1 regval=0
+[20]  PC=0x204 Inst=0x113 Op=12 wr_reg=1 wregno=2 regval=0
+[22]  PC=0x208 Inst=0x193 Op=12 wr_reg=1 wregno=3 regval=0
+[24]  PC=0x20c Inst=0x213 Op=12 wr_reg=1 wregno=4 regval=0
+[26]  PC=0x210 Inst=0x293 Op=12 wr_reg=1 wregno=5 regval=0
+[28]  PC=0x214 Inst=0x313 Op=12 wr_reg=1 wregno=6 regval=0
+[30]  PC=0x218 Inst=0x393 Op=12 wr_reg=1 wregno=7 regval=0
+[32]  PC=0x21c Inst=0x413 Op=12 wr_reg=1 wregno=8 regval=0
+[34]  PC=0x220 Inst=0x493 Op=12 wr_reg=1 wregno=9 regval=0
+[36]  PC=0x224 Inst=0x513 Op=12 wr_reg=1 wregno=10 regval=0
+[38]  PC=0x228 Inst=0x593 Op=12 wr_reg=1 wregno=11 regval=0
+[40]  PC=0x22c Inst=0x613 Op=12 wr_reg=1 wregno=12 regval=0
+[42]  PC=0x230 Inst=0x693 Op=12 wr_reg=1 wregno=13 regval=0
+[44]  PC=0x234 Inst=0x713 Op=12 wr_reg=1 wregno=14 regval=0
+[46]  PC=0x238 Inst=0x793 Op=12 wr_reg=1 wregno=15 regval=0
+[48]  PC=0x23c Inst=0x813 Op=12 wr_reg=1 wregno=16 regval=0
+[50]  PC=0x240 Inst=0x893 Op=12 wr_reg=1 wregno=17 regval=0
+[52]  PC=0x244 Inst=0x913 Op=12 wr_reg=1 wregno=18 regval=0
+[54]  PC=0x248 Inst=0x993 Op=12 wr_reg=1 wregno=19 regval=0
+[56]  PC=0x24c Inst=0xa13 Op=12 wr_reg=1 wregno=20 regval=0
+[58]  PC=0x250 Inst=0xa93 Op=12 wr_reg=1 wregno=21 regval=0
+[60]  PC=0x254 Inst=0xb13 Op=12 wr_reg=1 wregno=22 regval=0
+[62]  PC=0x258 Inst=0xb93 Op=12 wr_reg=1 wregno=23 regval=0
+[64]  PC=0x25c Inst=0xc13 Op=12 wr_reg=1 wregno=24 regval=0
+[66]  PC=0x260 Inst=0xc93 Op=12 wr_reg=1 wregno=25 regval=0
+[68]  PC=0x264 Inst=0xd13 Op=12 wr_reg=1 wregno=26 regval=0
+[70]  PC=0x268 Inst=0xd93 Op=12 wr_reg=1 wregno=27 regval=0
+[72]  PC=0x26c Inst=0xe13 Op=12 wr_reg=1 wregno=28 regval=0
+[74]  PC=0x270 Inst=0xe93 Op=12 wr_reg=1 wregno=29 regval=0
+[76]  PC=0x274 Inst=0xf13 Op=12 wr_reg=1 wregno=30 regval=0
+[78]  PC=0x278 Inst=0xf93 Op=12 wr_reg=1 wregno=31 regval=0
+[80]  PC=0x27c Inst=0x100193 Op=12 wr_reg=1 wregno=3 regval=1
+[82]  PC=0x280 Inst=0xfff00093 Op=12 wr_reg=1 wregno=1 regval=-1
+[84]  PC=0x284 Inst=0xfff00113 Op=12 wr_reg=1 wregno=2 regval=-1
+[92]  PC=0x288 Inst=0x20d663 Op=31
+[98]  PC=0x294 Inst=0xfe20dee3 Op=31
+[104]  PC=0x290 Inst=0x301663 Op=29
+[110]  PC=0x29c Inst=0x200193 Op=12 wr_reg=1 wregno=3 regval=2
+[112]  PC=0x2a0 Inst=0xffe00093 Op=12 wr_reg=1 wregno=1 regval=-2
+[114]  PC=0x2a4 Inst=0x100113 Op=12 wr_reg=1 wregno=2 regval=1
+[122]  PC=0x2a8 Inst=0x20d463 Op=31
+[124]  PC=0x2ac Inst=0x301463 Op=29
+[130]  PC=0x2b4 Inst=0xfe20dee3 Op=31
+[132]  PC=0x2b8 Inst=0x300193 Op=12 wr_reg=1 wregno=3 regval=3
+[134]  PC=0x2bc Inst=0x213 Op=12 wr_reg=1 wregno=4 regval=0
+[136]  PC=0x2c0 Inst=0xfff00093 Op=12 wr_reg=1 wregno=1 regval=-1
+[138]  PC=0x2c4 Inst=0x13 Op=12
+[140]  PC=0x2c8 Inst=0x13 Op=12
+[142]  PC=0x2cc Inst=0x113 Op=12 wr_reg=1 wregno=2 regval=0
+[150]  PC=0x2d0 Inst=0x420d063 Op=31
+[152]  PC=0x2d4 Inst=0x120213 Op=12 wr_reg=1 wregno=4 regval=1
+[154]  PC=0x2d8 Inst=0x200293 Op=12 wr_reg=1 wregno=5 regval=2
+[162]  PC=0x2dc Inst=0xfe5212e3 Op=29
+[168]  PC=0x2c0 Inst=0xfff00093 Op=12 wr_reg=1 wregno=1 regval=-1
+[170]  PC=0x2c4 Inst=0x13 Op=12
+[172]  PC=0x2c8 Inst=0x13 Op=12
+[174]  PC=0x2cc Inst=0x113 Op=12 wr_reg=1 wregno=2 regval=0
+[182]  PC=0x2d0 Inst=0x420d063 Op=31
+[184]  PC=0x2d4 Inst=0x120213 Op=12 wr_reg=1 wregno=4 regval=2
+[186]  PC=0x2d8 Inst=0x200293 Op=12 wr_reg=1 wregno=5 regval=2
+[194]  PC=0x2dc Inst=0xfe5212e3 Op=29
+[196]  PC=0x2e0 Inst=0x100093 Op=12 wr_reg=1 wregno=1 regval=1
+[204]  PC=0x2e4 Inst=0xda63 Op=31
+[210]  PC=0x2f8 Inst=0x108093 Op=12 wr_reg=1 wregno=1 regval=2
+[218]  PC=0x2fc Inst=0x108093 Op=12 wr_reg=1 wregno=1 regval=3
+[220]  PC=0x300 Inst=0x300393 Op=12 wr_reg=1 wregno=7 regval=3
+[222]  PC=0x304 Inst=0x400193 Op=12 wr_reg=1 wregno=3 regval=4
+[228]  PC=0x308 Inst=0x709463 Op=29
+[230]  PC=0x30c Inst=0x301e63 Op=29
+[236]  PC=0x328 Inst=0x100193 Op=12 wr_reg=1 wregno=3 regval=1
+[238]  PC=0x32c Inst=0x13 Op=12
+[240]  PC=0x330 Inst=0x13 Op=12
+[242]  PC=0x334 Inst=0x13 Op=12
+[244]  PC=0x338 Inst=0x13 Op=12
+[246]  PC=0x33c Inst=0x13 Op=12
+[248]  PC=0x340 Inst=0x13 Op=12
+Total instructions=76, cycles=119, IPC=0.638655
+Passed!
+-- DONE --------------------
+
+TESTING: /Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/jal.mem
+-- VERILATE ----------------
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/jal.mem
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+sed -i'' -e 's|define IDMEMINITFILE.*|define IDMEMINITFILE "/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/jal.mem"|g'  /Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+verilator --exe -cc pipeline.v --top-module pipeline --trace --trace-structs --assert -Wpedantic -Wno-DECLFILENAME -Wno-UNUSED --x-initial unique --x-assign unique sim_main.cpp fe_stage.v de_stage.v mem_stage.v wb_stage.v agex_stage.v -CFLAGS '-DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/jal.mem -DVCD_OUTPUT -DDPRINTF'
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.222 MB sources in 7 modules, into 0.339 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.033 s (elab=0.002, cvt=0.021, bld=0.000); cpu 0.033 s on 1 threads; alloced 13.203 MB
+-- COMPILE -----------------
+/Library/Developer/CommandLineTools/usr/bin/make -j 4 -C obj_dir -f Vpipeline.mk
+c++  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/jal.mem -DVCD_OUTPUT -DDPRINTF   -Os  -c -o sim_main.o ../sim_main.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/jal.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/jal.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_dpi.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_dpi.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/jal.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_vcd_c.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_vcd_c.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/jal.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_threads.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_threads.cpp
+python3 /opt/homebrew/Cellar/verilator/5.044/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vpipeline.cpp Vpipeline___024root__0.cpp Vpipeline_pipeline__0.cpp Vpipeline_WB_STAGE__0.cpp Vpipeline__Dpi.cpp Vpipeline__Trace__0.cpp Vpipeline__ConstPool__0__Slow.cpp Vpipeline___024root__Slow.cpp Vpipeline___024root__0__Slow.cpp Vpipeline_pipeline__Slow.cpp Vpipeline_pipeline__0__Slow.cpp Vpipeline_WB_STAGE__Slow.cpp Vpipeline_WB_STAGE__0__Slow.cpp Vpipeline__Syms__Slow.cpp Vpipeline__Trace__0__Slow.cpp Vpipeline__TraceDecls__0__Slow.cpp > Vpipeline__ALL.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/jal.mem -DVCD_OUTPUT -DDPRINTF   -c -o Vpipeline__ALL.o Vpipeline__ALL.cpp
+c++  -Wl,-U,__Z15vl_time_stamp64v,-U,__Z13sc_time_stampv   sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vpipeline__ALL.a    -pthread -lpthread   -o Vpipeline
+rm Vpipeline__ALL.verilator_deplist.tmp
+-- RUN ---------------------
+obj_dir/Vpipeline
+[18]  PC=0x200 Inst=0x93 Op=12 wr_reg=1 wregno=1 regval=0
+[20]  PC=0x204 Inst=0x113 Op=12 wr_reg=1 wregno=2 regval=0
+[22]  PC=0x208 Inst=0x193 Op=12 wr_reg=1 wregno=3 regval=0
+[24]  PC=0x20c Inst=0x213 Op=12 wr_reg=1 wregno=4 regval=0
+[26]  PC=0x210 Inst=0x293 Op=12 wr_reg=1 wregno=5 regval=0
+[28]  PC=0x214 Inst=0x313 Op=12 wr_reg=1 wregno=6 regval=0
+[30]  PC=0x218 Inst=0x393 Op=12 wr_reg=1 wregno=7 regval=0
+[32]  PC=0x21c Inst=0x413 Op=12 wr_reg=1 wregno=8 regval=0
+[34]  PC=0x220 Inst=0x493 Op=12 wr_reg=1 wregno=9 regval=0
+[36]  PC=0x224 Inst=0x513 Op=12 wr_reg=1 wregno=10 regval=0
+[38]  PC=0x228 Inst=0x593 Op=12 wr_reg=1 wregno=11 regval=0
+[40]  PC=0x22c Inst=0x613 Op=12 wr_reg=1 wregno=12 regval=0
+[42]  PC=0x230 Inst=0x693 Op=12 wr_reg=1 wregno=13 regval=0
+[44]  PC=0x234 Inst=0x713 Op=12 wr_reg=1 wregno=14 regval=0
+[46]  PC=0x238 Inst=0x793 Op=12 wr_reg=1 wregno=15 regval=0
+[48]  PC=0x23c Inst=0x813 Op=12 wr_reg=1 wregno=16 regval=0
+[50]  PC=0x240 Inst=0x893 Op=12 wr_reg=1 wregno=17 regval=0
+[52]  PC=0x244 Inst=0x913 Op=12 wr_reg=1 wregno=18 regval=0
+[54]  PC=0x248 Inst=0x993 Op=12 wr_reg=1 wregno=19 regval=0
+[56]  PC=0x24c Inst=0xa13 Op=12 wr_reg=1 wregno=20 regval=0
+[58]  PC=0x250 Inst=0xa93 Op=12 wr_reg=1 wregno=21 regval=0
+[60]  PC=0x254 Inst=0xb13 Op=12 wr_reg=1 wregno=22 regval=0
+[62]  PC=0x258 Inst=0xb93 Op=12 wr_reg=1 wregno=23 regval=0
+[64]  PC=0x25c Inst=0xc13 Op=12 wr_reg=1 wregno=24 regval=0
+[66]  PC=0x260 Inst=0xc93 Op=12 wr_reg=1 wregno=25 regval=0
+[68]  PC=0x264 Inst=0xd13 Op=12 wr_reg=1 wregno=26 regval=0
+[70]  PC=0x268 Inst=0xd93 Op=12 wr_reg=1 wregno=27 regval=0
+[72]  PC=0x26c Inst=0xe13 Op=12 wr_reg=1 wregno=28 regval=0
+[74]  PC=0x270 Inst=0xe93 Op=12 wr_reg=1 wregno=29 regval=0
+[76]  PC=0x274 Inst=0xf13 Op=12 wr_reg=1 wregno=30 regval=0
+[78]  PC=0x278 Inst=0xf93 Op=12 wr_reg=1 wregno=31 regval=0
+[80]  PC=0x27c Inst=0x200193 Op=12 wr_reg=1 wregno=3 regval=2
+[82]  PC=0x280 Inst=0x93 Op=12 wr_reg=1 wregno=1 regval=0
+[84]  PC=0x284 Inst=0x100026f Op=25 wr_reg=1 wregno=4 regval=648
+[90]  PC=0x294 Inst=0x117 Op=22 wr_reg=1 wregno=2 regval=660
+[98]  PC=0x298 Inst=0xff410113 Op=12 wr_reg=1 wregno=2 regval=648
+[106]  PC=0x29c Inst=0x2410063 Op=28
+[112]  PC=0x2bc Inst=0x100193 Op=12 wr_reg=1 wregno=3 regval=1
+[114]  PC=0x2c0 Inst=0x13 Op=12
+[116]  PC=0x2c4 Inst=0x13 Op=12
+[118]  PC=0x2c8 Inst=0x13 Op=12
+[120]  PC=0x2cc Inst=0x13 Op=12
+[122]  PC=0x2d0 Inst=0x13 Op=12
+[124]  PC=0x2d4 Inst=0x13 Op=12
+Total instructions=44, cycles=57, IPC=0.77193
+Passed!
+-- DONE --------------------
+
+TESTING: /Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/jalr.mem
+-- VERILATE ----------------
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/jalr.mem
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+sed -i'' -e 's|define IDMEMINITFILE.*|define IDMEMINITFILE "/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/jalr.mem"|g'  /Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+verilator --exe -cc pipeline.v --top-module pipeline --trace --trace-structs --assert -Wpedantic -Wno-DECLFILENAME -Wno-UNUSED --x-initial unique --x-assign unique sim_main.cpp fe_stage.v de_stage.v mem_stage.v wb_stage.v agex_stage.v -CFLAGS '-DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/jalr.mem -DVCD_OUTPUT -DDPRINTF'
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.222 MB sources in 7 modules, into 0.339 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.034 s (elab=0.002, cvt=0.021, bld=0.000); cpu 0.034 s on 1 threads; alloced 13.203 MB
+-- COMPILE -----------------
+/Library/Developer/CommandLineTools/usr/bin/make -j 4 -C obj_dir -f Vpipeline.mk
+c++  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/jalr.mem -DVCD_OUTPUT -DDPRINTF   -Os  -c -o sim_main.o ../sim_main.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/jalr.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_dpi.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_dpi.cpp
+python3 /opt/homebrew/Cellar/verilator/5.044/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vpipeline.cpp Vpipeline___024root__0.cpp Vpipeline_pipeline__0.cpp Vpipeline_WB_STAGE__0.cpp Vpipeline__Dpi.cpp Vpipeline__Trace__0.cpp Vpipeline__ConstPool__0__Slow.cpp Vpipeline___024root__Slow.cpp Vpipeline___024root__0__Slow.cpp Vpipeline_pipeline__Slow.cpp Vpipeline_pipeline__0__Slow.cpp Vpipeline_WB_STAGE__Slow.cpp Vpipeline_WB_STAGE__0__Slow.cpp Vpipeline__Syms__Slow.cpp Vpipeline__Trace__0__Slow.cpp Vpipeline__TraceDecls__0__Slow.cpp > Vpipeline__ALL.cpp
+c++  -Wl,-U,__Z15vl_time_stamp64v,-U,__Z13sc_time_stampv   sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vpipeline__ALL.a    -pthread -lpthread   -o Vpipeline
+-- RUN ---------------------
+obj_dir/Vpipeline
+[18]  PC=0x200 Inst=0x93 Op=12 wr_reg=1 wregno=1 regval=0
+[20]  PC=0x204 Inst=0x113 Op=12 wr_reg=1 wregno=2 regval=0
+[22]  PC=0x208 Inst=0x193 Op=12 wr_reg=1 wregno=3 regval=0
+[24]  PC=0x20c Inst=0x213 Op=12 wr_reg=1 wregno=4 regval=0
+[26]  PC=0x210 Inst=0x293 Op=12 wr_reg=1 wregno=5 regval=0
+[28]  PC=0x214 Inst=0x313 Op=12 wr_reg=1 wregno=6 regval=0
+[30]  PC=0x218 Inst=0x393 Op=12 wr_reg=1 wregno=7 regval=0
+[32]  PC=0x21c Inst=0x413 Op=12 wr_reg=1 wregno=8 regval=0
+[34]  PC=0x220 Inst=0x493 Op=12 wr_reg=1 wregno=9 regval=0
+[36]  PC=0x224 Inst=0x513 Op=12 wr_reg=1 wregno=10 regval=0
+[38]  PC=0x228 Inst=0x593 Op=12 wr_reg=1 wregno=11 regval=0
+[40]  PC=0x22c Inst=0x613 Op=12 wr_reg=1 wregno=12 regval=0
+[42]  PC=0x230 Inst=0x693 Op=12 wr_reg=1 wregno=13 regval=0
+[44]  PC=0x234 Inst=0x713 Op=12 wr_reg=1 wregno=14 regval=0
+[46]  PC=0x238 Inst=0x793 Op=12 wr_reg=1 wregno=15 regval=0
+[48]  PC=0x23c Inst=0x813 Op=12 wr_reg=1 wregno=16 regval=0
+[50]  PC=0x240 Inst=0x893 Op=12 wr_reg=1 wregno=17 regval=0
+[52]  PC=0x244 Inst=0x913 Op=12 wr_reg=1 wregno=18 regval=0
+[54]  PC=0x248 Inst=0x993 Op=12 wr_reg=1 wregno=19 regval=0
+[56]  PC=0x24c Inst=0xa13 Op=12 wr_reg=1 wregno=20 regval=0
+[58]  PC=0x250 Inst=0xa93 Op=12 wr_reg=1 wregno=21 regval=0
+[60]  PC=0x254 Inst=0xb13 Op=12 wr_reg=1 wregno=22 regval=0
+[62]  PC=0x258 Inst=0xb93 Op=12 wr_reg=1 wregno=23 regval=0
+[64]  PC=0x25c Inst=0xc13 Op=12 wr_reg=1 wregno=24 regval=0
+[66]  PC=0x260 Inst=0xc93 Op=12 wr_reg=1 wregno=25 regval=0
+[68]  PC=0x264 Inst=0xd13 Op=12 wr_reg=1 wregno=26 regval=0
+[70]  PC=0x268 Inst=0xd93 Op=12 wr_reg=1 wregno=27 regval=0
+[72]  PC=0x26c Inst=0xe13 Op=12 wr_reg=1 wregno=28 regval=0
+[74]  PC=0x270 Inst=0xe93 Op=12 wr_reg=1 wregno=29 regval=0
+[76]  PC=0x274 Inst=0xf13 Op=12 wr_reg=1 wregno=30 regval=0
+[78]  PC=0x278 Inst=0xf93 Op=12 wr_reg=1 wregno=31 regval=0
+[80]  PC=0x27c Inst=0x200193 Op=12 wr_reg=1 wregno=3 regval=2
+[82]  PC=0x280 Inst=0x93 Op=12 wr_reg=1 wregno=1 regval=0
+[84]  PC=0x284 Inst=0x100026f Op=25 wr_reg=1 wregno=4 regval=648
+[90]  PC=0x294 Inst=0x117 Op=22 wr_reg=1 wregno=2 regval=660
+[98]  PC=0x298 Inst=0xff410113 Op=12 wr_reg=1 wregno=2 regval=648
+[106]  PC=0x29c Inst=0x2410063 Op=28
+[112]  PC=0x2bc Inst=0x100193 Op=12 wr_reg=1 wregno=3 regval=1
+[114]  PC=0x2c0 Inst=0x13 Op=12
+[116]  PC=0x2c4 Inst=0x13 Op=12
+[118]  PC=0x2c8 Inst=0x13 Op=12
+[120]  PC=0x2cc Inst=0x13 Op=12
+[122]  PC=0x2d0 Inst=0x13 Op=12
+[124]  PC=0x2d4 Inst=0x13 Op=12
+Total instructions=44, cycles=57, IPC=0.77193
+Passed!
+-- DONE --------------------
+
+TESTING: /Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test7.mem
+-- VERILATE ----------------
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test7.mem
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+sed -i'' -e 's|define IDMEMINITFILE.*|define IDMEMINITFILE "/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test7.mem"|g'  /Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+verilator --exe -cc pipeline.v --top-module pipeline --trace --trace-structs --assert -Wpedantic -Wno-DECLFILENAME -Wno-UNUSED --x-initial unique --x-assign unique sim_main.cpp fe_stage.v de_stage.v mem_stage.v wb_stage.v agex_stage.v -CFLAGS '-DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test7.mem -DVCD_OUTPUT -DDPRINTF'
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.222 MB sources in 7 modules, into 0.339 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.033 s (elab=0.002, cvt=0.021, bld=0.000); cpu 0.033 s on 1 threads; alloced 13.203 MB
+-- COMPILE -----------------
+/Library/Developer/CommandLineTools/usr/bin/make -j 4 -C obj_dir -f Vpipeline.mk
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test7.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test7.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_vcd_c.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_vcd_c.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test7.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_threads.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_threads.cpp
+python3 /opt/homebrew/Cellar/verilator/5.044/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vpipeline.cpp Vpipeline___024root__0.cpp Vpipeline_pipeline__0.cpp Vpipeline_WB_STAGE__0.cpp Vpipeline__Dpi.cpp Vpipeline__Trace__0.cpp Vpipeline__ConstPool__0__Slow.cpp Vpipeline___024root__Slow.cpp Vpipeline___024root__0__Slow.cpp Vpipeline_pipeline__Slow.cpp Vpipeline_pipeline__0__Slow.cpp Vpipeline_WB_STAGE__Slow.cpp Vpipeline_WB_STAGE__0__Slow.cpp Vpipeline__Syms__Slow.cpp Vpipeline__Trace__0__Slow.cpp Vpipeline__TraceDecls__0__Slow.cpp > Vpipeline__ALL.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test7.mem -DVCD_OUTPUT -DDPRINTF   -c -o Vpipeline__ALL.o Vpipeline__ALL.cpp
+c++  -Wl,-U,__Z15vl_time_stamp64v,-U,__Z13sc_time_stampv   sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vpipeline__ALL.a    -pthread -lpthread   -o Vpipeline
+-- RUN ---------------------
+obj_dir/Vpipeline
+[18]  PC=0x200 Inst=0x200193 Op=12 wr_reg=1 wregno=3 regval=2
+[20]  PC=0x204 Inst=0x293 Op=12 wr_reg=1 wregno=5 regval=0
+[22]  PC=0x208 Inst=0x317 Op=22 wr_reg=1 wregno=6 regval=520
+[30]  PC=0x20c Inst=0x1030313 Op=12 wr_reg=1 wregno=6 regval=536
+[38]  PC=0x210 Inst=0x302e7 Op=27 wr_reg=1 wregno=5 regval=532
+[44]  PC=0x218 Inst=0x100193 Op=12 wr_reg=1 wregno=3 regval=1
+[46]  PC=0x21c Inst=0x80006f Op=25
+[52]  PC=0x224 Inst=0x13 Op=12
+Total instructions=8, cycles=21, IPC=0.380952
+Passed!
+-- DONE --------------------
+
+TESTING: /Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test8.mem
+-- VERILATE ----------------
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test8.mem
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+sed -i'' -e 's|define IDMEMINITFILE.*|define IDMEMINITFILE "/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test8.mem"|g'  /Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+verilator --exe -cc pipeline.v --top-module pipeline --trace --trace-structs --assert -Wpedantic -Wno-DECLFILENAME -Wno-UNUSED --x-initial unique --x-assign unique sim_main.cpp fe_stage.v de_stage.v mem_stage.v wb_stage.v agex_stage.v -CFLAGS '-DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test8.mem -DVCD_OUTPUT -DDPRINTF'
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.222 MB sources in 7 modules, into 0.339 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.034 s (elab=0.002, cvt=0.021, bld=0.000); cpu 0.033 s on 1 threads; alloced 13.203 MB
+-- COMPILE -----------------
+/Library/Developer/CommandLineTools/usr/bin/make -j 4 -C obj_dir -f Vpipeline.mk
+c++  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test8.mem -DVCD_OUTPUT -DDPRINTF   -Os  -c -o sim_main.o ../sim_main.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test8.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test8.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_dpi.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_dpi.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test8.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_vcd_c.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_vcd_c.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test8.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_threads.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_threads.cpp
+python3 /opt/homebrew/Cellar/verilator/5.044/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vpipeline.cpp Vpipeline___024root__0.cpp Vpipeline_pipeline__0.cpp Vpipeline_WB_STAGE__0.cpp Vpipeline__Dpi.cpp Vpipeline__Trace__0.cpp Vpipeline__ConstPool__0__Slow.cpp Vpipeline___024root__Slow.cpp Vpipeline___024root__0__Slow.cpp Vpipeline_pipeline__Slow.cpp Vpipeline_pipeline__0__Slow.cpp Vpipeline_WB_STAGE__Slow.cpp Vpipeline_WB_STAGE__0__Slow.cpp Vpipeline__Syms__Slow.cpp Vpipeline__Trace__0__Slow.cpp Vpipeline__TraceDecls__0__Slow.cpp > Vpipeline__ALL.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test8.mem -DVCD_OUTPUT -DDPRINTF   -c -o Vpipeline__ALL.o Vpipeline__ALL.cpp
+c++  -Wl,-U,__Z15vl_time_stamp64v,-U,__Z13sc_time_stampv   sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vpipeline__ALL.a    -pthread -lpthread   -o Vpipeline
+rm Vpipeline__ALL.verilator_deplist.tmp
+-- RUN ---------------------
+obj_dir/Vpipeline
+[18]  PC=0x200 Inst=0x200193 Op=12 wr_reg=1 wregno=3 regval=2
+[20]  PC=0x204 Inst=0x293 Op=12 wr_reg=1 wregno=5 regval=0
+[22]  PC=0x208 Inst=0x317 Op=22 wr_reg=1 wregno=6 regval=520
+[30]  PC=0x20c Inst=0x1c30313 Op=12 wr_reg=1 wregno=6 regval=548
+[38]  PC=0x210 Inst=0xffc30067 Op=27
+[44]  PC=0x220 Inst=0x128293 Op=12 wr_reg=1 wregno=5 regval=1
+[52]  PC=0x224 Inst=0x128293 Op=12 wr_reg=1 wregno=5 regval=2
+[60]  PC=0x228 Inst=0x128293 Op=12 wr_reg=1 wregno=5 regval=3
+[62]  PC=0x22c Inst=0x400393 Op=12 wr_reg=1 wregno=7 regval=4
+[64]  PC=0x230 Inst=0x100193 Op=12 wr_reg=1 wregno=3 regval=1
+[70]  PC=0x234 Inst=0x729a63 Op=29
+[76]  PC=0x248 Inst=0x193 Op=12 wr_reg=1 wregno=3 regval=0
+[78]  PC=0x24c Inst=0x100193 Op=12 wr_reg=1 wregno=3 regval=1
+[80]  PC=0x250 Inst=0x13 Op=12
+Total instructions=14, cycles=35, IPC=0.4
+Passed!
+-- DONE --------------------
+
+TESTING: /Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test9.mem
+-- VERILATE ----------------
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test9.mem
+/Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+sed -i'' -e 's|define IDMEMINITFILE.*|define IDMEMINITFILE "/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test9.mem"|g'  /Users/anish/Documents/cs3220-labs-sp2026/lab1/define.vh
+verilator --exe -cc pipeline.v --top-module pipeline --trace --trace-structs --assert -Wpedantic -Wno-DECLFILENAME -Wno-UNUSED --x-initial unique --x-assign unique sim_main.cpp fe_stage.v de_stage.v mem_stage.v wb_stage.v agex_stage.v -CFLAGS '-DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test9.mem -DVCD_OUTPUT -DDPRINTF'
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.222 MB sources in 7 modules, into 0.339 MB in 16 C++ files needing 0.000 MB
+- Verilator: Walltime 0.033 s (elab=0.002, cvt=0.021, bld=0.000); cpu 0.033 s on 1 threads; alloced 13.203 MB
+-- COMPILE -----------------
+/Library/Developer/CommandLineTools/usr/bin/make -j 4 -C obj_dir -f Vpipeline.mk
+c++  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test9.mem -DVCD_OUTPUT -DDPRINTF   -Os  -c -o sim_main.o ../sim_main.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test9.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_dpi.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_dpi.cpp
+c++ -Os  -I.  -MMD -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include -I/opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Xclang -fno-pch-timestamp -Qunused-arguments -Wno-bool-operation -Wno-c++11-narrowing -Wno-constant-logical-operand -Wno-int-in-bool-context -Wno-non-pod-varargs -Wno-parentheses-equality -Wno-shadow -Wno-sign-compare -Wno-tautological-bitwise-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-vla-cxx-extension    -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part2/test9.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_vcd_c.o /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_vcd_c.cpp
+python3 /opt/homebrew/Cellar/verilator/5.044/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vpipeline.cpp Vpipeline___024root__0.cpp Vpipeline_pipeline__0.cpp Vpipeline_WB_STAGE__0.cpp Vpipeline__Dpi.cpp Vpipeline__Trace__0.cpp Vpipeline__ConstPool__0__Slow.cpp Vpipeline___024root__Slow.cpp Vpipeline___024root__0__Slow.cpp Vpipeline_pipeline__Slow.cpp Vpipeline_pipeline__0__Slow.cpp Vpipeline_WB_STAGE__Slow.cpp Vpipeline_WB_STAGE__0__Slow.cpp Vpipeline__Syms__Slow.cpp Vpipeline__Trace__0__Slow.cpp Vpipeline__TraceDecls__0__Slow.cpp > Vpipeline__ALL.cpp
+c++  -Wl,-U,__Z15vl_time_stamp64v,-U,__Z13sc_time_stampv   sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vpipeline__ALL.a    -pthread -lpthread   -o Vpipeline
+-- RUN ---------------------
+obj_dir/Vpipeline
+[18]  PC=0x200 Inst=0x200193 Op=12 wr_reg=1 wregno=3 regval=2
+[20]  PC=0x204 Inst=0x293 Op=12 wr_reg=1 wregno=5 regval=0
+[22]  PC=0x208 Inst=0x317 Op=22 wr_reg=1 wregno=6 regval=520
+[30]  PC=0x20c Inst=0x1c30313 Op=12 wr_reg=1 wregno=6 regval=548
+[38]  PC=0x210 Inst=0xffc30067 Op=27
+[44]  PC=0x220 Inst=0x128293 Op=12 wr_reg=1 wregno=5 regval=1
+[52]  PC=0x224 Inst=0x128293 Op=12 wr_reg=1 wregno=5 regval=2
+[60]  PC=0x228 Inst=0x128293 Op=12 wr_reg=1 wregno=5 regval=3
+[62]  PC=0x22c Inst=0x400393 Op=12 wr_reg=1 wregno=7 regval=4
+[64]  PC=0x230 Inst=0x100193 Op=12 wr_reg=1 wregno=3 regval=1
+[70]  PC=0x234 Inst=0x729a63 Op=29
+[76]  PC=0x248 Inst=0x193 Op=12 wr_reg=1 wregno=3 regval=0
+[78]  PC=0x24c Inst=0x100193 Op=12 wr_reg=1 wregno=3 regval=1
+[80]  PC=0x250 Inst=0x13 Op=12
+Total instructions=14, cycles=35, IPC=0.4
+Passed!
+-- DONE --------------------

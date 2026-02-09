@@ -16,9 +16,9 @@
 #include <verilated_vcd_c.h>
 #endif
 
-#define RUN_CYCLES  50000
+#define RUN_CYCLES  20000
 
-#define CLOCK_PERIOD 2
+#define CLOCK_PERIOD 1
 
 #define RESET_TIME  10
 
