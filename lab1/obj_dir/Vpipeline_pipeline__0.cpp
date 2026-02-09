@@ -559,14 +559,12 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__1(Vpipeline_pipeline* vlSe
                                           >> 7U))) : 
                     ((0x12U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
                                                >> 7U)))
-                      ? VL_SHIFTRS_III(32,32,32, ((
-                                                   vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                                                   << 0x00000019U) 
-                                                  | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                     >> 7U)), 
-                                       ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                         << 0x00000019U) 
-                                        | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
+                      ? VL_SHIFTRS_III(32,32,5, ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
+                                                  << 0x00000019U) 
+                                                 | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                                    >> 7U)), 
+                                       (0x0000001fU 
+                                        & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
                                            >> 7U)))
                       : ((9U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
                                                 >> 7U)))

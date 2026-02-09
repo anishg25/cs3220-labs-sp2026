@@ -73,7 +73,7 @@ module AGEX_STAGE(
        `JALR_I: aluout_AGEX = pcplus_AGEX;
        `SUB_I: aluout_AGEX = regval1_AGEX - regval2_AGEX;
        `SRA_I: aluout_AGEX = $signed(regval1_AGEX) >>> regval2_AGEX[4:0];
-       `SRAI_I: aluout_AGEX = $signed(regval1_AGEX) >>> sxt_imm_AGEX;
+       `SRAI_I: aluout_AGEX = $signed(regval1_AGEX) >>> sxt_imm_AGEX[4:0];
        `SRL_I: aluout_AGEX = $unsigned(regval1_AGEX) >> regval2_AGEX[4:0];
        `SRLI_I: aluout_AGEX = $unsigned(regval1_AGEX) >> sxt_imm_AGEX;
        `OR_I: aluout_AGEX = regval1_AGEX | regval2_AGEX;
