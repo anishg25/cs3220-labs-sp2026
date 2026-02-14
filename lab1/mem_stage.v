@@ -47,8 +47,8 @@ module MEM_STAGE(
   wire wr_mem_MEM;  // is this instruction writing a value into memory? 
   // Read from D-MEM  (read code is completed if there is a correct memaddr_MEM ) 
   assign rd_val_MEM = dmem[memaddr_MEM[`DMEMADDRBITS-1:`DMEMWORDBITS]];
-
-  
+  assign memaddr_MEM = aluout_MEM;
+ 
  // Write to D-MEM
   always @ (posedge clk) begin
   if(wr_mem_MEM)
@@ -72,7 +72,8 @@ module MEM_STAGE(
                                  // more signals might need
                                 aluout_MEM,
                                 wr_reg_MEM,
-                                wregno_MEM
+                                wregno_MEM,
+                                wr_val_MEM
                                  } = from_AGEX_latch;  
  
 

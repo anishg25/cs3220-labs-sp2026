@@ -27,7 +27,7 @@ module AGEX_STAGE(
   wire [`DBITS-1:0] pcplus_AGEX; 
   wire [`IOPBITS-1:0] op_I_AGEX;
   reg br_cond_AGEX; // 1 means a branch condition is satisified. 0 means a branch condition is not satisifed
- 
+  
   /////////////////////////////////////////////////////////////////////////////
   // TODO: Complete remaining code logic here!
 
@@ -41,8 +41,9 @@ module AGEX_STAGE(
   reg [`DBITS-1:0] aluout_AGEX;
   reg [`DBITS-1:0] br_target_AGEX;
   wire br_mispred_AGEX;
+  wire wr_mem_AGEX;
 
-  
+  reg [`DBITS-1:0] wr_val_AGEX;
   // Calculate branch condition
   // TODO: complete the code
   always @ (*) begin
@@ -86,7 +87,10 @@ module AGEX_STAGE(
        `SLTIU_I: aluout_AGEX = ($unsigned(regval1_AGEX) < $unsigned(sxt_imm_AGEX)) ? 32'h1 : 32'h0;
        `XOR_I: aluout_AGEX = regval1_AGEX ^ regval2_AGEX;
        `XORI_I: aluout_AGEX = regval1_AGEX ^ sxt_imm_AGEX;
-       `SW_I: aluout_AGEX = regval1_AGEX + sxt_imm_AGEX;
+       `SW_I: begin
+          aluout_AGEX = regval1_AGEX + sxt_imm_AGEX;
+          wr_val_AGEX = regval2_AGEX;
+       end
        default: begin
          aluout_AGEX  = 32'h0;
        end
@@ -124,7 +128,8 @@ module AGEX_STAGE(
                                   sxt_imm_AGEX,
                                   is_br_AGEX,
                                   wr_reg_AGEX,
-                                  wregno_AGEX
+                                  wregno_AGEX,
+                                  wr_mem_AGEX
                                   } = from_DE_latch; 
     
  
@@ -137,7 +142,8 @@ module AGEX_STAGE(
                                        // TODO: more signals might needed
                                 aluout_AGEX,
                                 wr_reg_AGEX,
-                                wregno_AGEX
+                                wregno_AGEX,
+                                wr_val_AGEX
                                  }; 
  
   always @ (posedge clk ) begin

@@ -103,7 +103,6 @@ module FE_STAGE(
       end 
   end
   
-
   always @ (posedge clk) begin
     if (reset) begin 
       FE_latch <= '0; 

@@ -18,7 +18,7 @@
 // address space is m 0x00000000 to 0x000fffff
   // [NOTICE] please note that both imem and dmem use the SAME "IDMEMINITFILE".
   // you need to change this line to change which test file to read 
-  `define IDMEMINITFILE "/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part3/xori.mem"
+  `define IDMEMINITFILE "/Users/anish/Documents/cs3220-labs-sp2026/lab1/test/part3/sw.mem"
   
   `define IMEMADDRBITS  16
   `define IMEMWORDBITS  2
@@ -203,9 +203,9 @@
 /** TODO: please update the following define with your own values */ 
 
  `define FE_latch_WIDTH  (1 + `INSTBITS+`DBITS+ `DBITS + `DBITS)
-  `define DE_latch_WIDTH  (1 + `INSTBITS+`DBITS+`DBITS+ `IOPBITS + `DBITS + `DBITS + `DBITS + `DBITS + 1 + 1 + `REGNOBITS)
+  `define DE_latch_WIDTH  (1 + 1 + `INSTBITS+`DBITS+`DBITS+ `IOPBITS + `DBITS + `DBITS + `DBITS + `DBITS + 1 + 1 + `REGNOBITS)
 
-  `define AGEX_latch_WIDTH   (1 + `INSTBITS+`DBITS+ `IOPBITS + `DBITS + `DBITS + 1 + `REGNOBITS)
+  `define AGEX_latch_WIDTH   (32 + 1 + `INSTBITS+`DBITS+ `IOPBITS + `DBITS + `DBITS + 1 + `REGNOBITS)
   `define MEM_latch_WIDTH    (1 + `INSTBITS+`DBITS+ `IOPBITS + `DBITS + `DBITS + 1 + `REGNOBITS) 
 
   `define from_DE_to_FE_WIDTH  (1) 

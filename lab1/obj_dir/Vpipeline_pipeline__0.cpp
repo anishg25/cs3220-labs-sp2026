@@ -20,7 +20,6 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__0(Vpipeline_pipeline* vlSe
     CData/*0:0*/ __VdlySet__my_MEM_stage__DOT__dmem__v0;
     __VdlySet__my_MEM_stage__DOT__dmem__v0 = 0;
     // Body
-    __VdlySet__my_MEM_stage__DOT__dmem__v0 = 0U;
     __Vdly__my_FE_stage__DOT__inst_count_FE = vlSelfRef.__PVT__my_FE_stage__DOT__inst_count_FE;
     __Vdly__my_FE_stage__DOT__PC_FE_latch = vlSelfRef.__PVT__my_FE_stage__DOT__PC_FE_latch;
     vlSelfRef.__Vdly__my_FE_stage__DOT__FE_latch[0U] 
@@ -33,13 +32,7 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__0(Vpipeline_pipeline* vlSe
         = vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U];
     vlSelfRef.__Vdly__my_FE_stage__DOT__FE_latch[4U] 
         = vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[4U];
-    if (vlSelfRef.__PVT__my_MEM_stage__DOT__wr_mem_MEM) {
-        __VdlyVal__my_MEM_stage__DOT__dmem__v0 = vlSelfRef.__PVT__my_MEM_stage__DOT__wr_val_MEM;
-        __VdlyDim0__my_MEM_stage__DOT__dmem__v0 = (0x00003fffU 
-                                                   & (vlSelfRef.__PVT__my_MEM_stage__DOT__memaddr_MEM 
-                                                      >> 2U));
-        __VdlySet__my_MEM_stage__DOT__dmem__v0 = 1U;
-    }
+    __VdlySet__my_MEM_stage__DOT__dmem__v0 = 0U;
     if (vlSymsp->TOP.reset) {
         vlSelfRef.__PVT__cycle_count = 0U;
         __Vdly__my_FE_stage__DOT__inst_count_FE = 1U;
@@ -118,14 +111,21 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__0(Vpipeline_pipeline* vlSe
                    & vlSelfRef.__PVT__my_DE_stage__DOT__in_use_regs);
         }
     }
-    if (__VdlySet__my_MEM_stage__DOT__dmem__v0) {
-        vlSelfRef.__PVT__my_MEM_stage__DOT__dmem[__VdlyDim0__my_MEM_stage__DOT__dmem__v0] 
-            = __VdlyVal__my_MEM_stage__DOT__dmem__v0;
+    if (vlSelfRef.__PVT__my_MEM_stage__DOT__wr_mem_MEM) {
+        __VdlyVal__my_MEM_stage__DOT__dmem__v0 = vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[0U];
+        __VdlyDim0__my_MEM_stage__DOT__dmem__v0 = (0x00003fffU 
+                                                   & (vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[1U] 
+                                                      >> 8U));
+        __VdlySet__my_MEM_stage__DOT__dmem__v0 = 1U;
     }
     vlSelfRef.__PVT__my_FE_stage__DOT__inst_count_FE 
         = __Vdly__my_FE_stage__DOT__inst_count_FE;
     vlSelfRef.__PVT__my_FE_stage__DOT__PC_FE_latch 
         = __Vdly__my_FE_stage__DOT__PC_FE_latch;
+    if (__VdlySet__my_MEM_stage__DOT__dmem__v0) {
+        vlSelfRef.__PVT__my_MEM_stage__DOT__dmem[__VdlyDim0__my_MEM_stage__DOT__dmem__v0] 
+            = __VdlyVal__my_MEM_stage__DOT__dmem__v0;
+    }
     vlSelfRef.__PVT__my_FE_stage__DOT__pcplus_FE = 
         ((IData)(4U) + vlSelfRef.__PVT__my_FE_stage__DOT__PC_FE_latch);
     vlSelfRef.__PVT__my_FE_stage__DOT__inst_FE = vlSelfRef.__PVT__my_FE_stage__DOT__imem
@@ -133,7 +133,7 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__0(Vpipeline_pipeline* vlSe
                          >> 2U))];
 }
 
-extern const VlWide<8>/*255:0*/ Vpipeline__ConstPool__CONST_hee2f1268_0;
+extern const VlWide<8>/*255:0*/ Vpipeline__ConstPool__CONST_h3de9eaa4_0;
 extern const VlUnpacked<CData/*0:0*/, 16> Vpipeline__ConstPool__TABLE_h29143c0b_0;
 extern const VlUnpacked<CData/*0:0*/, 16> Vpipeline__ConstPool__TABLE_h5064a2f5_0;
 
@@ -160,9 +160,9 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__1(Vpipeline_pipeline* vlSe
     my_AGEX_stage__DOT____VdfgExtracted_hbcc182c0__0 = 0;
     CData/*3:0*/ __Vtableidx1;
     __Vtableidx1 = 0;
-    VlWide<4>/*127:0*/ __Vtemp_13;
+    VlWide<4>/*127:0*/ __Vtemp_17;
     // Body
-    __Vtemp_13[0U] = ((1U == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__type_immediate_DE))
+    __Vtemp_17[0U] = ((1U == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__type_immediate_DE))
                        ? (((- (IData)((vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U] 
                                        >> 0x0000001fU))) 
                            << 0x0000000bU) | (0x000007ffU 
@@ -220,132 +220,142 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__1(Vpipeline_pipeline* vlSe
         vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[2U] = 0U;
         vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[3U] = 0U;
         vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[4U] = 0U;
+        vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[5U] = 0U;
         vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
-            = Vpipeline__ConstPool__CONST_hee2f1268_0[0U];
+            = Vpipeline__ConstPool__CONST_h3de9eaa4_0[0U];
         vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-            = Vpipeline__ConstPool__CONST_hee2f1268_0[1U];
+            = Vpipeline__ConstPool__CONST_h3de9eaa4_0[1U];
         vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-            = Vpipeline__ConstPool__CONST_hee2f1268_0[2U];
+            = Vpipeline__ConstPool__CONST_h3de9eaa4_0[2U];
         vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-            = Vpipeline__ConstPool__CONST_hee2f1268_0[3U];
+            = Vpipeline__ConstPool__CONST_h3de9eaa4_0[3U];
         vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-            = Vpipeline__ConstPool__CONST_hee2f1268_0[4U];
+            = Vpipeline__ConstPool__CONST_h3de9eaa4_0[4U];
         vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[5U] 
-            = Vpipeline__ConstPool__CONST_hee2f1268_0[5U];
+            = Vpipeline__ConstPool__CONST_h3de9eaa4_0[5U];
         vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[6U] 
-            = Vpipeline__ConstPool__CONST_hee2f1268_0[6U];
+            = Vpipeline__ConstPool__CONST_h3de9eaa4_0[6U];
         vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[7U] 
-            = Vpipeline__ConstPool__CONST_hee2f1268_0[7U];
+            = Vpipeline__ConstPool__CONST_h3de9eaa4_0[7U];
     } else {
         vlSelfRef.__PVT__my_MEM_stage__DOT__MEM_latch[0U] 
-            = vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[0U];
-        vlSelfRef.__PVT__my_MEM_stage__DOT__MEM_latch[1U] 
             = vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[1U];
-        vlSelfRef.__PVT__my_MEM_stage__DOT__MEM_latch[2U] 
+        vlSelfRef.__PVT__my_MEM_stage__DOT__MEM_latch[1U] 
             = vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[2U];
-        vlSelfRef.__PVT__my_MEM_stage__DOT__MEM_latch[3U] 
+        vlSelfRef.__PVT__my_MEM_stage__DOT__MEM_latch[2U] 
             = vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[3U];
-        vlSelfRef.__PVT__my_MEM_stage__DOT__MEM_latch[4U] 
+        vlSelfRef.__PVT__my_MEM_stage__DOT__MEM_latch[3U] 
             = vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[4U];
+        vlSelfRef.__PVT__my_MEM_stage__DOT__MEM_latch[4U] 
+            = (0x00001fffU & vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[5U]);
         vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[0U] 
-            = (IData)((((QData)((IData)(vlSelfRef.__PVT__my_AGEX_stage__DOT__aluout_AGEX)) 
-                        << 6U) | (QData)((IData)((0x0000003fU 
-                                                  & vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U])))));
+            = (IData)((((QData)((IData)((0x0000003fU 
+                                         & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
+                                            >> 1U)))) 
+                        << 0x00000020U) | (QData)((IData)(vlSelfRef.__PVT__my_AGEX_stage__DOT__wr_val_AGEX))));
         vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[1U] 
-            = (((IData)((0x0000003fffffffffULL & (((QData)((IData)(
-                                                                   vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U])) 
-                                                   << 0x00000019U) 
-                                                  | ((QData)((IData)(
-                                                                     vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U])) 
-                                                     >> 7U)))) 
-                << 6U) | (IData)(((((QData)((IData)(vlSelfRef.__PVT__my_AGEX_stage__DOT__aluout_AGEX)) 
-                                    << 6U) | (QData)((IData)(
-                                                             (0x0000003fU 
-                                                              & vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U])))) 
+            = ((vlSelfRef.__PVT__my_AGEX_stage__DOT__aluout_AGEX 
+                << 6U) | (IData)(((((QData)((IData)(
+                                                    (0x0000003fU 
+                                                     & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
+                                                        >> 1U)))) 
+                                    << 0x00000020U) 
+                                   | (QData)((IData)(vlSelfRef.__PVT__my_AGEX_stage__DOT__wr_val_AGEX))) 
                                   >> 0x00000020U)));
         vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[2U] 
+            = (((IData)((0x0000003fffffffffULL & (((QData)((IData)(
+                                                                   vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U])) 
+                                                   << 0x00000018U) 
+                                                  | ((QData)((IData)(
+                                                                     vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U])) 
+                                                     >> 8U)))) 
+                << 6U) | (vlSelfRef.__PVT__my_AGEX_stage__DOT__aluout_AGEX 
+                          >> 0x0000001aU));
+        vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[3U] 
             = (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[6U] 
-                 << 0x0000001fU) | (0x7ffff000U & (
+                 << 0x0000001eU) | (0x3ffff000U & (
                                                    vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[5U] 
-                                                   >> 1U))) 
+                                                   >> 2U))) 
                | (((IData)((0x0000003fffffffffULL & 
                             (((QData)((IData)(vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U])) 
-                              << 0x00000019U) | ((QData)((IData)(
+                              << 0x00000018U) | ((QData)((IData)(
                                                                  vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U])) 
-                                                 >> 7U)))) 
+                                                 >> 8U)))) 
                    >> 0x0000001aU) | ((IData)(((0x0000003fffffffffULL 
                                                 & (((QData)((IData)(
                                                                     vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U])) 
-                                                    << 0x00000019U) 
+                                                    << 0x00000018U) 
                                                    | ((QData)((IData)(
                                                                       vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U])) 
-                                                      >> 7U))) 
+                                                      >> 8U))) 
                                                >> 0x00000020U)) 
                                       << 6U)));
-        vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[3U] 
-            = ((0x00000fffU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[6U] 
-                               >> 1U)) | ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[7U] 
-                                           << 0x0000001fU) 
-                                          | (0x7ffff000U 
-                                             & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[6U] 
-                                                >> 1U))));
         vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[4U] 
+            = ((0x00000fffU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[6U] 
+                               >> 2U)) | ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[7U] 
+                                           << 0x0000001eU) 
+                                          | (0x3ffff000U 
+                                             & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[6U] 
+                                                >> 2U))));
+        vlSelfRef.__PVT__my_AGEX_stage__DOT__AGEX_latch[5U] 
             = ((0x00000fffU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[7U] 
-                               >> 1U)) | (0x00001000U 
+                               >> 2U)) | (0x00001000U 
                                           & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[7U] 
-                                             >> 1U)));
+                                             >> 2U)));
         if (vlSelfRef.__PVT__from_DE_to_FE) {
             vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
-                = Vpipeline__ConstPool__CONST_hee2f1268_0[0U];
+                = Vpipeline__ConstPool__CONST_h3de9eaa4_0[0U];
             vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                = Vpipeline__ConstPool__CONST_hee2f1268_0[1U];
+                = Vpipeline__ConstPool__CONST_h3de9eaa4_0[1U];
             vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                = Vpipeline__ConstPool__CONST_hee2f1268_0[2U];
+                = Vpipeline__ConstPool__CONST_h3de9eaa4_0[2U];
             vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                = Vpipeline__ConstPool__CONST_hee2f1268_0[3U];
+                = Vpipeline__ConstPool__CONST_h3de9eaa4_0[3U];
             vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                = Vpipeline__ConstPool__CONST_hee2f1268_0[4U];
+                = Vpipeline__ConstPool__CONST_h3de9eaa4_0[4U];
             vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[5U] 
-                = Vpipeline__ConstPool__CONST_hee2f1268_0[5U];
+                = Vpipeline__ConstPool__CONST_h3de9eaa4_0[5U];
             vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[6U] 
-                = Vpipeline__ConstPool__CONST_hee2f1268_0[6U];
+                = Vpipeline__ConstPool__CONST_h3de9eaa4_0[6U];
             vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[7U] 
-                = Vpipeline__ConstPool__CONST_hee2f1268_0[7U];
+                = Vpipeline__ConstPool__CONST_h3de9eaa4_0[7U];
         } else {
             vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
-                = ((__Vtemp_13[0U] << 7U) | ((((0x1cU 
-                                                == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE)) 
-                                               | ((0x1dU 
-                                                   == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE)) 
-                                                  | ((0x1eU 
-                                                      == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE)) 
-                                                     | ((0x1fU 
-                                                         == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE)) 
-                                                        | ((0x20U 
-                                                            == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE)) 
-                                                           | ((0x21U 
-                                                               == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE)) 
-                                                              | ((0x1bU 
-                                                                  == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE)) 
-                                                                 | (0x19U 
-                                                                    == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE))))))))) 
-                                              << 6U) 
-                                             | (((IData)(vlSelfRef.__PVT__my_DE_stage__DOT__wr_reg_DE) 
-                                                 << 5U) 
-                                                | (0x0000001fU 
-                                                   & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U] 
-                                                      >> 7U)))));
+                = ((__Vtemp_17[0U] << 8U) | (((((0x1cU 
+                                                 == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE)) 
+                                                | ((0x1dU 
+                                                    == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE)) 
+                                                   | ((0x1eU 
+                                                       == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE)) 
+                                                      | ((0x1fU 
+                                                          == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE)) 
+                                                         | ((0x20U 
+                                                             == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE)) 
+                                                            | ((0x21U 
+                                                                == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE)) 
+                                                               | ((0x1bU 
+                                                                   == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE)) 
+                                                                  | (0x19U 
+                                                                     == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE))))))))) 
+                                               << 7U) 
+                                              | ((IData)(vlSelfRef.__PVT__my_DE_stage__DOT__wr_reg_DE) 
+                                                 << 6U)) 
+                                             | ((0x0000003eU 
+                                                 & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U] 
+                                                    >> 6U)) 
+                                                | (0x18U 
+                                                   == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE)))));
             vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                = ((__Vtemp_13[0U] >> 0x00000019U) 
+                = ((__Vtemp_17[0U] >> 0x00000018U) 
                    | (vlSelfRef.__PVT__my_DE_stage__DOT__regs
                       [(0x0000001fU & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U] 
                                        >> 0x00000014U))] 
-                      << 7U));
+                      << 8U));
             vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
                 = ((vlSelfRef.__PVT__my_DE_stage__DOT__regs
                     [(0x0000001fU & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U] 
                                      >> 0x00000014U))] 
-                    >> 0x00000019U) | ((IData)((((QData)((IData)(
+                    >> 0x00000018U) | ((IData)((((QData)((IData)(
                                                                  vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[0U])) 
                                                  << 0x00000020U) 
                                                 | (QData)((IData)(
@@ -354,7 +364,7 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__1(Vpipeline_pipeline* vlSe
                                                                   (0x0000001fU 
                                                                    & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U] 
                                                                       >> 0x0000000fU))])))) 
-                                       << 7U));
+                                       << 8U));
             vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
                 = (((IData)((((QData)((IData)(vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[0U])) 
                               << 0x00000020U) | (QData)((IData)(
@@ -363,7 +373,7 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__1(Vpipeline_pipeline* vlSe
                                                                 (0x0000001fU 
                                                                  & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U] 
                                                                     >> 0x0000000fU))])))) 
-                    >> 0x00000019U) | ((IData)(((((QData)((IData)(
+                    >> 0x00000018U) | ((IData)(((((QData)((IData)(
                                                                   vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[0U])) 
                                                   << 0x00000020U) 
                                                  | (QData)((IData)(
@@ -373,11 +383,11 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__1(Vpipeline_pipeline* vlSe
                                                                     & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U] 
                                                                        >> 0x0000000fU))]))) 
                                                 >> 0x00000020U)) 
-                                       << 7U));
+                                       << 8U));
             vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
                 = (((vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[1U] 
-                     << 0x0000000dU) | ((IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE) 
-                                        << 7U)) | ((IData)(
+                     << 0x0000000eU) | ((IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE) 
+                                        << 8U)) | ((IData)(
                                                            ((((QData)((IData)(
                                                                               vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[0U])) 
                                                               << 0x00000020U) 
@@ -388,30 +398,30 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__1(Vpipeline_pipeline* vlSe
                                                                                 & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U] 
                                                                                 >> 0x0000000fU))]))) 
                                                             >> 0x00000020U)) 
-                                                   >> 0x00000019U));
+                                                   >> 0x00000018U));
             vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[5U] 
-                = (((0x0000007fU & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[1U] 
-                                    >> 0x00000013U)) 
+                = (((0x000000ffU & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[1U] 
+                                    >> 0x00000012U)) 
                     | ((IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE) 
-                       >> 0x00000019U)) | ((0x00001f80U 
+                       >> 0x00000018U)) | ((0x00003f00U 
                                             & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[1U] 
-                                               >> 0x00000013U)) 
+                                               >> 0x00000012U)) 
                                            | (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[2U] 
-                                              << 0x0000000dU)));
+                                              << 0x0000000eU)));
             vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[6U] 
-                = ((0x0000007fU & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[2U] 
-                                   >> 0x00000013U)) 
-                   | ((0x00001f80U & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[2U] 
-                                      >> 0x00000013U)) 
+                = ((0x000000ffU & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[2U] 
+                                   >> 0x00000012U)) 
+                   | ((0x00003f00U & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[2U] 
+                                      >> 0x00000012U)) 
                       | (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U] 
-                         << 0x0000000dU)));
+                         << 0x0000000eU)));
             vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[7U] 
-                = ((0x0000007fU & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U] 
-                                   >> 0x00000013U)) 
-                   | ((0x00001f80U & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U] 
-                                      >> 0x00000013U)) 
-                      | (0x00002000U & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[4U] 
-                                        << 0x0000000dU))));
+                = ((0x000000ffU & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U] 
+                                   >> 0x00000012U)) 
+                   | ((0x00003f00U & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U] 
+                                      >> 0x00000012U)) 
+                      | (0x00004000U & (vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[4U] 
+                                        << 0x0000000eU))));
         }
     }
     vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[0U] 
@@ -424,34 +434,124 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__1(Vpipeline_pipeline* vlSe
         = vlSelfRef.__Vdly__my_FE_stage__DOT__FE_latch[3U];
     vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[4U] 
         = vlSelfRef.__Vdly__my_FE_stage__DOT__FE_latch[4U];
+    if ((1U & (~ ((((((((0x0cU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                  >> 8U))) 
+                        | (1U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                 >> 8U)))) 
+                       | (0x0dU == (0x0000003fU & (
+                                                   vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                   >> 8U)))) 
+                      | (3U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                               >> 8U)))) 
+                     | (0x16U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                 >> 8U)))) 
+                    | (0x15U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                >> 8U)))) 
+                   | (0x19U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                               >> 8U)))) 
+                  | (0x1bU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                              >> 8U))))))) {
+        if ((1U & (~ ((((((((2U == (0x0000003fU & (
+                                                   vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                   >> 8U))) 
+                            | (8U == (0x0000003fU & 
+                                      (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                       >> 8U)))) | 
+                           (0x12U == (0x0000003fU & 
+                                      (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                       >> 8U)))) | 
+                          (9U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                 >> 8U)))) 
+                         | (0x13U == (0x0000003fU & 
+                                      (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                       >> 8U)))) | 
+                        (4U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                               >> 8U)))) 
+                       | (0x0eU == (0x0000003fU & (
+                                                   vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                   >> 8U)))) 
+                      | (0x0aU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                  >> 8U))))))) {
+            if (((((((((0x14U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                 >> 8U))) 
+                       | (6U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                >> 8U)))) 
+                      | (0x10U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                  >> 8U)))) 
+                     | (7U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                              >> 8U)))) 
+                    | (0x11U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                >> 8U)))) 
+                   | (5U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                            >> 8U)))) 
+                  | (0x0fU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                              >> 8U)))) 
+                 | (0x18U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                             >> 8U))))) {
+                if ((0x14U != (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                              >> 8U)))) {
+                    if ((6U != (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                               >> 8U)))) {
+                        if ((0x10U != (0x0000003fU 
+                                       & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                          >> 8U)))) {
+                            if ((7U != (0x0000003fU 
+                                        & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                           >> 8U)))) {
+                                if ((0x11U != (0x0000003fU 
+                                               & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                  >> 8U)))) {
+                                    if ((5U != (0x0000003fU 
+                                                & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                   >> 8U)))) {
+                                        if ((0x0fU 
+                                             != (0x0000003fU 
+                                                 & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                    >> 8U)))) {
+                                            vlSelfRef.__PVT__my_AGEX_stage__DOT__wr_val_AGEX 
+                                                = (
+                                                   (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                                    << 0x00000018U) 
+                                                   | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
+                                                      >> 8U));
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     my_AGEX_stage__DOT____VdfgExtracted_h32f0a660__0 
         = (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-             << 0x00000019U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                >> 7U)) + ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                            << 0x00000019U) 
+             << 0x00000018U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                >> 8U)) + ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
+                                            << 0x00000018U) 
                                            | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
-                                              >> 7U)));
+                                              >> 8U)));
     my_AGEX_stage__DOT____VdfgExtracted_hbcc182c0__0 
         = (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[6U] 
-             << 0x00000013U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[5U] 
-                                >> 0x0000000dU)) + 
+             << 0x00000012U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[5U] 
+                                >> 0x0000000eU)) + 
            ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-             << 0x00000019U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
-                                >> 7U)));
+             << 0x00000018U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
+                                >> 8U)));
     my_AGEX_stage__DOT____VdfgExtracted_h690ea6c9__0 
         = (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-             << 0x00000019U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                >> 7U)) < ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                            << 0x00000019U) 
+             << 0x00000018U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                >> 8U)) < ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                            << 0x00000018U) 
                                            | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                              >> 7U)));
+                                              >> 8U)));
     my_AGEX_stage__DOT____VdfgExtracted_h6ac6cdbe__0 
         = VL_LTS_III(32, ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                           << 0x00000019U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                              >> 7U)), 
+                           << 0x00000018U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                              >> 8U)), 
                      ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                       << 0x00000019U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                          >> 7U)));
+                       << 0x00000018U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
+                                          >> 8U)));
     my_DE_stage__DOT____VdfgRegularize_h7155bcbd_0_5 
         = (IData)((0x00000033U == (0x0000707fU & vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U])));
     my_DE_stage__DOT____VdfgRegularize_h7155bcbd_0_14 
@@ -461,217 +561,210 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__1(Vpipeline_pipeline* vlSe
     my_DE_stage__DOT____VdfgRegularize_h7155bcbd_0_17 
         = (IData)((0x00005013U == (0x0000707fU & vlSelfRef.__PVT__my_FE_stage__DOT__FE_latch[3U])));
     vlSelfRef.__PVT__my_AGEX_stage__DOT__aluout_AGEX 
-        = ((((0x0cU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                       >> 7U))) | (1U 
-                                                   == 
-                                                   (0x0000003fU 
-                                                    & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                       >> 7U)))) 
-            | (((0x0dU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                          >> 7U))) 
+        = (((((((((0x0cU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                            >> 8U))) 
+                  | (1U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                           >> 8U)))) 
+                 | (0x0dU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                             >> 8U)))) 
                 | (3U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                         >> 7U)))) 
-               | ((0x16U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                            >> 7U))) 
-                  | ((0x15U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                               >> 7U))) 
-                     | ((0x19U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                  >> 7U))) 
-                        | (0x1bU == (0x0000003fU & 
-                                     (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                      >> 7U))))))))
-            ? ((0x0cU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                         >> 7U))) ? my_AGEX_stage__DOT____VdfgExtracted_h32f0a660__0
-                : ((1U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                          >> 7U))) ? 
-                   (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                      << 0x00000019U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                         >> 7U)) + 
-                    ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                      << 0x00000019U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                         >> 7U))) : 
-                   ((0x0dU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                              >> 7U)))
+                                         >> 8U)))) 
+               | (0x16U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                           >> 8U)))) 
+              | (0x15U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                          >> 8U)))) 
+             | (0x19U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                         >> 8U)))) 
+            | (0x1bU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                        >> 8U)))) ? 
+           ((0x0cU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                      >> 8U))) ? my_AGEX_stage__DOT____VdfgExtracted_h32f0a660__0
+             : ((1U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                       >> 8U))) ? (
+                                                   ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
+                                                     << 0x00000018U) 
+                                                    | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                                       >> 8U)) 
+                                                   + 
+                                                   ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                                     << 0x00000018U) 
+                                                    | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
+                                                       >> 8U)))
+                 : ((0x0dU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                              >> 8U)))
                      ? (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                          << 0x00000019U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                             >> 7U)) 
+                          << 0x00000018U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                             >> 8U)) 
                         & ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                            << 0x00000019U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
-                                               >> 7U)))
+                            << 0x00000018U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
+                                               >> 8U)))
                      : ((3U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                               >> 7U)))
+                                               >> 8U)))
                          ? (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                              << 0x00000019U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                 >> 7U)) 
+                              << 0x00000018U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                                 >> 8U)) 
                             & ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                << 0x00000019U) | (
+                                << 0x00000018U) | (
                                                    vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                                   >> 7U)))
+                                                   >> 8U)))
                          : ((0x16U == (0x0000003fU 
                                        & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                          >> 7U))) ? my_AGEX_stage__DOT____VdfgExtracted_hbcc182c0__0
+                                          >> 8U))) ? my_AGEX_stage__DOT____VdfgExtracted_hbcc182c0__0
                              : ((0x15U == (0x0000003fU 
                                            & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                              >> 7U)))
+                                              >> 8U)))
                                  ? ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                     << 0x00000019U) 
+                                     << 0x00000018U) 
                                     | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
-                                       >> 7U)) : ((
+                                       >> 8U)) : ((
                                                    vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[5U] 
-                                                   << 0x00000013U) 
+                                                   << 0x00000012U) 
                                                   | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                     >> 0x0000000dU))))))))
-            : ((((2U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                        >> 7U))) | 
-                 (8U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                        >> 7U)))) | 
-                (((0x12U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                            >> 7U))) 
-                  | (9U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                           >> 7U)))) 
-                 | ((0x13U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                              >> 7U))) 
-                    | ((4U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                              >> 7U))) 
-                       | ((0x0eU == (0x0000003fU & 
+                                                     >> 0x0000000eU))))))))
+            : (((((((((2U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                             >> 8U))) 
+                      | (8U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                               >> 8U)))) 
+                     | (0x12U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                 >> 8U)))) 
+                    | (9U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                             >> 8U)))) 
+                   | (0x13U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                               >> 8U)))) 
+                  | (4U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                           >> 8U)))) 
+                 | (0x0eU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                             >> 8U)))) 
+                | (0x0aU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                            >> 8U))))
+                ? ((2U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                          >> 8U))) ? 
+                   (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
+                      << 0x00000018U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                         >> 8U)) - 
+                    ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                      << 0x00000018U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
+                                         >> 8U))) : 
+                   ((8U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                           >> 8U)))
+                     ? VL_SHIFTRS_III(32,32,5, ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
+                                                 << 0x00000018U) 
+                                                | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                                   >> 8U)), 
+                                      (0x0000001fU 
+                                       & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
+                                          >> 8U))) : 
+                    ((0x12U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                               >> 8U)))
+                      ? VL_SHIFTRS_III(32,32,5, ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
+                                                  << 0x00000018U) 
+                                                 | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                                    >> 8U)), 
+                                       (0x0000001fU 
+                                        & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
+                                           >> 8U)))
+                      : ((9U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                >> 8U)))
+                          ? (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
+                               << 0x00000018U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                                  >> 8U)) 
+                             >> (0x0000001fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
+                                                >> 8U)))
+                          : ((0x13U == (0x0000003fU 
+                                        & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                           >> 8U)))
+                              ? VL_SHIFTR_III(32,32,32, 
+                                              ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
+                                                << 0x00000018U) 
+                                               | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                                  >> 8U)), 
+                                              ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
+                                                << 0x00000018U) 
+                                               | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
+                                                  >> 8U)))
+                              : ((4U == (0x0000003fU 
+                                         & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                            >> 8U)))
+                                  ? (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
+                                       << 0x00000018U) 
+                                      | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                         >> 8U)) | 
+                                     ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                       << 0x00000018U) 
+                                      | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
+                                         >> 8U))) : 
+                                 ((0x0eU == (0x0000003fU 
+                                             & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                >> 8U)))
+                                   ? (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
+                                        << 0x00000018U) 
+                                       | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                          >> 8U)) | 
+                                      ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
+                                        << 0x00000018U) 
+                                       | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
+                                          >> 8U))) : 
+                                  (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
+                                     << 0x00000018U) 
+                                    | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                       >> 8U)) << (0x0000001fU 
+                                                   & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
+                                                      >> 8U))))))))))
+                : (((((((((0x14U == (0x0000003fU & 
                                      (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                      >> 7U))) | (0x0aU 
+                                      >> 8U))) | (6U 
                                                   == 
                                                   (0x0000003fU 
                                                    & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                      >> 7U))))))))
-                ? ((2U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                          >> 7U))) ? 
-                   (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                      << 0x00000019U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                         >> 7U)) - 
-                    ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                      << 0x00000019U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                         >> 7U))) : 
-                   ((8U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                           >> 7U)))
-                     ? VL_SHIFTRS_III(32,32,5, ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                                                 << 0x00000019U) 
-                                                | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                   >> 7U)), 
-                                      (0x0000001fU 
-                                       & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                          >> 7U))) : 
-                    ((0x12U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                               >> 7U)))
-                      ? VL_SHIFTRS_III(32,32,5, ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                                                  << 0x00000019U) 
-                                                 | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                    >> 7U)), 
-                                       (0x0000001fU 
-                                        & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
-                                           >> 7U)))
-                      : ((9U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                >> 7U)))
-                          ? (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                               << 0x00000019U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                  >> 7U)) 
-                             >> (0x0000001fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                                >> 7U)))
-                          : ((0x13U == (0x0000003fU 
-                                        & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                           >> 7U)))
-                              ? VL_SHIFTR_III(32,32,32, 
-                                              ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                                                << 0x00000019U) 
-                                               | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                  >> 7U)), 
-                                              ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                                << 0x00000019U) 
-                                               | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
-                                                  >> 7U)))
-                              : ((4U == (0x0000003fU 
-                                         & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                            >> 7U)))
-                                  ? (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                                       << 0x00000019U) 
-                                      | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                         >> 7U)) | 
-                                     ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                       << 0x00000019U) 
-                                      | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                         >> 7U))) : 
-                                 ((0x0eU == (0x0000003fU 
-                                             & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                >> 7U)))
-                                   ? (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                                        << 0x00000019U) 
-                                       | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                          >> 7U)) | 
-                                      ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                        << 0x00000019U) 
-                                       | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
-                                          >> 7U))) : 
-                                  (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                                     << 0x00000019U) 
-                                    | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                       >> 7U)) << (0x0000001fU 
-                                                   & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                                      >> 7U))))))))))
-                : ((((0x14U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                               >> 7U))) 
-                     | (6U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                              >> 7U)))) 
-                    | (((0x10U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                  >> 7U))) 
-                        | (7U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                 >> 7U)))) 
-                       | ((0x11U == (0x0000003fU & 
-                                     (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                      >> 7U))) | ((5U 
-                                                   == 
-                                                   (0x0000003fU 
-                                                    & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                       >> 7U))) 
-                                                  | ((0x0fU 
-                                                      == 
-                                                      (0x0000003fU 
-                                                       & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                          >> 7U))) 
-                                                     | (0x18U 
-                                                        == 
-                                                        (0x0000003fU 
-                                                         & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                            >> 7U))))))))
+                                                      >> 8U)))) 
+                         | (0x10U == (0x0000003fU & 
+                                      (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                       >> 8U)))) | 
+                        (7U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                               >> 8U)))) 
+                       | (0x11U == (0x0000003fU & (
+                                                   vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                   >> 8U)))) 
+                      | (5U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                               >> 8U)))) 
+                     | (0x0fU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                 >> 8U)))) 
+                    | (0x18U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                                >> 8U))))
                     ? ((0x14U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                 >> 7U)))
+                                                 >> 8U)))
                         ? VL_SHIFTL_III(32,32,32, (
                                                    (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                                                    << 0x00000019U) 
+                                                    << 0x00000018U) 
                                                    | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                      >> 7U)), 
+                                                      >> 8U)), 
                                         ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                          << 0x00000019U) 
+                                          << 0x00000018U) 
                                          | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
-                                            >> 7U)))
+                                            >> 8U)))
                         : ((6U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                  >> 7U)))
+                                                  >> 8U)))
                             ? ((IData)(my_AGEX_stage__DOT____VdfgExtracted_h6ac6cdbe__0)
                                 ? 1U : 0U) : ((0x10U 
                                                == (0x0000003fU 
                                                    & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                      >> 7U)))
+                                                      >> 8U)))
                                                ? (VL_LTS_III(32, 
                                                              ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                                                               << 0x00000019U) 
+                                                               << 0x00000018U) 
                                                               | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                                 >> 7U)), 
+                                                                 >> 8U)), 
                                                              ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                                               << 0x00000019U) 
+                                                               << 0x00000018U) 
                                                               | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
-                                                                 >> 7U)))
+                                                                 >> 8U)))
                                                    ? 1U
                                                    : 0U)
                                                : ((7U 
                                                    == 
                                                    (0x0000003fU 
                                                     & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                       >> 7U)))
+                                                       >> 8U)))
                                                    ? 
                                                   ((IData)(my_AGEX_stage__DOT____VdfgExtracted_h690ea6c9__0)
                                                     ? 1U
@@ -681,17 +774,17 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__1(Vpipeline_pipeline* vlSe
                                                     == 
                                                     (0x0000003fU 
                                                      & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                        >> 7U)))
+                                                        >> 8U)))
                                                     ? 
                                                    ((((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                                                       << 0x00000019U) 
+                                                       << 0x00000018U) 
                                                       | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                         >> 7U)) 
+                                                         >> 8U)) 
                                                      < 
                                                      ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                                       << 0x00000019U) 
+                                                       << 0x00000018U) 
                                                       | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
-                                                         >> 7U)))
+                                                         >> 8U)))
                                                      ? 1U
                                                      : 0U)
                                                     : 
@@ -699,100 +792,100 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__1(Vpipeline_pipeline* vlSe
                                                      == 
                                                      (0x0000003fU 
                                                       & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                         >> 7U)))
+                                                         >> 8U)))
                                                      ? 
                                                     (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                                                       << 0x00000019U) 
+                                                       << 0x00000018U) 
                                                       | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                         >> 7U)) 
+                                                         >> 8U)) 
                                                      ^ 
                                                      ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                       << 0x00000019U) 
+                                                       << 0x00000018U) 
                                                       | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                                         >> 7U)))
+                                                         >> 8U)))
                                                      : 
                                                     ((0x0fU 
                                                       == 
                                                       (0x0000003fU 
                                                        & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                          >> 7U)))
+                                                          >> 8U)))
                                                       ? 
                                                      (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                                                        << 0x00000019U) 
+                                                        << 0x00000018U) 
                                                        | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                          >> 7U)) 
+                                                          >> 8U)) 
                                                       ^ 
                                                       ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                                        << 0x00000019U) 
+                                                        << 0x00000018U) 
                                                        | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
-                                                          >> 7U)))
+                                                          >> 8U)))
                                                       : my_AGEX_stage__DOT____VdfgExtracted_h32f0a660__0)))))))
                     : 0U)));
     vlSelfRef.__PVT__my_AGEX_stage__DOT__br_cond_AGEX 
         = ((((0x1cU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                       >> 7U))) | (0x1dU 
+                                       >> 8U))) | (0x1dU 
                                                    == 
                                                    (0x0000003fU 
                                                     & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                       >> 7U)))) 
+                                                       >> 8U)))) 
             | (((0x1eU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                          >> 7U))) 
+                                          >> 8U))) 
                 | (0x1fU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                            >> 7U)))) 
+                                            >> 8U)))) 
                | ((0x20U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                            >> 7U))) 
+                                            >> 8U))) 
                   | ((0x21U == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                               >> 7U))) 
+                                               >> 8U))) 
                      | ((0x1bU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                  >> 7U))) 
+                                                  >> 8U))) 
                         | (0x19U == (0x0000003fU & 
                                      (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                      >> 7U)))))))) 
+                                      >> 8U)))))))) 
            & ((0x1cU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                        >> 7U))) ? 
+                                        >> 8U))) ? 
               (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                 << 0x00000019U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                    >> 7U)) == ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                 << 0x00000019U) 
+                 << 0x00000018U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                    >> 8U)) == ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                                 << 0x00000018U) 
                                                 | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                                   >> 7U)))
+                                                   >> 8U)))
                : ((0x1dU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                            >> 7U)))
+                                            >> 8U)))
                    ? (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                        << 0x00000019U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                           >> 7U)) 
+                        << 0x00000018U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                           >> 8U)) 
                       != ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                           << 0x00000019U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                              >> 7U)))
+                           << 0x00000018U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
+                                              >> 8U)))
                    : ((0x1eU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                >> 7U)))
+                                                >> 8U)))
                        ? (IData)(my_AGEX_stage__DOT____VdfgExtracted_h6ac6cdbe__0)
                        : ((0x1fU == (0x0000003fU & 
                                      (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                      >> 7U))) ? VL_GTES_III(32, 
+                                      >> 8U))) ? VL_GTES_III(32, 
                                                              ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                                                               << 0x00000019U) 
+                                                               << 0x00000018U) 
                                                               | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                                 >> 7U)), 
+                                                                 >> 8U)), 
                                                              ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                               << 0x00000019U) 
+                                                               << 0x00000018U) 
                                                               | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                                                 >> 7U)))
+                                                                 >> 8U)))
                            : ((0x20U == (0x0000003fU 
                                          & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                            >> 7U)))
+                                            >> 8U)))
                                ? (IData)(my_AGEX_stage__DOT____VdfgExtracted_h690ea6c9__0)
-                               : (IData)(((0x00001080U 
-                                           != (0x00001f80U 
+                               : (IData)(((0x00002100U 
+                                           != (0x00003f00U 
                                                & vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U])) 
                                           | (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                                               << 0x00000019U) 
+                                               << 0x00000018U) 
                                               | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                 >> 7U)) 
+                                                 >> 8U)) 
                                              >= ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                                  << 0x00000019U) 
+                                                  << 0x00000018U) 
                                                  | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                                    >> 7U)))))))))));
+                                                    >> 8U)))))))))));
     vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE = (((IData)(my_DE_stage__DOT____VdfgRegularize_h7155bcbd_0_5) 
                                                    & (0U 
                                                       == 
@@ -1030,14 +1123,14 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__1(Vpipeline_pipeline* vlSe
                                                                                  : 0x25U))))))))))))))))))))))))))))))))));
     vlSelfRef.__PVT__my_FE_stage__DOT__br_target_AGEX 
         = (((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
-             >> 6U) & (IData)(vlSelfRef.__PVT__my_AGEX_stage__DOT__br_cond_AGEX))
+             >> 7U) & (IData)(vlSelfRef.__PVT__my_AGEX_stage__DOT__br_cond_AGEX))
             ? ((0x1bU == (0x0000003fU & (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                         >> 7U))) ? 
+                                         >> 8U))) ? 
                (0xfffffffeU & my_AGEX_stage__DOT____VdfgExtracted_h32f0a660__0)
                 : my_AGEX_stage__DOT____VdfgExtracted_hbcc182c0__0)
             : ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[5U] 
-                << 0x00000013U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                   >> 0x0000000dU)));
+                << 0x00000012U) | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                   >> 0x0000000eU)));
     vlSelfRef.__PVT__my_DE_stage__DOT__type_immediate_DE 
         = vlSelfRef.my_DE_stage__DOT____Vxrand___1;
     if ((1U & (~ (((((((((((1U == (IData)(vlSelfRef.__PVT__my_DE_stage__DOT__op_I_DE)) 
@@ -1177,12 +1270,12 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__1(Vpipeline_pipeline* vlSe
         vlSelfRef.__PVT__my_DE_stage__DOT__type_I_DE = 3U;
     }
     vlSelfRef.__PVT__from_AGEX_to_DE = ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[0U] 
-                                         >> 6U) & (vlSelfRef.__PVT__my_FE_stage__DOT__br_target_AGEX 
+                                         >> 7U) & (vlSelfRef.__PVT__my_FE_stage__DOT__br_target_AGEX 
                                                    != 
                                                    ((vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[5U] 
-                                                     << 0x00000013U) 
+                                                     << 0x00000012U) 
                                                     | (vlSelfRef.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                                       >> 0x0000000dU))));
+                                                       >> 0x0000000eU))));
     __Vtableidx1 = vlSelfRef.__PVT__my_DE_stage__DOT__type_I_DE;
     vlSelfRef.__PVT__my_DE_stage__DOT__use_rs1_DE = 
         Vpipeline__ConstPool__TABLE_h29143c0b_0[__Vtableidx1];

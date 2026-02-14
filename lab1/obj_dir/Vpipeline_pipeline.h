@@ -39,13 +39,12 @@ class alignas(VL_CACHE_LINE_BYTES) Vpipeline_pipeline final {
     IData/*31:0*/ __PVT__my_FE_stage__DOT__inst_FE;
     IData/*31:0*/ __PVT__my_FE_stage__DOT__pcplus_FE;
     IData/*31:0*/ __PVT__my_FE_stage__DOT__br_target_AGEX;
-    VlWide<8>/*237:0*/ __PVT__my_DE_stage__DOT__DE_latch;
+    VlWide<8>/*238:0*/ __PVT__my_DE_stage__DOT__DE_latch;
     IData/*31:0*/ __PVT__my_DE_stage__DOT__in_use_regs;
-    VlWide<5>/*140:0*/ __PVT__my_AGEX_stage__DOT__AGEX_latch;
+    VlWide<6>/*172:0*/ __PVT__my_AGEX_stage__DOT__AGEX_latch;
     IData/*31:0*/ __PVT__my_AGEX_stage__DOT__aluout_AGEX;
+    IData/*31:0*/ __PVT__my_AGEX_stage__DOT__wr_val_AGEX;
     VlWide<5>/*140:0*/ __PVT__my_MEM_stage__DOT__MEM_latch;
-    IData/*31:0*/ __PVT__my_MEM_stage__DOT__memaddr_MEM;
-    IData/*31:0*/ __PVT__my_MEM_stage__DOT__wr_val_MEM;
     VlWide<5>/*128:0*/ __Vdly__my_FE_stage__DOT__FE_latch;
     VlUnpacked<IData/*31:0*/, 16384> __PVT__my_FE_stage__DOT__imem;
     VlUnpacked<IData/*31:0*/, 32> __PVT__my_DE_stage__DOT__regs;

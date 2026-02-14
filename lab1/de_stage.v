@@ -218,6 +218,7 @@ end
 
   wire is_br_DE;    // is conditional branch instr
   wire wr_reg_DE;   // is writing back to register file
+  wire wr_mem_DE;   // is storing into memory
 
   // Decode instruction registers
   assign rs1_DE = inst_DE[19:15];
@@ -240,6 +241,7 @@ end
                       || (op_I_DE == `SLT_I) || (op_I_DE == `SLTI_I)
                       || (op_I_DE == `SLTU_I) || (op_I_DE == `SLTIU_I) || (op_I_DE == `SRAI_I) || (op_I_DE == `SRL_I) || (op_I_DE == `SRLI_I)
                       || (op_I_DE == `ANDI_I) || (op_I_DE == `AND_I) || (op_I_DE == `XOR_I) || (op_I_DE == `XORI_I)) ? ((rd_DE != 0) ? 1 : 0): 0; 
+  assign wr_mem_DE = (op_I_DE == `SW_I) ? 1 : 0;
 
  /* this signal is passed from WB stage */ 
   wire wr_reg_WB; // is this instruction writing into a register file? 
@@ -338,7 +340,8 @@ end
                                   sxt_imm_DE,
                                   is_br_DE,
                                   wr_reg_DE,
-                                  rd_DE
+                                  rd_DE,
+                                  wr_mem_DE
                                   }; 
 
 
