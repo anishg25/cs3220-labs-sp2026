@@ -47,7 +47,11 @@ module AGEX_STAGE(
   reg [`DBITS-1:0] br_target_AGEX;
   wire br_mispred_AGEX;
 
-  
+  // hash, BTB index, and prediction from DE
+  wire [7:0] hash_AGEX;
+  wire prediction_AGEX;
+  wire [31:0] BTB_target_AGEX;
+
   // Calculate branch condition
   // TODO: complete the code
   always @ (*) begin
@@ -115,11 +119,10 @@ module AGEX_STAGE(
     else if (is_br_AGEX && br_cond_AGEX) 
       br_target_AGEX = PC_AGEX + sxt_imm_AGEX; 
     else 
-      br_target_AGEX = pcplus_AGEX;        
+      br_target_AGEX = pcplus_AGEX;
   end
 
-  assign br_mispred_AGEX = ((is_br_AGEX || is_jmp_AGEX) 
-                         && (br_target_AGEX != pcplus_AGEX)) ? 1 : 0;
+  assign br_mispred_AGEX = (prediction_AGEX != br_cond_AGEX) || (br_target_AGEX != BTB_target_AGEX) ? 1 : 0; // checking if flush is necessary for misprediction
 
     assign  {                     
                                   valid_AGEX,
@@ -137,7 +140,10 @@ module AGEX_STAGE(
                                   rd_mem_AGEX,
                                   wr_mem_AGEX,
                                   wr_reg_AGEX,
-                                  wregno_AGEX
+                                  wregno_AGEX,
+                                  hash_AGEX,
+                                  prediction_AGEX,
+                                  BTB_target_AGEX 
                                   } = from_DE_latch; 
     
  
@@ -170,7 +176,9 @@ module AGEX_STAGE(
   // forward signals to FE stage
   assign from_AGEX_to_FE = { 
     br_mispred_AGEX, 
-    br_target_AGEX
+    br_target_AGEX,
+    br_cond_AGEX,
+    is_br_AGEX
   };
 
   // forward signals to DE stage

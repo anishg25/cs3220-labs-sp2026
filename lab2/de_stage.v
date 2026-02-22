@@ -206,6 +206,10 @@ always @(*) begin
   endcase  
 end 
  
+  // hash, BTB index, and prediction from FE
+  wire [7:0] hash_DE;
+  wire prediction_DE;
+  wire [31:0] BTB_target_DE;
 
   wire [`REGNOBITS-1:0] rs1_DE;
   wire [`REGNOBITS-1:0] rs2_DE;
@@ -338,7 +342,10 @@ end
             inst_DE,
             PC_DE, 
             pcplus_DE,
-            inst_count_DE 
+            inst_count_DE,
+            hash_DE,
+            prediction_DE,
+            BTB_target_DE
             }  = from_FE_latch;  // based on the contents of the latch, you can decode the content 
 
 
@@ -361,7 +368,10 @@ end
                                   rd_mem_DE,
                                   wr_mem_DE,
                                   wr_reg_DE,
-                                  rd_DE
+                                  rd_DE,
+                                  hash_DE,
+                                  prediction_DE,
+                                  BTB_target_DE 
                                   }; 
 
 

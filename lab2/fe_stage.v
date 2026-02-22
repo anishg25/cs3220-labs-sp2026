@@ -47,7 +47,16 @@ module FE_STAGE(
   wire stall_pipe_FE; // signal to indicate when a front-end needs to be stall
   
   wire [`FE_latch_WIDTH-1:0] FE_latch_contents;  // the signals that will be FE latch contents 
-  
+
+  // stuff i added
+  reg [7:0] BHR; // branch history register 
+  reg [1:0] PHT [255:0]; // pattern history table
+  reg [58:0] BTB [15:0]; // branch table buffer
+  wire [7:0] hash_FE;
+  wire prediction_FE;
+
+  assign hash_FE = PC_FE_latch[9:2] ^ BHR; // PHT index
+
   // reading instruction from imem 
   assign inst_FE = imem[PC_FE_latch[`IMEMADDRBITS-1:`IMEMWORDBITS]];  // this code works. imem is stored 4B together 
   
@@ -65,18 +74,19 @@ module FE_STAGE(
                                 inst_FE, 
                                 PC_FE_latch, 
                                 pcplus_FE, // please feel free to add more signals such as valid bits etc. 
-                                inst_count_FE
+                                inst_count_FE,
                                  // if you add more bits here, please increase the width of latch in VX_define.vh 
-                                
+                                hash_FE,
+                                prediction_FE,
+                                BTB_target_FE
                                 };
-
-
-
 
   // **TODO: Complete the rest of the pipeline 
   //assign stall_pipe_FE = 1;   // you need
   wire br_mispred_AGEX;  
   wire [`DBITS-1:0] br_target_AGEX;  
+  wire br_cond_AGEX;
+  wire is_br_AGEX;
 
   assign {
     stall_pipe_FE
@@ -84,25 +94,72 @@ module FE_STAGE(
 
   assign {
     br_mispred_AGEX,
-    br_target_AGEX
+    br_target_AGEX,
+    br_cond_AGEX,
+    is_br_AGEX
   } = from_AGEX_to_FE;
+
+  integer i; // loop counter
+  integer j; 
+  wire BTB_hit;
+  wire [31:0] predicted_target;
+  wire [31:0] BTB_target_FE;
+  assign BTB_target_FE = BTB[PC_FE_latch[5:2]][31:0];
+  assign BTB_hit = (BTB[PC_FE_latch[5:2]][58] == 1'b1) ? (PC_FE_latch[31:6] == BTB[PC_FE_latch[5:2]][57:32]) : 1'b0; // check for BTB hit by looking at valid bit and comparing PC & tag
+  assign prediction_FE = (PHT[hash_FE] == 2'b10 || PHT[hash_FE] == 2'b11) ? 1'b1 : 1'b0; // calculate the prediction based on PHT entry
+
 
   always @ (posedge clk) begin
   /* you need to extend this always block */
    if (reset) begin 
       PC_FE_latch <= `STARTPC;
       inst_count_FE <= 1;  /* inst_count starts from 1 for easy human reading. 1st fetch instructions can have 1 */ 
+      BHR <= 8'b00000000;
+
+      for (i = 0; i < 256; i = i + 1) begin // initialize all entries in PHT to weakly NOT taken 
+        PHT[i] <= 2'b01;
+      end
+
+      for (j = 0; j < 16; j = j + 1) begin // initialize all the valid bits in BTB to 0 
+        BTB[j][58] <= 1'b0;
+      end
+
       end 
     else if (br_mispred_AGEX)
       PC_FE_latch <= br_target_AGEX;
     else if (stall_pipe_FE) 
       PC_FE_latch <= PC_FE_latch; 
     else begin 
-      PC_FE_latch <= pcplus_FE;
+
+      if (prediction_FE && BTB_hit) begin // if PHT predicts taken and BTB valid bit is 1 and tag is matched 
+        PC_FE_latch <= BTB[PC_FE_latch[5:2]][31:0]; // set PC to the target address in the BTB
+      end else begin
+        PC_FE_latch <= pcplus_FE; // otherwise put PC + 4
+      end
       inst_count_FE <= inst_count_FE + 1; 
+
       end 
   end
   
+  always @ (posedge clk) begin 
+
+      if (is_br_AGEX) begin // updating PHT if instruction is a branch conditional
+        case (PHT[hash_FE]) 
+          2'b00: PHT[hash_FE] = br_cond_AGEX ? 2'b01 : 2'b00;
+          2'b01: PHT[hash_FE] = br_cond_AGEX ? 2'b10 : 2'b00;
+          2'b10: PHT[hash_FE] = br_cond_AGEX ? 2'b11 : 2'b01;
+          2'b11: PHT[hash_FE] = br_cond_AGEX ? 2'b11 : 2'b10;
+        endcase
+
+        BHR <= {BHR[6:0], br_cond_AGEX}; // updating branch history register
+      end
+
+      // updating the BTB for conditional and unconditional statements (both branches and jumps)
+      BTB[PC_FE_latch[5:2]][58] <= 1'b1; 
+      BTB[PC_FE_latch[5:2]][57:32] <= PC_FE_latch[31:6];
+      BTB[PC_FE_latch[5:2]][31:0] <= br_target_AGEX;
+
+  end
 
   always @ (posedge clk) begin
     if (reset) begin 
