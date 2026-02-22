@@ -16,6 +16,7 @@
 // INCLUDE MODULE CLASSES
 #include "Vpipeline___024root.h"
 #include "Vpipeline_pipeline.h"
+#include "Vpipeline_FE_STAGE.h"
 #include "Vpipeline_WB_STAGE.h"
 
 // DPI TYPES for DPI Export callbacks (Internal use)
@@ -33,9 +34,11 @@ class alignas(VL_CACHE_LINE_BYTES)Vpipeline__Syms final : public VerilatedSyms {
     // MODULE INSTANCE STATE
     Vpipeline___024root            TOP;
     Vpipeline_pipeline             TOP__pipeline;
+    Vpipeline_FE_STAGE             TOP__pipeline__my_FE_stage;
     Vpipeline_WB_STAGE             TOP__pipeline__my_WB_stage;
 
     // SCOPE NAMES
+    VerilatedScope __Vscope_pipeline__my_FE_stage;
     VerilatedScope __Vscope_pipeline__my_WB_stage;
 
     // CONSTRUCTORS

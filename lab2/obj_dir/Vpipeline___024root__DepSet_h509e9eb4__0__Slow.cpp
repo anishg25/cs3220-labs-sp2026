@@ -10,6 +10,7 @@
 #include "Vpipeline___024root.h"
 
 VL_ATTR_COLD void Vpipeline_pipeline___eval_initial__TOP__pipeline(Vpipeline_pipeline* vlSelf);
+VL_ATTR_COLD void Vpipeline_FE_STAGE___eval_initial__TOP__pipeline__my_FE_stage(Vpipeline_FE_STAGE* vlSelf);
 
 VL_ATTR_COLD void Vpipeline___024root___eval_initial(Vpipeline___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
@@ -20,6 +21,7 @@ VL_ATTR_COLD void Vpipeline___024root___eval_initial(Vpipeline___024root* vlSelf
     vlSelf->__Vm_traceActivity[2U] = 1U;
     vlSelf->__Vm_traceActivity[1U] = 1U;
     vlSelf->__Vm_traceActivity[0U] = 1U;
+    Vpipeline_FE_STAGE___eval_initial__TOP__pipeline__my_FE_stage((&vlSymsp->TOP__pipeline__my_FE_stage));
     vlSelf->__Vtrigprevexpr___TOP__clk__0 = vlSelf->clk;
 }
 
@@ -41,6 +43,7 @@ VL_ATTR_COLD void Vpipeline___024root___eval_triggers__stl(Vpipeline___024root* 
 }
 
 VL_ATTR_COLD void Vpipeline_pipeline___stl_sequent__TOP__pipeline__0(Vpipeline_pipeline* vlSelf);
+VL_ATTR_COLD void Vpipeline_FE_STAGE___stl_sequent__TOP__pipeline__my_FE_stage__0(Vpipeline_FE_STAGE* vlSelf);
 void Vpipeline_WB_STAGE___nba_sequent__TOP__pipeline__my_WB_stage__1(Vpipeline_WB_STAGE* vlSelf);
 
 VL_ATTR_COLD void Vpipeline___024root___eval_stl(Vpipeline___024root* vlSelf) {
@@ -53,6 +56,7 @@ VL_ATTR_COLD void Vpipeline___024root___eval_stl(Vpipeline___024root* vlSelf) {
         vlSelf->__Vm_traceActivity[2U] = 1U;
         vlSelf->__Vm_traceActivity[1U] = 1U;
         vlSelf->__Vm_traceActivity[0U] = 1U;
+        Vpipeline_FE_STAGE___stl_sequent__TOP__pipeline__my_FE_stage__0((&vlSymsp->TOP__pipeline__my_FE_stage));
         Vpipeline_WB_STAGE___nba_sequent__TOP__pipeline__my_WB_stage__1((&vlSymsp->TOP__pipeline__my_WB_stage));
     }
 }

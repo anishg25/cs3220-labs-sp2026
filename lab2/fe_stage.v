@@ -111,10 +111,13 @@ module FE_STAGE(
   wire BTB_hit;
   wire [31:0] predicted_target;
   wire [31:0] BTB_target_FE;
-  assign BTB_target_FE = BTB[PC_FE_latch[5:2]][31:0];
+  assign BTB_target_FE = BTB_hit ? BTB[PC_FE_latch[5:2]][31:0] : pcplus_FE;
   assign BTB_hit = (BTB[PC_FE_latch[5:2]][58] == 1'b1) ? (PC_FE_latch[31:6] == BTB[PC_FE_latch[5:2]][57:32]) : 1'b0; // check for BTB hit by looking at valid bit and comparing PC & tag
   assign prediction_FE = (PHT[hash_FE] == 2'b10 || PHT[hash_FE] == 2'b11) ? 1'b1 : 1'b0; // calculate the prediction based on PHT entry
 
+  // registers to store branch predictor metrics
+  reg [31:0] correct_predictions /* verilator public */;
+  reg [31:0] total_branches /* verilator public */;
 
   always @ (posedge clk) begin
   /* you need to extend this always block */
@@ -122,6 +125,9 @@ module FE_STAGE(
       PC_FE_latch <= `STARTPC;
       inst_count_FE <= 1;  /* inst_count starts from 1 for easy human reading. 1st fetch instructions can have 1 */ 
       BHR <= 8'b00000000;
+
+      correct_predictions <= 32'b0;
+      total_branches <= 32'b0;
 
       for (i = 0; i < 256; i = i + 1) begin // initialize all entries in PHT to weakly NOT taken 
         PHT[i] = 2'b01;
@@ -137,7 +143,6 @@ module FE_STAGE(
     else if (stall_pipe_FE) 
       PC_FE_latch <= PC_FE_latch; 
     else begin 
-
       if (prediction_FE && BTB_hit) begin // if PHT predicts taken and BTB valid bit is 1 and tag is matched 
         PC_FE_latch <= BTB[PC_FE_latch[5:2]][31:0]; // set PC to the target address in the BTB
       end else begin
@@ -160,8 +165,13 @@ module FE_STAGE(
 
         BHR <= {BHR[6:0], br_cond_AGEX}; // updating branch history register
       end
-      
+
       if (is_br_AGEX || is_jmp_AGEX) begin // updating the BTB for conditional and unconditional statements (both branches and jumps)
+        total_branches <= total_branches + 1;
+
+        if (!br_mispred_AGEX)
+          correct_predictions <= correct_predictions + 1;
+
         BTB[PC_AGEX[5:2]][58] <= 1'b1; 
         BTB[PC_AGEX[5:2]][57:32] <= PC_AGEX[31:6];
         BTB[PC_AGEX[5:2]][31:0] <= br_target_AGEX;

@@ -31,10 +31,13 @@ void Vpipeline___024root___eval_triggers__act(Vpipeline___024root* vlSelf) {
 }
 
 void Vpipeline_pipeline___nba_sequent__TOP__pipeline__0(Vpipeline_pipeline* vlSelf);
+void Vpipeline_FE_STAGE___nba_sequent__TOP__pipeline__my_FE_stage__0(Vpipeline_FE_STAGE* vlSelf);
 void Vpipeline_WB_STAGE___nba_sequent__TOP__pipeline__my_WB_stage__0(Vpipeline_WB_STAGE* vlSelf);
 void Vpipeline_pipeline___nba_sequent__TOP__pipeline__1(Vpipeline_pipeline* vlSelf);
 void Vpipeline_WB_STAGE___nba_sequent__TOP__pipeline__my_WB_stage__1(Vpipeline_WB_STAGE* vlSelf);
+void Vpipeline_FE_STAGE___nba_sequent__TOP__pipeline__my_FE_stage__1(Vpipeline_FE_STAGE* vlSelf);
 void Vpipeline_pipeline___nba_sequent__TOP__pipeline__2(Vpipeline_pipeline* vlSelf);
+void Vpipeline_pipeline___nba_sequent__TOP__pipeline__3(Vpipeline_pipeline* vlSelf);
 void Vpipeline_WB_STAGE___nba_sequent__TOP__pipeline__my_WB_stage__2(Vpipeline_WB_STAGE* vlSelf);
 
 void Vpipeline___024root___eval_nba(Vpipeline___024root* vlSelf) {
@@ -45,12 +48,15 @@ void Vpipeline___024root___eval_nba(Vpipeline___024root* vlSelf) {
     if ((1ULL & vlSelf->__VnbaTriggered.word(0U))) {
         Vpipeline_pipeline___nba_sequent__TOP__pipeline__0((&vlSymsp->TOP__pipeline));
         vlSelf->__Vm_traceActivity[1U] = 1U;
+        Vpipeline_FE_STAGE___nba_sequent__TOP__pipeline__my_FE_stage__0((&vlSymsp->TOP__pipeline__my_FE_stage));
         Vpipeline_WB_STAGE___nba_sequent__TOP__pipeline__my_WB_stage__0((&vlSymsp->TOP__pipeline__my_WB_stage));
         Vpipeline_pipeline___nba_sequent__TOP__pipeline__1((&vlSymsp->TOP__pipeline));
         Vpipeline_WB_STAGE___nba_sequent__TOP__pipeline__my_WB_stage__1((&vlSymsp->TOP__pipeline__my_WB_stage));
+        Vpipeline_FE_STAGE___nba_sequent__TOP__pipeline__my_FE_stage__1((&vlSymsp->TOP__pipeline__my_FE_stage));
+        Vpipeline_pipeline___nba_sequent__TOP__pipeline__2((&vlSymsp->TOP__pipeline));
     }
     if ((2ULL & vlSelf->__VnbaTriggered.word(0U))) {
-        Vpipeline_pipeline___nba_sequent__TOP__pipeline__2((&vlSymsp->TOP__pipeline));
+        Vpipeline_pipeline___nba_sequent__TOP__pipeline__3((&vlSymsp->TOP__pipeline));
         vlSelf->__Vm_traceActivity[2U] = 1U;
         Vpipeline_WB_STAGE___nba_sequent__TOP__pipeline__my_WB_stage__2((&vlSymsp->TOP__pipeline__my_WB_stage));
     }

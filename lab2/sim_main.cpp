@@ -92,7 +92,13 @@ int main(int argc, char** argv, char** env) {
     }
 
 #ifdef DPRINTF
+    double total = (double)dut->pipeline->my_FE_stage->total_branches;
+    double correct = (double)dut->pipeline->my_FE_stage->correct_predictions;
+    double accuracy = (correct / total) * 100;
+
     std::cout << "Total instructions=" << std::dec << inst_count_WB << ", cycles=" << (timestamp_WB / 2) << ", IPC=" << ((inst_count_WB * 2.0f) / timestamp_WB) << std::endl; 
+
+    printf("Accuracy=%.2f%%\n", accuracy);
 #endif
 
     int exitcode = (int)dut->pipeline->my_WB_stage->last_WB_value[3];
