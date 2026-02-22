@@ -48,7 +48,7 @@ module AGEX_STAGE(
   reg br_mispred_AGEX;
 
   // hash, BTB index, and prediction from DE
-  wire [7:0] hash_AGEX;
+  wire [9:0] hash_AGEX;
   wire prediction_AGEX;
   wire [31:0] BTB_target_AGEX;
 

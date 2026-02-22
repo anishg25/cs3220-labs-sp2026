@@ -22,30 +22,30 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vpipeline___024root__trace_chg_sub_0\n"); );
     // Init
     uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode + 1);
-    VlWide<6>/*191:0*/ __Vtemp_he011c453__0;
+    VlWide<6>/*191:0*/ __Vtemp_h0663615c__0;
     VlWide<6>/*191:0*/ __Vtemp_h42a8682a__0;
-    VlWide<4>/*127:0*/ __Vtemp_he390fc5e__0;
-    VlWide<6>/*191:0*/ __Vtemp_hb52d333d__0;
-    VlWide<9>/*287:0*/ __Vtemp_hec3f4a78__0;
-    VlWide<6>/*191:0*/ __Vtemp_h641fbc9c__0;
+    VlWide<4>/*127:0*/ __Vtemp_hfb3acc92__0;
+    VlWide<6>/*191:0*/ __Vtemp_h3c07697c__0;
+    VlWide<9>/*287:0*/ __Vtemp_hff9c895e__0;
+    VlWide<6>/*191:0*/ __Vtemp_h1297cfc4__0;
     // Body
     if (VL_UNLIKELY(vlSelf->__Vm_traceActivity[1U])) {
         bufp->chgIData(oldp+0,(vlSymsp->TOP__pipeline.__PVT__cycle_count),32);
-        bufp->chgWData(oldp+1,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch),170);
-        bufp->chgWData(oldp+7,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch),282);
+        bufp->chgWData(oldp+1,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch),172);
+        bufp->chgWData(oldp+7,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch),284);
         bufp->chgWData(oldp+16,(vlSymsp->TOP__pipeline.__PVT__my_AGEX_stage__DOT__AGEX_latch),175);
         bufp->chgWData(oldp+22,(vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch),173);
         bufp->chgBit(oldp+28,(vlSymsp->TOP__pipeline.__PVT__from_DE_to_FE));
-        bufp->chgWData(oldp+29,(vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE),76);
+        bufp->chgWData(oldp+29,(vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE),78);
         bufp->chgBit(oldp+32,(vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_DE));
         bufp->chgQData(oldp+33,(vlSymsp->TOP__pipeline__my_WB_stage.__PVT__from_WB_to_DE),38);
-        __Vtemp_he011c453__0[0U] = (((IData)((((QData)((IData)(vlSymsp->TOP__pipeline.__PVT__my_AGEX_stage__DOT__memaddr_AGEX)) 
+        __Vtemp_h0663615c__0[0U] = (((IData)((((QData)((IData)(vlSymsp->TOP__pipeline.__PVT__my_AGEX_stage__DOT__memaddr_AGEX)) 
                                                << 0x20U) 
                                               | (QData)((IData)(vlSymsp->TOP__pipeline.__PVT__my_AGEX_stage__DOT__aluout_AGEX)))) 
                                      << 8U) | (0xffU 
                                                & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                                  >> 9U)));
-        __Vtemp_he011c453__0[1U] = (((IData)((((QData)((IData)(vlSymsp->TOP__pipeline.__PVT__my_AGEX_stage__DOT__memaddr_AGEX)) 
+                                                  >> 0xbU)));
+        __Vtemp_h0663615c__0[1U] = (((IData)((((QData)((IData)(vlSymsp->TOP__pipeline.__PVT__my_AGEX_stage__DOT__memaddr_AGEX)) 
                                                << 0x20U) 
                                               | (QData)((IData)(vlSymsp->TOP__pipeline.__PVT__my_AGEX_stage__DOT__aluout_AGEX)))) 
                                      >> 0x18U) | ((IData)(
@@ -54,117 +54,117 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
                                                             | (QData)((IData)(vlSymsp->TOP__pipeline.__PVT__my_AGEX_stage__DOT__aluout_AGEX))) 
                                                            >> 0x20U)) 
                                                   << 8U));
-        __Vtemp_he011c453__0[2U] = (((IData)((0x3fffffffffULL 
+        __Vtemp_h0663615c__0[2U] = (((IData)((0x3fffffffffULL 
                                               & (((QData)((IData)(
                                                                   vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[5U])) 
-                                                  << 0xdU) 
+                                                  << 0xbU) 
                                                  | ((QData)((IData)(
                                                                     vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[4U])) 
-                                                    >> 0x13U)))) 
+                                                    >> 0x15U)))) 
                                      << 8U) | ((IData)(
                                                        ((((QData)((IData)(vlSymsp->TOP__pipeline.__PVT__my_AGEX_stage__DOT__memaddr_AGEX)) 
                                                           << 0x20U) 
                                                          | (QData)((IData)(vlSymsp->TOP__pipeline.__PVT__my_AGEX_stage__DOT__aluout_AGEX))) 
                                                         >> 0x20U)) 
                                                >> 0x18U));
-        __Vtemp_he011c453__0[3U] = (((vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[7U] 
-                                      << 0x15U) | (0x1fc000U 
+        __Vtemp_h0663615c__0[3U] = (((vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[7U] 
+                                      << 0x13U) | (0x7c000U 
                                                    & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[6U] 
-                                                      >> 0xbU))) 
+                                                      >> 0xdU))) 
                                     | (((IData)((0x3fffffffffULL 
                                                  & (((QData)((IData)(
                                                                      vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[5U])) 
-                                                     << 0xdU) 
+                                                     << 0xbU) 
                                                     | ((QData)((IData)(
                                                                        vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[4U])) 
-                                                       >> 0x13U)))) 
+                                                       >> 0x15U)))) 
                                         >> 0x18U) | 
                                        ((IData)(((0x3fffffffffULL 
                                                   & (((QData)((IData)(
                                                                       vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[5U])) 
-                                                      << 0xdU) 
+                                                      << 0xbU) 
                                                      | ((QData)((IData)(
                                                                         vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[4U])) 
-                                                        >> 0x13U))) 
+                                                        >> 0x15U))) 
                                                  >> 0x20U)) 
                                         << 8U)));
-        __Vtemp_he011c453__0[4U] = ((0x3fffU & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[7U] 
-                                                >> 0xbU)) 
+        __Vtemp_h0663615c__0[4U] = ((0x3fffU & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[7U] 
+                                                >> 0xdU)) 
                                     | ((vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[8U] 
-                                        << 0x15U) | 
-                                       (0x1fc000U & 
+                                        << 0x13U) | 
+                                       (0x7c000U & 
                                         (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[7U] 
-                                         >> 0xbU))));
-        __Vtemp_he011c453__0[5U] = ((0x3fffU & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[8U] 
-                                                >> 0xbU)) 
+                                         >> 0xdU))));
+        __Vtemp_h0663615c__0[5U] = ((0x3fffU & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[8U] 
+                                                >> 0xdU)) 
                                     | (0x4000U & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[8U] 
-                                                  >> 0xbU)));
-        bufp->chgWData(oldp+35,(__Vtemp_he011c453__0),175);
+                                                  >> 0xdU)));
+        bufp->chgWData(oldp+35,(__Vtemp_h0663615c__0),175);
         bufp->chgBit(oldp+41,((1U & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[8U] 
-                                     >> 0x19U))));
+                                     >> 0x1bU))));
         bufp->chgIData(oldp+42,(((vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[8U] 
-                                  << 7U) | (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[7U] 
-                                            >> 0x19U))),32);
+                                  << 5U) | (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[7U] 
+                                            >> 0x1bU))),32);
         bufp->chgIData(oldp+43,(((vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[7U] 
-                                  << 7U) | (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[6U] 
-                                            >> 0x19U))),32);
+                                  << 5U) | (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[6U] 
+                                            >> 0x1bU))),32);
         bufp->chgIData(oldp+44,(((vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[5U] 
-                                  << 0xdU) | (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                              >> 0x13U))),32);
+                                  << 0xbU) | (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[4U] 
+                                              >> 0x15U))),32);
         bufp->chgIData(oldp+45,(((vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[6U] 
-                                  << 7U) | (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[5U] 
-                                            >> 0x19U))),32);
+                                  << 5U) | (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[5U] 
+                                            >> 0x1bU))),32);
         bufp->chgCData(oldp+46,((0x3fU & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[5U] 
-                                          >> 0x13U))),6);
+                                          >> 0x15U))),6);
         bufp->chgBit(oldp+47,(vlSymsp->TOP__pipeline.__PVT__my_AGEX_stage__DOT__br_cond_AGEX));
         bufp->chgBit(oldp+48,((1U & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                     >> 0x12U))));
+                                     >> 0x14U))));
         bufp->chgBit(oldp+49,((1U & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                     >> 0x11U))));
+                                     >> 0x13U))));
         bufp->chgBit(oldp+50,((1U & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                     >> 0x10U))));
+                                     >> 0x12U))));
         bufp->chgBit(oldp+51,((1U & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                     >> 0xfU))));
+                                     >> 0x11U))));
         bufp->chgBit(oldp+52,((1U & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                     >> 0xeU))));
+                                     >> 0x10U))));
         bufp->chgCData(oldp+53,((0x1fU & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                          >> 9U))),5);
+                                          >> 0xbU))),5);
         bufp->chgIData(oldp+54,(((vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[4U] 
-                                  << 0xdU) | (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                                              >> 0x13U))),32);
+                                  << 0xbU) | (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[3U] 
+                                              >> 0x15U))),32);
         bufp->chgIData(oldp+55,(((vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                                  << 0xdU) | (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                              >> 0x13U))),32);
+                                  << 0xbU) | (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[2U] 
+                                              >> 0x15U))),32);
         bufp->chgIData(oldp+56,(((vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[2U] 
-                                  << 0xdU) | (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                              >> 0x13U))),32);
+                                  << 0xbU) | (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[1U] 
+                                              >> 0x15U))),32);
         bufp->chgIData(oldp+57,(vlSymsp->TOP__pipeline.__PVT__my_AGEX_stage__DOT__aluout_AGEX),32);
         bufp->chgIData(oldp+58,(vlSymsp->TOP__pipeline.__PVT__my_AGEX_stage__DOT__memaddr_AGEX),32);
         bufp->chgIData(oldp+59,(vlSymsp->TOP__pipeline.__PVT__my_AGEX_stage__DOT__br_target_AGEX),32);
-        bufp->chgCData(oldp+60,((0xffU & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[1U] 
-                                          >> 1U))),8);
+        bufp->chgSData(oldp+60,((0x3ffU & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[1U] 
+                                           >> 1U))),10);
         bufp->chgBit(oldp+61,((1U & vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[1U])));
         bufp->chgIData(oldp+62,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__DE_latch[0U]),32);
         bufp->chgBit(oldp+63,((1U & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                     >> 9U))));
+                                     >> 0xbU))));
         bufp->chgIData(oldp+64,(((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                  << 0x17U) | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                               >> 9U))),32);
+                                  << 0x15U) | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
+                                               >> 0xbU))),32);
         bufp->chgIData(oldp+65,(((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                  << 0x17U) | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[3U] 
-                                               >> 9U))),32);
+                                  << 0x15U) | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[3U] 
+                                               >> 0xbU))),32);
         bufp->chgIData(oldp+66,(((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[3U] 
-                                  << 0x17U) | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[2U] 
-                                               >> 9U))),32);
+                                  << 0x15U) | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[2U] 
+                                               >> 0xbU))),32);
         bufp->chgIData(oldp+67,(((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[2U] 
-                                  << 0x17U) | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[1U] 
-                                               >> 9U))),32);
+                                  << 0x15U) | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[1U] 
+                                               >> 0xbU))),32);
         bufp->chgCData(oldp+68,((7U & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                       >> 0x15U))),3);
+                                       >> 0x17U))),3);
         bufp->chgCData(oldp+69,((0x7fU & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                          >> 2U))),7);
+                                          >> 4U))),7);
         bufp->chgCData(oldp+70,((0x7fU & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                          >> 9U))),7);
+                                          >> 0xbU))),7);
         bufp->chgCData(oldp+71,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE),6);
         bufp->chgCData(oldp+72,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__type_I_DE),4);
         bufp->chgCData(oldp+73,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__type_immediate_DE),3);
@@ -176,38 +176,38 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
                                           ? (((- (IData)(
                                                          (1U 
                                                           & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                             >> 8U)))) 
+                                                             >> 0xaU)))) 
                                               << 0xbU) 
                                              | ((0x7e0U 
                                                  & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                    << 3U)) 
+                                                    << 1U)) 
                                                 | (0x1fU 
                                                    & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                      >> 0x10U))))
+                                                      >> 0x12U))))
                                           : ((5U == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__type_immediate_DE))
                                               ? (((- (IData)(
                                                              (1U 
                                                               & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                                 >> 8U)))) 
+                                                                 >> 0xaU)))) 
                                                   << 0xcU) 
                                                  | ((0x800U 
                                                      & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                        >> 5U)) 
+                                                        >> 7U)) 
                                                     | ((0x7e0U 
                                                         & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                           << 3U)) 
+                                                           << 1U)) 
                                                        | (0x1eU 
                                                           & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                             >> 0x10U)))))
+                                                             >> 0x12U)))))
                                               : ((3U 
                                                   == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__type_immediate_DE))
                                                   ? 
                                                  (0xfffff000U 
                                                   & ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                      << 0x17U) 
-                                                     | (0x7ff000U 
+                                                      << 0x15U) 
+                                                     | (0x1ff000U 
                                                         & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                           >> 9U))))
+                                                           >> 0xbU))))
                                                   : 
                                                  ((2U 
                                                    == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__type_immediate_DE))
@@ -215,33 +215,30 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
                                                   (((- (IData)(
                                                                (1U 
                                                                 & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                                   >> 8U)))) 
+                                                                   >> 0xaU)))) 
                                                     << 0x14U) 
                                                    | ((0xff000U 
                                                        & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                          >> 9U)) 
+                                                          >> 0xbU)) 
                                                       | ((0x800U 
                                                           & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                             >> 0x12U)) 
+                                                             >> 0x14U)) 
                                                          | (0x7feU 
-                                                            & ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                                << 3U) 
-                                                               | (6U 
-                                                                  & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                                     >> 0x1dU)))))))
+                                                            & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
+                                                               << 1U)))))
                                                    : 0U))))))),32);
-        bufp->chgCData(oldp+75,((0xffU & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[1U] 
-                                          >> 1U))),8);
+        bufp->chgSData(oldp+75,((0x3ffU & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[1U] 
+                                           >> 1U))),10);
         bufp->chgBit(oldp+76,((1U & vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[1U])));
         bufp->chgIData(oldp+77,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[0U]),32);
         bufp->chgCData(oldp+78,((0x1fU & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                          >> 0x18U))),5);
+                                          >> 0x1aU))),5);
         bufp->chgCData(oldp+79,((0x1fU & ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                           << 3U) | 
+                                           << 1U) | 
                                           (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                           >> 0x1dU)))),5);
+                                           >> 0x1fU)))),5);
         bufp->chgCData(oldp+80,((0x1fU & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                          >> 0x10U))),5);
+                                          >> 0x12U))),5);
         bufp->chgBit(oldp+81,(((0x1cU == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)) 
                                | ((0x1dU == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)) 
                                   | ((0x1eU == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)) 
@@ -266,14 +263,14 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
         bufp->chgBit(oldp+92,((((IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__use_rs1_DE) 
                                 & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__in_use_regs 
                                    >> (0x1fU & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                >> 0x18U)))) 
+                                                >> 0x1aU)))) 
                                | ((IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__use_rs2_DE) 
                                   & (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__in_use_regs 
                                      >> (0x1fU & ((
                                                    vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                   << 3U) 
+                                                   << 1U) 
                                                   | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                     >> 0x1dU))))))));
+                                                     >> 0x1fU))))))));
         bufp->chgBit(oldp+93,((1U & (vlSymsp->TOP__pipeline.__PVT__my_AGEX_stage__DOT__AGEX_latch[5U] 
                                      >> 0xeU))));
         __Vtemp_h42a8682a__0[0U] = (((IData)((((QData)((IData)(
@@ -385,20 +382,20 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
         bufp->chgIData(oldp+112,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_count_FE),32);
         bufp->chgIData(oldp+113,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE),32);
         bufp->chgIData(oldp+114,(((IData)(4U) + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch)),32);
-        bufp->chgCData(oldp+115,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BHR),8);
-        bufp->chgCData(oldp+116,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__hash_FE),8);
+        bufp->chgSData(oldp+115,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BHR),10);
+        bufp->chgSData(oldp+116,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__hash_FE),10);
         bufp->chgBit(oldp+117,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__prediction_FE));
         bufp->chgBit(oldp+118,((1U & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[2U] 
-                                      >> 0xbU))));
+                                      >> 0xdU))));
         bufp->chgIData(oldp+119,(((vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[2U] 
-                                   << 0x15U) | (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
-                                                >> 0xbU))),32);
+                                   << 0x13U) | (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
+                                                >> 0xdU))),32);
         bufp->chgBit(oldp+120,((1U & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
-                                      >> 0xaU))));
+                                      >> 0xcU))));
         bufp->chgBit(oldp+121,((1U & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
-                                      >> 9U))));
-        bufp->chgCData(oldp+122,((0xffU & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
-                                           >> 1U))),8);
+                                      >> 0xbU))));
+        bufp->chgSData(oldp+122,((0x3ffU & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
+                                            >> 1U))),10);
         bufp->chgIData(oldp+123,(((vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
                                    << 0x1fU) | (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[0U] 
                                                 >> 1U))),32);
@@ -436,7 +433,7 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
     }
     if (VL_UNLIKELY((vlSelf->__Vm_traceActivity[1U] 
                      | vlSelf->__Vm_traceActivity[2U]))) {
-        __Vtemp_he390fc5e__0[0U] = ((1U == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__type_immediate_DE))
+        __Vtemp_hfb3acc92__0[0U] = ((1U == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__type_immediate_DE))
                                      ? vlSymsp->TOP__pipeline.my_DE_stage__DOT____VdfgExtracted_h1b77eed7__0
                                      : ((1U == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__type_immediate_DE))
                                          ? vlSymsp->TOP__pipeline.my_DE_stage__DOT____VdfgExtracted_h1b77eed7__0
@@ -444,41 +441,41 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
                                              ? (((- (IData)(
                                                             (1U 
                                                              & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                                >> 8U)))) 
+                                                                >> 0xaU)))) 
                                                  << 0xbU) 
                                                 | ((0x7e0U 
                                                     & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                       << 3U)) 
+                                                       << 1U)) 
                                                    | (0x1fU 
                                                       & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                         >> 0x10U))))
+                                                         >> 0x12U))))
                                              : ((5U 
                                                  == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__type_immediate_DE))
                                                  ? 
                                                 (((- (IData)(
                                                              (1U 
                                                               & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                                 >> 8U)))) 
+                                                                 >> 0xaU)))) 
                                                   << 0xcU) 
                                                  | ((0x800U 
                                                      & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                        >> 5U)) 
+                                                        >> 7U)) 
                                                     | ((0x7e0U 
                                                         & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                           << 3U)) 
+                                                           << 1U)) 
                                                        | (0x1eU 
                                                           & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                             >> 0x10U)))))
+                                                             >> 0x12U)))))
                                                  : 
                                                 ((3U 
                                                   == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__type_immediate_DE))
                                                   ? 
                                                  (0xfffff000U 
                                                   & ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                      << 0x17U) 
-                                                     | (0x7ff000U 
+                                                      << 0x15U) 
+                                                     | (0x1ff000U 
                                                         & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                           >> 9U))))
+                                                           >> 0xbU))))
                                                   : 
                                                  ((2U 
                                                    == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__type_immediate_DE))
@@ -486,22 +483,19 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
                                                   (((- (IData)(
                                                                (1U 
                                                                 & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                                   >> 8U)))) 
+                                                                   >> 0xaU)))) 
                                                     << 0x14U) 
                                                    | ((0xff000U 
                                                        & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                          >> 9U)) 
+                                                          >> 0xbU)) 
                                                       | ((0x800U 
                                                           & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                             >> 0x12U)) 
+                                                             >> 0x14U)) 
                                                          | (0x7feU 
-                                                            & ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                                << 3U) 
-                                                               | (6U 
-                                                                  & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                                     >> 0x1dU)))))))
+                                                            & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
+                                                               << 1U)))))
                                                    : 0U))))));
-        __Vtemp_hb52d333d__0[0U] = (IData)((((QData)((IData)(
+        __Vtemp_h3c07697c__0[0U] = (IData)((((QData)((IData)(
                                                              ((0x1cU 
                                                                == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)) 
                                                               | ((0x1dU 
@@ -514,7 +508,7 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
                                                                            == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)) 
                                                                           | (0x21U 
                                                                              == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE))))))))) 
-                                             << 0x32U) 
+                                             << 0x34U) 
                                             | (((QData)((IData)(
                                                                 ((0x19U 
                                                                   == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)) 
@@ -522,30 +516,30 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
                                                                      == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)) 
                                                                     | (0x1bU 
                                                                        == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)))))) 
-                                                << 0x31U) 
+                                                << 0x33U) 
                                                | (((QData)((IData)(
                                                                    (0x17U 
                                                                     == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)))) 
-                                                   << 0x30U) 
+                                                   << 0x32U) 
                                                   | (((QData)((IData)(
                                                                       (0x18U 
                                                                        == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)))) 
-                                                      << 0x2fU) 
+                                                      << 0x31U) 
                                                      | (((QData)((IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__wr_reg_DE)) 
-                                                         << 0x2eU) 
+                                                         << 0x30U) 
                                                         | (((QData)((IData)(
                                                                             (0x1fU 
                                                                              & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                                                >> 0x10U)))) 
-                                                            << 0x29U) 
-                                                           | (0x1ffffffffffULL 
+                                                                                >> 0x12U)))) 
+                                                            << 0x2bU) 
+                                                           | (0x7ffffffffffULL 
                                                               & (((QData)((IData)(
                                                                                 vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[1U])) 
                                                                   << 0x20U) 
                                                                  | (QData)((IData)(
                                                                                 vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[0U])))))))))));
-        __Vtemp_hb52d333d__0[1U] = ((__Vtemp_he390fc5e__0[0U] 
-                                     << 0x13U) | (IData)(
+        __Vtemp_h3c07697c__0[1U] = ((__Vtemp_hfb3acc92__0[0U] 
+                                     << 0x15U) | (IData)(
                                                          ((((QData)((IData)(
                                                                             ((0x1cU 
                                                                               == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)) 
@@ -559,7 +553,7 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
                                                                                 == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)) 
                                                                                 | (0x21U 
                                                                                 == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE))))))))) 
-                                                            << 0x32U) 
+                                                            << 0x34U) 
                                                            | (((QData)((IData)(
                                                                                ((0x19U 
                                                                                 == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)) 
@@ -567,137 +561,137 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
                                                                                 == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)) 
                                                                                 | (0x1bU 
                                                                                 == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)))))) 
-                                                               << 0x31U) 
+                                                               << 0x33U) 
                                                               | (((QData)((IData)(
                                                                                 (0x17U 
                                                                                 == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)))) 
-                                                                  << 0x30U) 
+                                                                  << 0x32U) 
                                                                  | (((QData)((IData)(
                                                                                 (0x18U 
                                                                                 == (IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE)))) 
-                                                                     << 0x2fU) 
+                                                                     << 0x31U) 
                                                                     | (((QData)((IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__wr_reg_DE)) 
-                                                                        << 0x2eU) 
+                                                                        << 0x30U) 
                                                                        | (((QData)((IData)(
                                                                                 (0x1fU 
                                                                                 & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                                                >> 0x10U)))) 
-                                                                           << 0x29U) 
-                                                                          | (0x1ffffffffffULL 
+                                                                                >> 0x12U)))) 
+                                                                           << 0x2bU) 
+                                                                          | (0x7ffffffffffULL 
                                                                              & (((QData)((IData)(
                                                                                 vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[1U])) 
                                                                                 << 0x20U) 
                                                                                 | (QData)((IData)(
                                                                                 vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[0U])))))))))) 
                                                           >> 0x20U)));
-        __Vtemp_hec3f4a78__0[0U] = __Vtemp_hb52d333d__0[0U];
-        __Vtemp_hec3f4a78__0[1U] = __Vtemp_hb52d333d__0[1U];
-        __Vtemp_hec3f4a78__0[2U] = ((__Vtemp_he390fc5e__0[0U] 
-                                     >> 0xdU) | (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs
+        __Vtemp_hff9c895e__0[0U] = __Vtemp_h3c07697c__0[0U];
+        __Vtemp_hff9c895e__0[1U] = __Vtemp_h3c07697c__0[1U];
+        __Vtemp_hff9c895e__0[2U] = ((__Vtemp_hfb3acc92__0[0U] 
+                                     >> 0xbU) | (vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs
                                                  [(0x1fU 
                                                    & ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                       << 3U) 
+                                                       << 1U) 
                                                       | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                         >> 0x1dU)))] 
-                                                 << 0x13U));
-        __Vtemp_hec3f4a78__0[3U] = ((vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs
+                                                         >> 0x1fU)))] 
+                                                 << 0x15U));
+        __Vtemp_hff9c895e__0[3U] = ((vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs
                                      [(0x1fU & ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                                 << 3U) 
+                                                 << 1U) 
                                                 | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                   >> 0x1dU)))] 
-                                     >> 0xdU) | ((IData)(
+                                                   >> 0x1fU)))] 
+                                     >> 0xbU) | ((IData)(
                                                          (((QData)((IData)(
                                                                            ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[2U] 
-                                                                             << 0x17U) 
+                                                                             << 0x15U) 
                                                                             | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[1U] 
-                                                                               >> 9U)))) 
+                                                                               >> 0xbU)))) 
                                                            << 0x20U) 
                                                           | (QData)((IData)(
                                                                             vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs
                                                                             [
                                                                             (0x1fU 
                                                                              & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                                                >> 0x18U))])))) 
-                                                 << 0x13U));
-        __Vtemp_hec3f4a78__0[4U] = (((IData)((((QData)((IData)(
+                                                                                >> 0x1aU))])))) 
+                                                 << 0x15U));
+        __Vtemp_hff9c895e__0[4U] = (((IData)((((QData)((IData)(
                                                                ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[2U] 
-                                                                 << 0x17U) 
+                                                                 << 0x15U) 
                                                                 | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[1U] 
-                                                                   >> 9U)))) 
+                                                                   >> 0xbU)))) 
                                                << 0x20U) 
                                               | (QData)((IData)(
                                                                 vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs
                                                                 [
                                                                 (0x1fU 
                                                                  & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                                    >> 0x18U))])))) 
-                                     >> 0xdU) | ((IData)(
+                                                                    >> 0x1aU))])))) 
+                                     >> 0xbU) | ((IData)(
                                                          ((((QData)((IData)(
                                                                             ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[2U] 
-                                                                              << 0x17U) 
+                                                                              << 0x15U) 
                                                                              | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[1U] 
-                                                                                >> 9U)))) 
+                                                                                >> 0xbU)))) 
                                                             << 0x20U) 
                                                            | (QData)((IData)(
                                                                              vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs
                                                                              [
                                                                              (0x1fU 
                                                                               & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                                                >> 0x18U))]))) 
+                                                                                >> 0x1aU))]))) 
                                                           >> 0x20U)) 
-                                                 << 0x13U));
-        __Vtemp_hec3f4a78__0[5U] = ((0xfe000000U & 
+                                                 << 0x15U));
+        __Vtemp_hff9c895e__0[5U] = ((0xf8000000U & 
                                      (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[2U] 
                                       << 0x10U)) | 
                                     (((IData)(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__op_I_DE) 
-                                      << 0x13U) | ((IData)(
+                                      << 0x15U) | ((IData)(
                                                            ((((QData)((IData)(
                                                                               ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[2U] 
-                                                                                << 0x17U) 
+                                                                                << 0x15U) 
                                                                                | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[1U] 
-                                                                                >> 9U)))) 
+                                                                                >> 0xbU)))) 
                                                               << 0x20U) 
                                                              | (QData)((IData)(
                                                                                vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs
                                                                                [
                                                                                (0x1fU 
                                                                                 & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                                                                >> 0x18U))]))) 
+                                                                                >> 0x1aU))]))) 
                                                             >> 0x20U)) 
-                                                   >> 0xdU)));
-        __Vtemp_hec3f4a78__0[6U] = (((0x1ff0000U & 
+                                                   >> 0xbU)));
+        __Vtemp_hff9c895e__0[6U] = (((0x7ff0000U & 
                                       (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[3U] 
                                        << 0x10U)) | 
                                      (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[2U] 
                                       >> 0x10U)) | 
-                                    (0xfe000000U & 
+                                    (0xf8000000U & 
                                      (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[3U] 
                                       << 0x10U)));
-        __Vtemp_hec3f4a78__0[7U] = (((0x1ff0000U & 
+        __Vtemp_hff9c895e__0[7U] = (((0x7ff0000U & 
                                       (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
                                        << 0x10U)) | 
                                      (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[3U] 
                                       >> 0x10U)) | 
-                                    (0xfe000000U & 
+                                    (0xf8000000U & 
                                      (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
                                       << 0x10U)));
-        __Vtemp_hec3f4a78__0[8U] = (((0x1ff0000U & 
+        __Vtemp_hff9c895e__0[8U] = (((0x7ff0000U & 
                                       (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
                                        << 0x10U)) | 
                                      (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
                                       >> 0x10U)) | 
-                                    (0x2000000U & (
+                                    (0x8000000U & (
                                                    vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
                                                    << 0x10U)));
-        bufp->chgWData(oldp+139,(__Vtemp_hec3f4a78__0),282);
+        bufp->chgWData(oldp+139,(__Vtemp_hff9c895e__0),284);
         bufp->chgIData(oldp+148,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs
                                  [(0x1fU & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                            >> 0x18U))]),32);
+                                            >> 0x1aU))]),32);
         bufp->chgIData(oldp+149,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs
                                  [(0x1fU & ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
-                                             << 3U) 
+                                             << 1U) 
                                             | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
-                                               >> 0x1dU)))]),32);
+                                               >> 0x1fU)))]),32);
     }
     if (VL_UNLIKELY(vlSelf->__Vm_traceActivity[2U])) {
         bufp->chgIData(oldp+150,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[0]),32);
@@ -738,9 +732,9 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
     bufp->chgBit(oldp+184,(vlSelf->reset));
     bufp->chgBit(oldp+185,(((~ ((IData)(vlSelf->reset) 
                                 | ((vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[2U] 
-                                    >> 0xbU) | (IData)(vlSymsp->TOP__pipeline.__PVT__from_DE_to_FE)))) 
+                                    >> 0xdU) | (IData)(vlSymsp->TOP__pipeline.__PVT__from_DE_to_FE)))) 
                             & (0U != vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE))));
-    __Vtemp_h641fbc9c__0[0U] = (IData)((((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__hash_FE)) 
+    __Vtemp_h1297cfc4__0[0U] = (IData)((((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__hash_FE)) 
                                          << 0x21U) 
                                         | (((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__prediction_FE)) 
                                             << 0x20U) 
@@ -751,51 +745,51 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
                                                                : 
                                                               ((IData)(4U) 
                                                                + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch)))))));
-    __Vtemp_h641fbc9c__0[1U] = ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_count_FE 
-                                 << 9U) | (IData)((
-                                                   (((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__hash_FE)) 
-                                                     << 0x21U) 
-                                                    | (((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__prediction_FE)) 
-                                                        << 0x20U) 
-                                                       | (QData)((IData)(
-                                                                         (((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB_hit) 
-                                                                           & (IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__prediction_FE))
-                                                                           ? (IData)(vlSymsp->TOP__pipeline__my_FE_stage.__VdfgTmp_hccac3553__0)
-                                                                           : 
-                                                                          ((IData)(4U) 
-                                                                           + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch)))))) 
-                                                   >> 0x20U)));
-    __Vtemp_h641fbc9c__0[2U] = ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_count_FE 
-                                 >> 0x17U) | (((IData)(4U) 
+    __Vtemp_h1297cfc4__0[1U] = ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_count_FE 
+                                 << 0xbU) | (IData)(
+                                                    ((((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__hash_FE)) 
+                                                       << 0x21U) 
+                                                      | (((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__prediction_FE)) 
+                                                          << 0x20U) 
+                                                         | (QData)((IData)(
+                                                                           (((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB_hit) 
+                                                                             & (IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__prediction_FE))
+                                                                             ? (IData)(vlSymsp->TOP__pipeline__my_FE_stage.__VdfgTmp_hccac3553__0)
+                                                                             : 
+                                                                            ((IData)(4U) 
+                                                                             + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch)))))) 
+                                                     >> 0x20U)));
+    __Vtemp_h1297cfc4__0[2U] = ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_count_FE 
+                                 >> 0x15U) | (((IData)(4U) 
                                                + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch) 
-                                              << 9U));
-    __Vtemp_h641fbc9c__0[3U] = ((((IData)(4U) + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch) 
-                                 >> 0x17U) | ((IData)(
+                                              << 0xbU));
+    __Vtemp_h1297cfc4__0[3U] = ((((IData)(4U) + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch) 
+                                 >> 0x15U) | ((IData)(
                                                       (((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE)) 
                                                         << 0x20U) 
                                                        | (QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch)))) 
-                                              << 9U));
-    __Vtemp_h641fbc9c__0[4U] = (((IData)((((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE)) 
+                                              << 0xbU));
+    __Vtemp_h1297cfc4__0[4U] = (((IData)((((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE)) 
                                            << 0x20U) 
                                           | (QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch)))) 
-                                 >> 0x17U) | ((IData)(
+                                 >> 0x15U) | ((IData)(
                                                       ((((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE)) 
                                                          << 0x20U) 
                                                         | (QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch))) 
                                                        >> 0x20U)) 
-                                              << 9U));
-    __Vtemp_h641fbc9c__0[5U] = ((((~ ((IData)(vlSelf->reset) 
+                                              << 0xbU));
+    __Vtemp_h1297cfc4__0[5U] = ((((~ ((IData)(vlSelf->reset) 
                                       | ((vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[2U] 
-                                          >> 0xbU) 
+                                          >> 0xdU) 
                                          | (IData)(vlSymsp->TOP__pipeline.__PVT__from_DE_to_FE)))) 
                                   & (0U != vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE)) 
-                                 << 9U) | ((IData)(
-                                                   ((((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE)) 
-                                                      << 0x20U) 
-                                                     | (QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch))) 
-                                                    >> 0x20U)) 
-                                           >> 0x17U));
-    bufp->chgWData(oldp+186,(__Vtemp_h641fbc9c__0),170);
+                                 << 0xbU) | ((IData)(
+                                                     ((((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE)) 
+                                                        << 0x20U) 
+                                                       | (QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch))) 
+                                                      >> 0x20U)) 
+                                             >> 0x15U));
+    bufp->chgWData(oldp+186,(__Vtemp_h1297cfc4__0),172);
     bufp->chgIData(oldp+192,(vlSymsp->TOP__pipeline__my_FE_stage.correct_predictions),32);
     bufp->chgIData(oldp+193,(vlSymsp->TOP__pipeline__my_FE_stage.total_branches),32);
     bufp->chgIData(oldp+194,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0U]),32);

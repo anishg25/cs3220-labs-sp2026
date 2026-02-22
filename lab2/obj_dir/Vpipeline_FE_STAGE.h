@@ -19,13 +19,13 @@ class alignas(VL_CACHE_LINE_BYTES) Vpipeline_FE_STAGE final : public VerilatedMo
     VL_IN8(__PVT__from_DE_to_FE,0,0);
     VL_IN8(__PVT__from_MEM_to_FE,0,0);
     VL_IN8(__PVT__from_WB_to_FE,0,0);
-    CData/*7:0*/ __PVT__BHR;
-    CData/*7:0*/ __PVT__hash_FE;
     CData/*0:0*/ __PVT__prediction_FE;
     CData/*0:0*/ __PVT__BTB_hit;
-    VL_INW(__PVT__from_AGEX_to_FE,75,0,3);
-    VL_OUTW(__PVT__FE_latch_out,169,0,6);
-    VlWide<6>/*169:0*/ __PVT__FE_latch;
+    SData/*9:0*/ __PVT__BHR;
+    SData/*9:0*/ __PVT__hash_FE;
+    VL_INW(__PVT__from_AGEX_to_FE,77,0,3);
+    VL_OUTW(__PVT__FE_latch_out,171,0,6);
+    VlWide<6>/*171:0*/ __PVT__FE_latch;
     IData/*31:0*/ __PVT__PC_FE_latch;
     IData/*31:0*/ __PVT__inst_count_FE;
     IData/*31:0*/ __PVT__inst_count_AGEX;
@@ -36,10 +36,10 @@ class alignas(VL_CACHE_LINE_BYTES) Vpipeline_FE_STAGE final : public VerilatedMo
     IData/*31:0*/ __PVT__predicted_target;
     IData/*31:0*/ correct_predictions;
     IData/*31:0*/ total_branches;
-    VlWide<6>/*169:0*/ __Vdly__FE_latch;
+    VlWide<6>/*171:0*/ __Vdly__FE_latch;
     QData/*58:0*/ __VdfgTmp_hccac3553__0;
     VlUnpacked<IData/*31:0*/, 16384> __PVT__imem;
-    VlUnpacked<CData/*1:0*/, 256> __PVT__PHT;
+    VlUnpacked<CData/*1:0*/, 1024> __PVT__PHT;
     VlUnpacked<QData/*58:0*/, 64> __PVT__BTB;
 
     // INTERNAL VARIABLES

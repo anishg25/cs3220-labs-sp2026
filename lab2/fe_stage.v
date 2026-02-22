@@ -50,13 +50,13 @@ module FE_STAGE(
   wire [`FE_latch_WIDTH-1:0] FE_latch_contents;  // the signals that will be FE latch contents 
 
   // stuff i added
-  reg [7:0] BHR; // branch history register 
-  reg [1:0] PHT [255:0]; // pattern history table
+  reg [9:0] BHR; // branch history register 
+  reg [1:0] PHT [1023:0]; // pattern history table
   reg [58:0] BTB [63:0]; // branch table buffer
-  wire [7:0] hash_FE;
+  wire [9:0] hash_FE;
   wire prediction_FE;
 
-  assign hash_FE = PC_FE_latch[9:2] ^ BHR; // PHT index
+  assign hash_FE = PC_FE_latch[11:2] ^ BHR[9:0]; // PHT index
 
   // reading instruction from imem 
   assign inst_FE = imem[PC_FE_latch[`IMEMADDRBITS-1:`IMEMWORDBITS]];  // this code works. imem is stored 4B together 
@@ -88,7 +88,7 @@ module FE_STAGE(
   wire [`DBITS-1:0] br_target_AGEX;  
   wire br_cond_AGEX;
   wire is_br_AGEX;
-  wire [7:0] hash_AGEX;
+  wire [9:0] hash_AGEX;
   wire [31:0] PC_AGEX;
   wire is_jmp_AGEX;
 
@@ -124,12 +124,12 @@ module FE_STAGE(
    if (reset) begin 
       PC_FE_latch <= `STARTPC;
       inst_count_FE <= 1;  /* inst_count starts from 1 for easy human reading. 1st fetch instructions can have 1 */ 
-      BHR <= 8'b00000000;
+      BHR <= 10'b0000000000;
 
       correct_predictions <= 32'b0;
       total_branches <= 32'b0;
 
-      for (i = 0; i < 256; i = i + 1) begin // initialize all entries in PHT to weakly NOT taken 
+      for (i = 0; i < 1024; i = i + 1) begin // initialize all entries in PHT to weakly NOT taken 
         PHT[i] = 2'b10;
       end
 
@@ -163,7 +163,7 @@ module FE_STAGE(
           2'b11: PHT[hash_AGEX] <= br_cond_AGEX ? 2'b11 : 2'b10;
         endcase
 
-        BHR <= {BHR[6:0], br_cond_AGEX}; // updating branch history register
+        BHR <= {BHR[8:0], br_cond_AGEX}; // updating branch history register
       end
 
       if (is_br_AGEX || is_jmp_AGEX) begin // updating the BTB for conditional and unconditional statements (both branches and jumps)

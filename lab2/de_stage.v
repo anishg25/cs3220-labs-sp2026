@@ -207,7 +207,7 @@ always @(*) begin
 end 
  
   // hash, BTB index, and prediction from FE
-  wire [7:0] hash_DE;
+  wire [9:0] hash_DE;
   wire prediction_DE;
   wire [31:0] BTB_target_DE;
 

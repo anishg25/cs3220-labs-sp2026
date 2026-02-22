@@ -35,8 +35,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vpipeline_pipeline final : public VerilatedMo
     CData/*0:0*/ __Vdlyvset__my_MEM_stage__DOT__dmem__v0;
     SData/*13:0*/ __Vdlyvdim0__my_MEM_stage__DOT__dmem__v0;
     IData/*31:0*/ __PVT__cycle_count;
-    VlWide<3>/*75:0*/ __PVT__from_AGEX_to_FE;
-    VlWide<9>/*281:0*/ __PVT__my_DE_stage__DOT__DE_latch;
+    VlWide<3>/*77:0*/ __PVT__from_AGEX_to_FE;
+    VlWide<9>/*283:0*/ __PVT__my_DE_stage__DOT__DE_latch;
     IData/*31:0*/ __PVT__my_DE_stage__DOT__in_use_regs;
     IData/*31:0*/ my_DE_stage__DOT____VdfgExtracted_h1b77eed7__0;
     VlWide<6>/*174:0*/ __PVT__my_AGEX_stage__DOT__AGEX_latch;

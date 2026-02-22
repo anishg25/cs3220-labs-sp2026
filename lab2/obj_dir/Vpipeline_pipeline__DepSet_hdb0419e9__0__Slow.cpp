@@ -33,11 +33,11 @@ VL_ATTR_COLD void Vpipeline_pipeline___ctor_var_reset(Vpipeline_pipeline* vlSelf
     vlSelf->reset = VL_RAND_RESET_I(1);
     vlSelf->__PVT__cycle_count = VL_RAND_RESET_I(32);
     vlSelf->__PVT__from_DE_to_FE = VL_RAND_RESET_I(1);
-    VL_RAND_RESET_W(76, vlSelf->__PVT__from_AGEX_to_FE);
+    VL_RAND_RESET_W(78, vlSelf->__PVT__from_AGEX_to_FE);
     vlSelf->__PVT__from_AGEX_to_DE = VL_RAND_RESET_I(1);
     vlSelf->my_DE_stage__DOT____Vxrand_h9b4ad1b0__0 = VL_RAND_RESET_I(3);
     vlSelf->my_DE_stage__DOT____Vxrand_h9b4ac0a8__0 = VL_RAND_RESET_I(4);
-    VL_RAND_RESET_W(282, vlSelf->__PVT__my_DE_stage__DOT__DE_latch);
+    VL_RAND_RESET_W(284, vlSelf->__PVT__my_DE_stage__DOT__DE_latch);
     for (int __Vi0 = 0; __Vi0 < 32; ++__Vi0) {
         vlSelf->__PVT__my_DE_stage__DOT__regs[__Vi0] = VL_RAND_RESET_I(32);
     }
