@@ -31,16 +31,16 @@ VL_ATTR_COLD void Vpipeline_FE_STAGE___stl_sequent__TOP__pipeline__my_FE_stage__
     vlSelf->__PVT__inst_FE = vlSelf->__PVT__imem[(0x3fffU 
                                                   & (vlSelf->__PVT__PC_FE_latch 
                                                      >> 2U))];
-    vlSelf->__VdfgTmp_hccac35d1__0 = vlSelf->__PVT__BTB
-        [(0xfU & (vlSelf->__PVT__PC_FE_latch >> 2U))];
+    vlSelf->__VdfgTmp_hccac3553__0 = vlSelf->__PVT__BTB
+        [(0x3fU & (vlSelf->__PVT__PC_FE_latch >> 2U))];
     vlSelf->__PVT__hash_FE = (0xffU & ((vlSelf->__PVT__PC_FE_latch 
                                         >> 2U) ^ (IData)(vlSelf->__PVT__BHR)));
-    vlSelf->__PVT__BTB_hit = ((IData)((vlSelf->__VdfgTmp_hccac35d1__0 
+    vlSelf->__PVT__BTB_hit = ((IData)((vlSelf->__VdfgTmp_hccac3553__0 
                                        >> 0x3aU)) & 
                               ((vlSelf->__PVT__PC_FE_latch 
                                 >> 6U) == (0x3ffffffU 
                                            & (IData)(
-                                                     (vlSelf->__VdfgTmp_hccac35d1__0 
+                                                     (vlSelf->__VdfgTmp_hccac3553__0 
                                                       >> 0x20U)))));
     __VdfgTmp_h6168066c__0 = vlSelf->__PVT__PHT[vlSelf->__PVT__hash_FE];
     vlSelf->__PVT__prediction_FE = ((2U == (IData)(__VdfgTmp_h6168066c__0)) 
@@ -72,7 +72,7 @@ VL_ATTR_COLD void Vpipeline_FE_STAGE___ctor_var_reset(Vpipeline_FE_STAGE* vlSelf
     for (int __Vi0 = 0; __Vi0 < 256; ++__Vi0) {
         vlSelf->__PVT__PHT[__Vi0] = VL_RAND_RESET_I(2);
     }
-    for (int __Vi0 = 0; __Vi0 < 16; ++__Vi0) {
+    for (int __Vi0 = 0; __Vi0 < 64; ++__Vi0) {
         vlSelf->__PVT__BTB[__Vi0] = VL_RAND_RESET_Q(59);
     }
     vlSelf->__PVT__hash_FE = VL_RAND_RESET_I(8);
@@ -83,6 +83,6 @@ VL_ATTR_COLD void Vpipeline_FE_STAGE___ctor_var_reset(Vpipeline_FE_STAGE* vlSelf
     vlSelf->__PVT__predicted_target = VL_RAND_RESET_I(32);
     vlSelf->correct_predictions = VL_RAND_RESET_I(32);
     vlSelf->total_branches = VL_RAND_RESET_I(32);
-    vlSelf->__VdfgTmp_hccac35d1__0 = 0;
+    vlSelf->__VdfgTmp_hccac3553__0 = 0;
     VL_RAND_RESET_W(170, vlSelf->__Vdly__FE_latch);
 }

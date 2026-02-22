@@ -26,19 +26,19 @@ VL_INLINE_OPT void Vpipeline_FE_STAGE___nba_sequent__TOP__pipeline__my_FE_stage_
     __Vdly__correct_predictions = 0;
     IData/*31:0*/ __Vdly__total_branches;
     __Vdly__total_branches = 0;
-    CData/*3:0*/ __Vdlyvdim0__BTB__v0;
+    CData/*5:0*/ __Vdlyvdim0__BTB__v0;
     __Vdlyvdim0__BTB__v0 = 0;
     CData/*5:0*/ __Vdlyvlsb__BTB__v0;
     __Vdlyvlsb__BTB__v0 = 0;
     CData/*0:0*/ __Vdlyvset__BTB__v0;
     __Vdlyvset__BTB__v0 = 0;
-    CData/*3:0*/ __Vdlyvdim0__BTB__v1;
+    CData/*5:0*/ __Vdlyvdim0__BTB__v1;
     __Vdlyvdim0__BTB__v1 = 0;
     CData/*5:0*/ __Vdlyvlsb__BTB__v1;
     __Vdlyvlsb__BTB__v1 = 0;
     IData/*25:0*/ __Vdlyvval__BTB__v1;
     __Vdlyvval__BTB__v1 = 0;
-    CData/*3:0*/ __Vdlyvdim0__BTB__v2;
+    CData/*5:0*/ __Vdlyvdim0__BTB__v2;
     __Vdlyvdim0__BTB__v2 = 0;
     CData/*5:0*/ __Vdlyvlsb__BTB__v2;
     __Vdlyvlsb__BTB__v2 = 0;
@@ -65,7 +65,7 @@ VL_INLINE_OPT void Vpipeline_FE_STAGE___nba_sequent__TOP__pipeline__my_FE_stage_
     vlSelf->__Vdly__FE_latch[4U] = vlSelf->__PVT__FE_latch[4U];
     vlSelf->__Vdly__FE_latch[5U] = vlSelf->__PVT__FE_latch[5U];
     if (vlSymsp->TOP.reset) {
-        vlSelf->__PVT__j = 0x10U;
+        vlSelf->__PVT__j = 0x40U;
         vlSelf->__PVT__i = 0U;
         while (VL_GTS_III(32, 0x100U, vlSelf->__PVT__i)) {
             vlSelf->__PVT__PHT[(0xffU & vlSelf->__PVT__i)] = 1U;
@@ -124,6 +124,150 @@ VL_INLINE_OPT void Vpipeline_FE_STAGE___nba_sequent__TOP__pipeline__my_FE_stage_
         vlSelf->__PVT__BTB[0xfU] = (0x3ffffffffffffffULL 
                                     & vlSelf->__PVT__BTB
                                     [0xfU]);
+        vlSelf->__PVT__BTB[0x10U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x10U]);
+        vlSelf->__PVT__BTB[0x11U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x11U]);
+        vlSelf->__PVT__BTB[0x12U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x12U]);
+        vlSelf->__PVT__BTB[0x13U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x13U]);
+        vlSelf->__PVT__BTB[0x14U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x14U]);
+        vlSelf->__PVT__BTB[0x15U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x15U]);
+        vlSelf->__PVT__BTB[0x16U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x16U]);
+        vlSelf->__PVT__BTB[0x17U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x17U]);
+        vlSelf->__PVT__BTB[0x18U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x18U]);
+        vlSelf->__PVT__BTB[0x19U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x19U]);
+        vlSelf->__PVT__BTB[0x1aU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x1aU]);
+        vlSelf->__PVT__BTB[0x1bU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x1bU]);
+        vlSelf->__PVT__BTB[0x1cU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x1cU]);
+        vlSelf->__PVT__BTB[0x1dU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x1dU]);
+        vlSelf->__PVT__BTB[0x1eU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x1eU]);
+        vlSelf->__PVT__BTB[0x1fU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x1fU]);
+        vlSelf->__PVT__BTB[0x20U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x20U]);
+        vlSelf->__PVT__BTB[0x21U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x21U]);
+        vlSelf->__PVT__BTB[0x22U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x22U]);
+        vlSelf->__PVT__BTB[0x23U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x23U]);
+        vlSelf->__PVT__BTB[0x24U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x24U]);
+        vlSelf->__PVT__BTB[0x25U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x25U]);
+        vlSelf->__PVT__BTB[0x26U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x26U]);
+        vlSelf->__PVT__BTB[0x27U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x27U]);
+        vlSelf->__PVT__BTB[0x28U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x28U]);
+        vlSelf->__PVT__BTB[0x29U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x29U]);
+        vlSelf->__PVT__BTB[0x2aU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x2aU]);
+        vlSelf->__PVT__BTB[0x2bU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x2bU]);
+        vlSelf->__PVT__BTB[0x2cU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x2cU]);
+        vlSelf->__PVT__BTB[0x2dU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x2dU]);
+        vlSelf->__PVT__BTB[0x2eU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x2eU]);
+        vlSelf->__PVT__BTB[0x2fU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x2fU]);
+        vlSelf->__PVT__BTB[0x30U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x30U]);
+        vlSelf->__PVT__BTB[0x31U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x31U]);
+        vlSelf->__PVT__BTB[0x32U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x32U]);
+        vlSelf->__PVT__BTB[0x33U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x33U]);
+        vlSelf->__PVT__BTB[0x34U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x34U]);
+        vlSelf->__PVT__BTB[0x35U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x35U]);
+        vlSelf->__PVT__BTB[0x36U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x36U]);
+        vlSelf->__PVT__BTB[0x37U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x37U]);
+        vlSelf->__PVT__BTB[0x38U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x38U]);
+        vlSelf->__PVT__BTB[0x39U] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x39U]);
+        vlSelf->__PVT__BTB[0x3aU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x3aU]);
+        vlSelf->__PVT__BTB[0x3bU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x3bU]);
+        vlSelf->__PVT__BTB[0x3cU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x3cU]);
+        vlSelf->__PVT__BTB[0x3dU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x3dU]);
+        vlSelf->__PVT__BTB[0x3eU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x3eU]);
+        vlSelf->__PVT__BTB[0x3fU] = (0x3ffffffffffffffULL 
+                                     & vlSelf->__PVT__BTB
+                                     [0x3fU]);
         vlSelf->__Vdly__FE_latch[0U] = 0U;
         vlSelf->__Vdly__FE_latch[1U] = 0U;
         vlSelf->__Vdly__FE_latch[2U] = 0U;
@@ -160,7 +304,7 @@ VL_INLINE_OPT void Vpipeline_FE_STAGE___nba_sequent__TOP__pipeline__my_FE_stage_
             __Vdly__PC_FE_latch = (((IData)(vlSelf->__PVT__prediction_FE) 
                                     & (IData)(vlSelf->__PVT__BTB_hit))
                                     ? (IData)(vlSelf->__PVT__BTB
-                                              [(0xfU 
+                                              [(0x3fU 
                                                 & (vlSelf->__PVT__PC_FE_latch 
                                                    >> 2U))])
                                     : vlSelf->__PVT__pcplus_FE);
@@ -171,7 +315,7 @@ VL_INLINE_OPT void Vpipeline_FE_STAGE___nba_sequent__TOP__pipeline__my_FE_stage_
                                                         << 0x20U) 
                                                        | (QData)((IData)(
                                                                          ((IData)(vlSelf->__PVT__BTB_hit)
-                                                                           ? (IData)(vlSelf->__VdfgTmp_hccac35d1__0)
+                                                                           ? (IData)(vlSelf->__VdfgTmp_hccac3553__0)
                                                                            : 
                                                                           ((IData)(4U) 
                                                                            + vlSelf->__PVT__PC_FE_latch)))))));
@@ -184,7 +328,7 @@ VL_INLINE_OPT void Vpipeline_FE_STAGE___nba_sequent__TOP__pipeline__my_FE_stage_
                                                             << 0x20U) 
                                                            | (QData)((IData)(
                                                                              ((IData)(vlSelf->__PVT__BTB_hit)
-                                                                               ? (IData)(vlSelf->__VdfgTmp_hccac35d1__0)
+                                                                               ? (IData)(vlSelf->__VdfgTmp_hccac3553__0)
                                                                                : 
                                                                               ((IData)(4U) 
                                                                                + vlSelf->__PVT__PC_FE_latch)))))) 
@@ -239,21 +383,21 @@ VL_INLINE_OPT void Vpipeline_FE_STAGE___nba_sequent__TOP__pipeline__my_FE_stage_
             }
             __Vdlyvset__BTB__v0 = 1U;
             __Vdlyvlsb__BTB__v0 = 0x3aU;
-            __Vdlyvdim0__BTB__v0 = (0xfU & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[0U] 
-                                            >> 3U));
+            __Vdlyvdim0__BTB__v0 = (0x3fU & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[0U] 
+                                             >> 3U));
             __Vdlyvval__BTB__v1 = (0x3ffffffU & ((vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
                                                   << 0x19U) 
                                                  | (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[0U] 
                                                     >> 7U)));
             __Vdlyvlsb__BTB__v1 = 0x20U;
-            __Vdlyvdim0__BTB__v1 = (0xfU & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[0U] 
-                                            >> 3U));
+            __Vdlyvdim0__BTB__v1 = (0x3fU & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[0U] 
+                                             >> 3U));
             __Vdlyvval__BTB__v2 = ((vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[2U] 
                                     << 0x15U) | (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
                                                  >> 0xbU));
             __Vdlyvlsb__BTB__v2 = 0U;
-            __Vdlyvdim0__BTB__v2 = (0xfU & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[0U] 
-                                            >> 3U));
+            __Vdlyvdim0__BTB__v2 = (0x3fU & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[0U] 
+                                             >> 3U));
         }
         if ((0x200U & vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U])) {
             __Vdlyvval__PHT__v0 = ((2U & vlSelf->__PVT__PHT
@@ -316,16 +460,16 @@ VL_INLINE_OPT void Vpipeline_FE_STAGE___nba_sequent__TOP__pipeline__my_FE_stage_
     vlSelf->__PVT__inst_FE = vlSelf->__PVT__imem[(0x3fffU 
                                                   & (vlSelf->__PVT__PC_FE_latch 
                                                      >> 2U))];
-    vlSelf->__VdfgTmp_hccac35d1__0 = vlSelf->__PVT__BTB
-        [(0xfU & (vlSelf->__PVT__PC_FE_latch >> 2U))];
+    vlSelf->__VdfgTmp_hccac3553__0 = vlSelf->__PVT__BTB
+        [(0x3fU & (vlSelf->__PVT__PC_FE_latch >> 2U))];
     vlSelf->__PVT__hash_FE = (0xffU & ((vlSelf->__PVT__PC_FE_latch 
                                         >> 2U) ^ (IData)(vlSelf->__PVT__BHR)));
-    vlSelf->__PVT__BTB_hit = ((IData)((vlSelf->__VdfgTmp_hccac35d1__0 
+    vlSelf->__PVT__BTB_hit = ((IData)((vlSelf->__VdfgTmp_hccac3553__0 
                                        >> 0x3aU)) & 
                               ((vlSelf->__PVT__PC_FE_latch 
                                 >> 6U) == (0x3ffffffU 
                                            & (IData)(
-                                                     (vlSelf->__VdfgTmp_hccac35d1__0 
+                                                     (vlSelf->__VdfgTmp_hccac3553__0 
                                                       >> 0x20U)))));
     __VdfgTmp_h6168066c__0 = vlSelf->__PVT__PHT[vlSelf->__PVT__hash_FE];
     vlSelf->__PVT__prediction_FE = ((2U == (IData)(__VdfgTmp_h6168066c__0)) 

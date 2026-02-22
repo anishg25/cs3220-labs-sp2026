@@ -37,10 +37,10 @@ class alignas(VL_CACHE_LINE_BYTES) Vpipeline_FE_STAGE final : public VerilatedMo
     IData/*31:0*/ correct_predictions;
     IData/*31:0*/ total_branches;
     VlWide<6>/*169:0*/ __Vdly__FE_latch;
-    QData/*58:0*/ __VdfgTmp_hccac35d1__0;
+    QData/*58:0*/ __VdfgTmp_hccac3553__0;
     VlUnpacked<IData/*31:0*/, 16384> __PVT__imem;
     VlUnpacked<CData/*1:0*/, 256> __PVT__PHT;
-    VlUnpacked<QData/*58:0*/, 16> __PVT__BTB;
+    VlUnpacked<QData/*58:0*/, 64> __PVT__BTB;
 
     // INTERNAL VARIABLES
     Vpipeline__Syms* const vlSymsp;

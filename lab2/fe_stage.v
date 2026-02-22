@@ -52,7 +52,7 @@ module FE_STAGE(
   // stuff i added
   reg [7:0] BHR; // branch history register 
   reg [1:0] PHT [255:0]; // pattern history table
-  reg [58:0] BTB [15:0]; // branch table buffer
+  reg [58:0] BTB [63:0]; // branch table buffer
   wire [7:0] hash_FE;
   wire prediction_FE;
 
@@ -81,7 +81,7 @@ module FE_STAGE(
                                 prediction_FE,
                                 BTB_target_FE
                                 };
-
+  
   // **TODO: Complete the rest of the pipeline 
   //assign stall_pipe_FE = 1;   // you need
   wire br_mispred_AGEX;  
@@ -111,8 +111,8 @@ module FE_STAGE(
   wire BTB_hit;
   wire [31:0] predicted_target;
   wire [31:0] BTB_target_FE;
-  assign BTB_target_FE = BTB_hit ? BTB[PC_FE_latch[5:2]][31:0] : pcplus_FE;
-  assign BTB_hit = (BTB[PC_FE_latch[5:2]][58] == 1'b1) ? (PC_FE_latch[31:6] == BTB[PC_FE_latch[5:2]][57:32]) : 1'b0; // check for BTB hit by looking at valid bit and comparing PC & tag
+  assign BTB_target_FE = BTB_hit ? BTB[PC_FE_latch[7:2]][31:0] : pcplus_FE;
+  assign BTB_hit = (BTB[PC_FE_latch[7:2]][58] == 1'b1) ? (PC_FE_latch[31:6] == BTB[PC_FE_latch[7:2]][57:32]) : 1'b0; // check for BTB hit by looking at valid bit and comparing PC & tag
   assign prediction_FE = (PHT[hash_FE] == 2'b10 || PHT[hash_FE] == 2'b11) ? 1'b1 : 1'b0; // calculate the prediction based on PHT entry
 
   // registers to store branch predictor metrics
@@ -133,7 +133,7 @@ module FE_STAGE(
         PHT[i] = 2'b01;
       end
 
-      for (j = 0; j < 16; j = j + 1) begin // initialize all the valid bits in BTB to 0 
+      for (j = 0; j < 64; j = j + 1) begin // initialize all the valid bits in BTB to 0 
         BTB[j][58] = 1'b0;
       end
 
@@ -144,7 +144,7 @@ module FE_STAGE(
       PC_FE_latch <= PC_FE_latch; 
     else begin 
       if (prediction_FE && BTB_hit) begin // if PHT predicts taken and BTB valid bit is 1 and tag is matched 
-        PC_FE_latch <= BTB[PC_FE_latch[5:2]][31:0]; // set PC to the target address in the BTB
+        PC_FE_latch <= BTB[PC_FE_latch[7:2]][31:0]; // set PC to the target address in the BTB
       end else begin
         PC_FE_latch <= pcplus_FE; // otherwise put PC + 4
       end
@@ -172,9 +172,9 @@ module FE_STAGE(
         if (!br_mispred_AGEX)
           correct_predictions <= correct_predictions + 1;
 
-        BTB[PC_AGEX[5:2]][58] <= 1'b1; 
-        BTB[PC_AGEX[5:2]][57:32] <= PC_AGEX[31:6];
-        BTB[PC_AGEX[5:2]][31:0] <= br_target_AGEX;
+        BTB[PC_AGEX[7:2]][58] <= 1'b1; 
+        BTB[PC_AGEX[7:2]][57:32] <= PC_AGEX[31:6];
+        BTB[PC_AGEX[7:2]][31:0] <= br_target_AGEX;
       end
     end
   end

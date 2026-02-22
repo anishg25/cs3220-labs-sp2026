@@ -27,7 +27,7 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
     VlWide<4>/*127:0*/ __Vtemp_he390fc5e__0;
     VlWide<6>/*191:0*/ __Vtemp_hb52d333d__0;
     VlWide<9>/*287:0*/ __Vtemp_hec3f4a78__0;
-    VlWide<6>/*191:0*/ __Vtemp_h7720e45a__0;
+    VlWide<6>/*191:0*/ __Vtemp_h81f8700e__0;
     // Body
     if (VL_UNLIKELY(vlSelf->__Vm_traceActivity[1U])) {
         bufp->chgIData(oldp+0,(vlSymsp->TOP__pipeline.__PVT__cycle_count),32);
@@ -386,66 +386,50 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
         bufp->chgIData(oldp+113,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE),32);
         bufp->chgIData(oldp+114,(((IData)(4U) + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch)),32);
         bufp->chgCData(oldp+115,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BHR),8);
-        bufp->chgQData(oldp+116,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB[0]),59);
-        bufp->chgQData(oldp+118,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB[1]),59);
-        bufp->chgQData(oldp+120,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB[2]),59);
-        bufp->chgQData(oldp+122,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB[3]),59);
-        bufp->chgQData(oldp+124,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB[4]),59);
-        bufp->chgQData(oldp+126,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB[5]),59);
-        bufp->chgQData(oldp+128,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB[6]),59);
-        bufp->chgQData(oldp+130,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB[7]),59);
-        bufp->chgQData(oldp+132,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB[8]),59);
-        bufp->chgQData(oldp+134,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB[9]),59);
-        bufp->chgQData(oldp+136,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB[10]),59);
-        bufp->chgQData(oldp+138,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB[11]),59);
-        bufp->chgQData(oldp+140,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB[12]),59);
-        bufp->chgQData(oldp+142,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB[13]),59);
-        bufp->chgQData(oldp+144,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB[14]),59);
-        bufp->chgQData(oldp+146,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB[15]),59);
-        bufp->chgCData(oldp+148,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__hash_FE),8);
-        bufp->chgBit(oldp+149,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__prediction_FE));
-        bufp->chgBit(oldp+150,((1U & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[2U] 
+        bufp->chgCData(oldp+116,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__hash_FE),8);
+        bufp->chgBit(oldp+117,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__prediction_FE));
+        bufp->chgBit(oldp+118,((1U & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[2U] 
                                       >> 0xbU))));
-        bufp->chgIData(oldp+151,(((vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[2U] 
+        bufp->chgIData(oldp+119,(((vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[2U] 
                                    << 0x15U) | (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
                                                 >> 0xbU))),32);
-        bufp->chgBit(oldp+152,((1U & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
+        bufp->chgBit(oldp+120,((1U & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
                                       >> 0xaU))));
-        bufp->chgBit(oldp+153,((1U & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
+        bufp->chgBit(oldp+121,((1U & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
                                       >> 9U))));
-        bufp->chgCData(oldp+154,((0xffU & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
+        bufp->chgCData(oldp+122,((0xffU & (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
                                            >> 1U))),8);
-        bufp->chgIData(oldp+155,(((vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
+        bufp->chgIData(oldp+123,(((vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[1U] 
                                    << 0x1fU) | (vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[0U] 
                                                 >> 1U))),32);
-        bufp->chgBit(oldp+156,((1U & vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[0U])));
-        bufp->chgIData(oldp+157,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__i),32);
-        bufp->chgIData(oldp+158,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__j),32);
-        bufp->chgBit(oldp+159,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB_hit));
-        bufp->chgIData(oldp+160,(((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB_hit)
-                                   ? (IData)(vlSymsp->TOP__pipeline__my_FE_stage.__VdfgTmp_hccac35d1__0)
+        bufp->chgBit(oldp+124,((1U & vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[0U])));
+        bufp->chgIData(oldp+125,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__i),32);
+        bufp->chgIData(oldp+126,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__j),32);
+        bufp->chgBit(oldp+127,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB_hit));
+        bufp->chgIData(oldp+128,(((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB_hit)
+                                   ? (IData)(vlSymsp->TOP__pipeline__my_FE_stage.__VdfgTmp_hccac3553__0)
                                    : ((IData)(4U) + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch))),32);
-        bufp->chgBit(oldp+161,((1U & (vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[5U] 
+        bufp->chgBit(oldp+129,((1U & (vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[5U] 
                                       >> 0xcU))));
-        bufp->chgCData(oldp+162,((0x3fU & (vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[3U] 
+        bufp->chgCData(oldp+130,((0x3fU & (vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[3U] 
                                            >> 6U))),6);
-        bufp->chgIData(oldp+163,(((vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[5U] 
+        bufp->chgIData(oldp+131,(((vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[5U] 
                                    << 0x14U) | (vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[4U] 
                                                 >> 0xcU))),32);
-        bufp->chgIData(oldp+164,(((vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[4U] 
+        bufp->chgIData(oldp+132,(((vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[4U] 
                                    << 0x14U) | (vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[3U] 
                                                 >> 0xcU))),32);
-        bufp->chgIData(oldp+165,(((vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[3U] 
+        bufp->chgIData(oldp+133,(((vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[3U] 
                                    << 0x1aU) | (vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[2U] 
                                                 >> 6U))),32);
-        bufp->chgBit(oldp+166,((1U & (vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[0U] 
+        bufp->chgBit(oldp+134,((1U & (vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[0U] 
                                       >> 5U))));
-        bufp->chgCData(oldp+167,((0x1fU & vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[0U])),5);
-        bufp->chgIData(oldp+168,(vlSymsp->TOP__pipeline__my_WB_stage.__PVT__regval_WB),32);
-        bufp->chgIData(oldp+169,(((vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[1U] 
+        bufp->chgCData(oldp+135,((0x1fU & vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[0U])),5);
+        bufp->chgIData(oldp+136,(vlSymsp->TOP__pipeline__my_WB_stage.__PVT__regval_WB),32);
+        bufp->chgIData(oldp+137,(((vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[1U] 
                                    << 0x1aU) | (vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[0U] 
                                                 >> 6U))),32);
-        bufp->chgIData(oldp+170,(((vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[2U] 
+        bufp->chgIData(oldp+138,(((vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[2U] 
                                    << 0x1aU) | (vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[1U] 
                                                 >> 6U))),32);
     }
@@ -704,68 +688,68 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
                                     (0x2000000U & (
                                                    vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
                                                    << 0x10U)));
-        bufp->chgWData(oldp+171,(__Vtemp_hec3f4a78__0),282);
-        bufp->chgIData(oldp+180,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs
+        bufp->chgWData(oldp+139,(__Vtemp_hec3f4a78__0),282);
+        bufp->chgIData(oldp+148,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs
                                  [(0x1fU & (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
                                             >> 0x18U))]),32);
-        bufp->chgIData(oldp+181,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs
+        bufp->chgIData(oldp+149,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs
                                  [(0x1fU & ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[5U] 
                                              << 3U) 
                                             | (vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch[4U] 
                                                >> 0x1dU)))]),32);
     }
     if (VL_UNLIKELY(vlSelf->__Vm_traceActivity[2U])) {
-        bufp->chgIData(oldp+182,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[0]),32);
-        bufp->chgIData(oldp+183,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[1]),32);
-        bufp->chgIData(oldp+184,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[2]),32);
-        bufp->chgIData(oldp+185,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[3]),32);
-        bufp->chgIData(oldp+186,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[4]),32);
-        bufp->chgIData(oldp+187,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[5]),32);
-        bufp->chgIData(oldp+188,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[6]),32);
-        bufp->chgIData(oldp+189,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[7]),32);
-        bufp->chgIData(oldp+190,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[8]),32);
-        bufp->chgIData(oldp+191,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[9]),32);
-        bufp->chgIData(oldp+192,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[10]),32);
-        bufp->chgIData(oldp+193,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[11]),32);
-        bufp->chgIData(oldp+194,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[12]),32);
-        bufp->chgIData(oldp+195,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[13]),32);
-        bufp->chgIData(oldp+196,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[14]),32);
-        bufp->chgIData(oldp+197,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[15]),32);
-        bufp->chgIData(oldp+198,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[16]),32);
-        bufp->chgIData(oldp+199,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[17]),32);
-        bufp->chgIData(oldp+200,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[18]),32);
-        bufp->chgIData(oldp+201,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[19]),32);
-        bufp->chgIData(oldp+202,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[20]),32);
-        bufp->chgIData(oldp+203,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[21]),32);
-        bufp->chgIData(oldp+204,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[22]),32);
-        bufp->chgIData(oldp+205,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[23]),32);
-        bufp->chgIData(oldp+206,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[24]),32);
-        bufp->chgIData(oldp+207,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[25]),32);
-        bufp->chgIData(oldp+208,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[26]),32);
-        bufp->chgIData(oldp+209,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[27]),32);
-        bufp->chgIData(oldp+210,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[28]),32);
-        bufp->chgIData(oldp+211,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[29]),32);
-        bufp->chgIData(oldp+212,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[30]),32);
-        bufp->chgIData(oldp+213,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[31]),32);
-        bufp->chgIData(oldp+214,(vlSymsp->TOP__pipeline__my_WB_stage.__PVT__unnamedblk1__DOT__i),32);
+        bufp->chgIData(oldp+150,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[0]),32);
+        bufp->chgIData(oldp+151,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[1]),32);
+        bufp->chgIData(oldp+152,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[2]),32);
+        bufp->chgIData(oldp+153,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[3]),32);
+        bufp->chgIData(oldp+154,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[4]),32);
+        bufp->chgIData(oldp+155,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[5]),32);
+        bufp->chgIData(oldp+156,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[6]),32);
+        bufp->chgIData(oldp+157,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[7]),32);
+        bufp->chgIData(oldp+158,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[8]),32);
+        bufp->chgIData(oldp+159,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[9]),32);
+        bufp->chgIData(oldp+160,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[10]),32);
+        bufp->chgIData(oldp+161,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[11]),32);
+        bufp->chgIData(oldp+162,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[12]),32);
+        bufp->chgIData(oldp+163,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[13]),32);
+        bufp->chgIData(oldp+164,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[14]),32);
+        bufp->chgIData(oldp+165,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[15]),32);
+        bufp->chgIData(oldp+166,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[16]),32);
+        bufp->chgIData(oldp+167,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[17]),32);
+        bufp->chgIData(oldp+168,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[18]),32);
+        bufp->chgIData(oldp+169,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[19]),32);
+        bufp->chgIData(oldp+170,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[20]),32);
+        bufp->chgIData(oldp+171,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[21]),32);
+        bufp->chgIData(oldp+172,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[22]),32);
+        bufp->chgIData(oldp+173,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[23]),32);
+        bufp->chgIData(oldp+174,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[24]),32);
+        bufp->chgIData(oldp+175,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[25]),32);
+        bufp->chgIData(oldp+176,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[26]),32);
+        bufp->chgIData(oldp+177,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[27]),32);
+        bufp->chgIData(oldp+178,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[28]),32);
+        bufp->chgIData(oldp+179,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[29]),32);
+        bufp->chgIData(oldp+180,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[30]),32);
+        bufp->chgIData(oldp+181,(vlSymsp->TOP__pipeline.__PVT__my_DE_stage__DOT__regs[31]),32);
+        bufp->chgIData(oldp+182,(vlSymsp->TOP__pipeline__my_WB_stage.__PVT__unnamedblk1__DOT__i),32);
     }
-    bufp->chgBit(oldp+215,(vlSelf->clk));
-    bufp->chgBit(oldp+216,(vlSelf->reset));
-    bufp->chgBit(oldp+217,(((~ ((IData)(vlSelf->reset) 
+    bufp->chgBit(oldp+183,(vlSelf->clk));
+    bufp->chgBit(oldp+184,(vlSelf->reset));
+    bufp->chgBit(oldp+185,(((~ ((IData)(vlSelf->reset) 
                                 | ((vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[2U] 
                                     >> 0xbU) | (IData)(vlSymsp->TOP__pipeline.__PVT__from_DE_to_FE)))) 
                             & (0U != vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE))));
-    __Vtemp_h7720e45a__0[0U] = (IData)((((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__hash_FE)) 
+    __Vtemp_h81f8700e__0[0U] = (IData)((((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__hash_FE)) 
                                          << 0x21U) 
                                         | (((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__prediction_FE)) 
                                             << 0x20U) 
                                            | (QData)((IData)(
                                                              ((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB_hit)
-                                                               ? (IData)(vlSymsp->TOP__pipeline__my_FE_stage.__VdfgTmp_hccac35d1__0)
+                                                               ? (IData)(vlSymsp->TOP__pipeline__my_FE_stage.__VdfgTmp_hccac3553__0)
                                                                : 
                                                               ((IData)(4U) 
                                                                + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch)))))));
-    __Vtemp_h7720e45a__0[1U] = ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_count_FE 
+    __Vtemp_h81f8700e__0[1U] = ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_count_FE 
                                  << 9U) | (IData)((
                                                    (((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__hash_FE)) 
                                                      << 0x21U) 
@@ -773,22 +757,22 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
                                                         << 0x20U) 
                                                        | (QData)((IData)(
                                                                          ((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB_hit)
-                                                                           ? (IData)(vlSymsp->TOP__pipeline__my_FE_stage.__VdfgTmp_hccac35d1__0)
+                                                                           ? (IData)(vlSymsp->TOP__pipeline__my_FE_stage.__VdfgTmp_hccac3553__0)
                                                                            : 
                                                                           ((IData)(4U) 
                                                                            + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch)))))) 
                                                    >> 0x20U)));
-    __Vtemp_h7720e45a__0[2U] = ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_count_FE 
+    __Vtemp_h81f8700e__0[2U] = ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_count_FE 
                                  >> 0x17U) | (((IData)(4U) 
                                                + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch) 
                                               << 9U));
-    __Vtemp_h7720e45a__0[3U] = ((((IData)(4U) + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch) 
+    __Vtemp_h81f8700e__0[3U] = ((((IData)(4U) + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch) 
                                  >> 0x17U) | ((IData)(
                                                       (((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE)) 
                                                         << 0x20U) 
                                                        | (QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch)))) 
                                               << 9U));
-    __Vtemp_h7720e45a__0[4U] = (((IData)((((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE)) 
+    __Vtemp_h81f8700e__0[4U] = (((IData)((((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE)) 
                                            << 0x20U) 
                                           | (QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch)))) 
                                  >> 0x17U) | ((IData)(
@@ -797,7 +781,7 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
                                                         | (QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch))) 
                                                        >> 0x20U)) 
                                               << 9U));
-    __Vtemp_h7720e45a__0[5U] = ((((~ ((IData)(vlSelf->reset) 
+    __Vtemp_h81f8700e__0[5U] = ((((~ ((IData)(vlSelf->reset) 
                                       | ((vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[2U] 
                                           >> 0xbU) 
                                          | (IData)(vlSymsp->TOP__pipeline.__PVT__from_DE_to_FE)))) 
@@ -808,49 +792,49 @@ void Vpipeline___024root__trace_chg_sub_0(Vpipeline___024root* vlSelf, Verilated
                                                      | (QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch))) 
                                                     >> 0x20U)) 
                                            >> 0x17U));
-    bufp->chgWData(oldp+218,(__Vtemp_h7720e45a__0),170);
-    bufp->chgIData(oldp+224,(vlSymsp->TOP__pipeline__my_FE_stage.correct_predictions),32);
-    bufp->chgIData(oldp+225,(vlSymsp->TOP__pipeline__my_FE_stage.total_branches),32);
-    bufp->chgIData(oldp+226,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0U]),32);
-    bufp->chgIData(oldp+227,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[1U]),32);
-    bufp->chgIData(oldp+228,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[2U]),32);
-    bufp->chgIData(oldp+229,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[3U]),32);
-    bufp->chgIData(oldp+230,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[4U]),32);
-    bufp->chgIData(oldp+231,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[5U]),32);
-    bufp->chgIData(oldp+232,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[6U]),32);
-    bufp->chgIData(oldp+233,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[7U]),32);
-    bufp->chgIData(oldp+234,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[8U]),32);
-    bufp->chgIData(oldp+235,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[9U]),32);
-    bufp->chgIData(oldp+236,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0xaU]),32);
-    bufp->chgIData(oldp+237,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0xbU]),32);
-    bufp->chgIData(oldp+238,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0xcU]),32);
-    bufp->chgIData(oldp+239,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0xdU]),32);
-    bufp->chgIData(oldp+240,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0xeU]),32);
-    bufp->chgIData(oldp+241,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0xfU]),32);
-    bufp->chgIData(oldp+242,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x10U]),32);
-    bufp->chgIData(oldp+243,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x11U]),32);
-    bufp->chgIData(oldp+244,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x12U]),32);
-    bufp->chgIData(oldp+245,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x13U]),32);
-    bufp->chgIData(oldp+246,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x14U]),32);
-    bufp->chgIData(oldp+247,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x15U]),32);
-    bufp->chgIData(oldp+248,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x16U]),32);
-    bufp->chgIData(oldp+249,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x17U]),32);
-    bufp->chgIData(oldp+250,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x18U]),32);
-    bufp->chgIData(oldp+251,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x19U]),32);
-    bufp->chgIData(oldp+252,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x1aU]),32);
-    bufp->chgIData(oldp+253,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x1bU]),32);
-    bufp->chgIData(oldp+254,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x1cU]),32);
-    bufp->chgIData(oldp+255,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x1dU]),32);
-    bufp->chgIData(oldp+256,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x1eU]),32);
-    bufp->chgIData(oldp+257,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x1fU]),32);
-    bufp->chgIData(oldp+258,(vlSymsp->TOP__pipeline__my_WB_stage.WB_counters[0U]),32);
-    bufp->chgIData(oldp+259,(vlSymsp->TOP__pipeline__my_WB_stage.WB_counters[1U]),32);
-    bufp->chgIData(oldp+260,(vlSymsp->TOP__pipeline__my_WB_stage.WB_counters[2U]),32);
-    bufp->chgIData(oldp+261,(vlSymsp->TOP__pipeline__my_WB_stage.WB_counters[3U]),32);
-    bufp->chgIData(oldp+262,(vlSymsp->TOP__pipeline__my_WB_stage.WB_counters[4U]),32);
-    bufp->chgIData(oldp+263,(vlSymsp->TOP__pipeline__my_WB_stage.WB_counters[5U]),32);
-    bufp->chgIData(oldp+264,(vlSymsp->TOP__pipeline__my_WB_stage.WB_counters[6U]),32);
-    bufp->chgIData(oldp+265,(vlSymsp->TOP__pipeline__my_WB_stage.WB_counters[7U]),32);
+    bufp->chgWData(oldp+186,(__Vtemp_h81f8700e__0),170);
+    bufp->chgIData(oldp+192,(vlSymsp->TOP__pipeline__my_FE_stage.correct_predictions),32);
+    bufp->chgIData(oldp+193,(vlSymsp->TOP__pipeline__my_FE_stage.total_branches),32);
+    bufp->chgIData(oldp+194,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0U]),32);
+    bufp->chgIData(oldp+195,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[1U]),32);
+    bufp->chgIData(oldp+196,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[2U]),32);
+    bufp->chgIData(oldp+197,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[3U]),32);
+    bufp->chgIData(oldp+198,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[4U]),32);
+    bufp->chgIData(oldp+199,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[5U]),32);
+    bufp->chgIData(oldp+200,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[6U]),32);
+    bufp->chgIData(oldp+201,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[7U]),32);
+    bufp->chgIData(oldp+202,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[8U]),32);
+    bufp->chgIData(oldp+203,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[9U]),32);
+    bufp->chgIData(oldp+204,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0xaU]),32);
+    bufp->chgIData(oldp+205,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0xbU]),32);
+    bufp->chgIData(oldp+206,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0xcU]),32);
+    bufp->chgIData(oldp+207,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0xdU]),32);
+    bufp->chgIData(oldp+208,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0xeU]),32);
+    bufp->chgIData(oldp+209,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0xfU]),32);
+    bufp->chgIData(oldp+210,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x10U]),32);
+    bufp->chgIData(oldp+211,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x11U]),32);
+    bufp->chgIData(oldp+212,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x12U]),32);
+    bufp->chgIData(oldp+213,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x13U]),32);
+    bufp->chgIData(oldp+214,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x14U]),32);
+    bufp->chgIData(oldp+215,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x15U]),32);
+    bufp->chgIData(oldp+216,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x16U]),32);
+    bufp->chgIData(oldp+217,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x17U]),32);
+    bufp->chgIData(oldp+218,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x18U]),32);
+    bufp->chgIData(oldp+219,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x19U]),32);
+    bufp->chgIData(oldp+220,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x1aU]),32);
+    bufp->chgIData(oldp+221,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x1bU]),32);
+    bufp->chgIData(oldp+222,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x1cU]),32);
+    bufp->chgIData(oldp+223,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x1dU]),32);
+    bufp->chgIData(oldp+224,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x1eU]),32);
+    bufp->chgIData(oldp+225,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0x1fU]),32);
+    bufp->chgIData(oldp+226,(vlSymsp->TOP__pipeline__my_WB_stage.WB_counters[0U]),32);
+    bufp->chgIData(oldp+227,(vlSymsp->TOP__pipeline__my_WB_stage.WB_counters[1U]),32);
+    bufp->chgIData(oldp+228,(vlSymsp->TOP__pipeline__my_WB_stage.WB_counters[2U]),32);
+    bufp->chgIData(oldp+229,(vlSymsp->TOP__pipeline__my_WB_stage.WB_counters[3U]),32);
+    bufp->chgIData(oldp+230,(vlSymsp->TOP__pipeline__my_WB_stage.WB_counters[4U]),32);
+    bufp->chgIData(oldp+231,(vlSymsp->TOP__pipeline__my_WB_stage.WB_counters[5U]),32);
+    bufp->chgIData(oldp+232,(vlSymsp->TOP__pipeline__my_WB_stage.WB_counters[6U]),32);
+    bufp->chgIData(oldp+233,(vlSymsp->TOP__pipeline__my_WB_stage.WB_counters[7U]),32);
 }
 
 void Vpipeline___024root__trace_cleanup(void* voidSelf, VerilatedVcd* /*unused*/) {
