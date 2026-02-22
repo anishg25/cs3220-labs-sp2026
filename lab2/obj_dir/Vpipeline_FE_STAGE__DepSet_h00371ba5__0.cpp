@@ -68,7 +68,7 @@ VL_INLINE_OPT void Vpipeline_FE_STAGE___nba_sequent__TOP__pipeline__my_FE_stage_
         vlSelf->__PVT__j = 0x40U;
         vlSelf->__PVT__i = 0U;
         while (VL_GTS_III(32, 0x100U, vlSelf->__PVT__i)) {
-            vlSelf->__PVT__PHT[(0xffU & vlSelf->__PVT__i)] = 1U;
+            vlSelf->__PVT__PHT[(0xffU & vlSelf->__PVT__i)] = 2U;
             vlSelf->__PVT__i = ((IData)(1U) + vlSelf->__PVT__i);
         }
         __Vdly__inst_count_FE = 1U;
@@ -314,7 +314,8 @@ VL_INLINE_OPT void Vpipeline_FE_STAGE___nba_sequent__TOP__pipeline__my_FE_stage_
                                                     | (((QData)((IData)(vlSelf->__PVT__prediction_FE)) 
                                                         << 0x20U) 
                                                        | (QData)((IData)(
-                                                                         ((IData)(vlSelf->__PVT__BTB_hit)
+                                                                         (((IData)(vlSelf->__PVT__BTB_hit) 
+                                                                           & (IData)(vlSelf->__PVT__prediction_FE))
                                                                            ? (IData)(vlSelf->__VdfgTmp_hccac3553__0)
                                                                            : 
                                                                           ((IData)(4U) 
@@ -327,7 +328,8 @@ VL_INLINE_OPT void Vpipeline_FE_STAGE___nba_sequent__TOP__pipeline__my_FE_stage_
                                                         | (((QData)((IData)(vlSelf->__PVT__prediction_FE)) 
                                                             << 0x20U) 
                                                            | (QData)((IData)(
-                                                                             ((IData)(vlSelf->__PVT__BTB_hit)
+                                                                             (((IData)(vlSelf->__PVT__BTB_hit) 
+                                                                               & (IData)(vlSelf->__PVT__prediction_FE))
                                                                                ? (IData)(vlSelf->__VdfgTmp_hccac3553__0)
                                                                                : 
                                                                               ((IData)(4U) 

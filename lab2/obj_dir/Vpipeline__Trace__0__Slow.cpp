@@ -317,7 +317,7 @@ VL_ATTR_COLD void Vpipeline___024root__trace_full_sub_0(Vpipeline___024root* vlS
     VlWide<4>/*127:0*/ __Vtemp_he390fc5e__0;
     VlWide<6>/*191:0*/ __Vtemp_hb52d333d__0;
     VlWide<9>/*287:0*/ __Vtemp_hec3f4a78__0;
-    VlWide<6>/*191:0*/ __Vtemp_h81f8700e__0;
+    VlWide<6>/*191:0*/ __Vtemp_h641fbc9c__0;
     // Body
     bufp->fullIData(oldp+1,(vlSymsp->TOP__pipeline.__PVT__cycle_count),32);
     bufp->fullWData(oldp+2,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__FE_latch),170);
@@ -686,7 +686,8 @@ VL_ATTR_COLD void Vpipeline___024root__trace_full_sub_0(Vpipeline___024root* vlS
     bufp->fullIData(oldp+126,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__i),32);
     bufp->fullIData(oldp+127,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__j),32);
     bufp->fullBit(oldp+128,(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB_hit));
-    bufp->fullIData(oldp+129,(((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB_hit)
+    bufp->fullIData(oldp+129,((((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB_hit) 
+                                & (IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__prediction_FE))
                                 ? (IData)(vlSymsp->TOP__pipeline__my_FE_stage.__VdfgTmp_hccac3553__0)
                                 : ((IData)(4U) + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch))),32);
     bufp->fullBit(oldp+130,((1U & (vlSymsp->TOP__pipeline.__PVT__my_MEM_stage__DOT__MEM_latch[5U] 
@@ -1003,40 +1004,42 @@ VL_ATTR_COLD void Vpipeline___024root__trace_full_sub_0(Vpipeline___024root* vlS
                                  | ((vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[2U] 
                                      >> 0xbU) | (IData)(vlSymsp->TOP__pipeline.__PVT__from_DE_to_FE)))) 
                              & (0U != vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE))));
-    __Vtemp_h81f8700e__0[0U] = (IData)((((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__hash_FE)) 
+    __Vtemp_h641fbc9c__0[0U] = (IData)((((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__hash_FE)) 
                                          << 0x21U) 
                                         | (((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__prediction_FE)) 
                                             << 0x20U) 
                                            | (QData)((IData)(
-                                                             ((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB_hit)
+                                                             (((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB_hit) 
+                                                               & (IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__prediction_FE))
                                                                ? (IData)(vlSymsp->TOP__pipeline__my_FE_stage.__VdfgTmp_hccac3553__0)
                                                                : 
                                                               ((IData)(4U) 
                                                                + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch)))))));
-    __Vtemp_h81f8700e__0[1U] = ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_count_FE 
+    __Vtemp_h641fbc9c__0[1U] = ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_count_FE 
                                  << 9U) | (IData)((
                                                    (((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__hash_FE)) 
                                                      << 0x21U) 
                                                     | (((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__prediction_FE)) 
                                                         << 0x20U) 
                                                        | (QData)((IData)(
-                                                                         ((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB_hit)
+                                                                         (((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__BTB_hit) 
+                                                                           & (IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__prediction_FE))
                                                                            ? (IData)(vlSymsp->TOP__pipeline__my_FE_stage.__VdfgTmp_hccac3553__0)
                                                                            : 
                                                                           ((IData)(4U) 
                                                                            + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch)))))) 
                                                    >> 0x20U)));
-    __Vtemp_h81f8700e__0[2U] = ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_count_FE 
+    __Vtemp_h641fbc9c__0[2U] = ((vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_count_FE 
                                  >> 0x17U) | (((IData)(4U) 
                                                + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch) 
                                               << 9U));
-    __Vtemp_h81f8700e__0[3U] = ((((IData)(4U) + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch) 
+    __Vtemp_h641fbc9c__0[3U] = ((((IData)(4U) + vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch) 
                                  >> 0x17U) | ((IData)(
                                                       (((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE)) 
                                                         << 0x20U) 
                                                        | (QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch)))) 
                                               << 9U));
-    __Vtemp_h81f8700e__0[4U] = (((IData)((((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE)) 
+    __Vtemp_h641fbc9c__0[4U] = (((IData)((((QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__inst_FE)) 
                                            << 0x20U) 
                                           | (QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch)))) 
                                  >> 0x17U) | ((IData)(
@@ -1045,7 +1048,7 @@ VL_ATTR_COLD void Vpipeline___024root__trace_full_sub_0(Vpipeline___024root* vlS
                                                         | (QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch))) 
                                                        >> 0x20U)) 
                                               << 9U));
-    __Vtemp_h81f8700e__0[5U] = ((((~ ((IData)(vlSelf->reset) 
+    __Vtemp_h641fbc9c__0[5U] = ((((~ ((IData)(vlSelf->reset) 
                                       | ((vlSymsp->TOP__pipeline.__PVT__from_AGEX_to_FE[2U] 
                                           >> 0xbU) 
                                          | (IData)(vlSymsp->TOP__pipeline.__PVT__from_DE_to_FE)))) 
@@ -1056,7 +1059,7 @@ VL_ATTR_COLD void Vpipeline___024root__trace_full_sub_0(Vpipeline___024root* vlS
                                                      | (QData)((IData)(vlSymsp->TOP__pipeline__my_FE_stage.__PVT__PC_FE_latch))) 
                                                     >> 0x20U)) 
                                            >> 0x17U));
-    bufp->fullWData(oldp+187,(__Vtemp_h81f8700e__0),170);
+    bufp->fullWData(oldp+187,(__Vtemp_h641fbc9c__0),170);
     bufp->fullIData(oldp+193,(vlSymsp->TOP__pipeline__my_FE_stage.correct_predictions),32);
     bufp->fullIData(oldp+194,(vlSymsp->TOP__pipeline__my_FE_stage.total_branches),32);
     bufp->fullIData(oldp+195,(vlSymsp->TOP__pipeline__my_WB_stage.last_WB_value[0U]),32);

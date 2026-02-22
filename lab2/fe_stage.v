@@ -111,7 +111,7 @@ module FE_STAGE(
   wire BTB_hit;
   wire [31:0] predicted_target;
   wire [31:0] BTB_target_FE;
-  assign BTB_target_FE = BTB_hit ? BTB[PC_FE_latch[7:2]][31:0] : pcplus_FE;
+  assign BTB_target_FE = (BTB_hit && prediction_FE) ? BTB[PC_FE_latch[7:2]][31:0] : pcplus_FE;
   assign BTB_hit = (BTB[PC_FE_latch[7:2]][58] == 1'b1) ? (PC_FE_latch[31:6] == BTB[PC_FE_latch[7:2]][57:32]) : 1'b0; // check for BTB hit by looking at valid bit and comparing PC & tag
   assign prediction_FE = (PHT[hash_FE] == 2'b10 || PHT[hash_FE] == 2'b11) ? 1'b1 : 1'b0; // calculate the prediction based on PHT entry
 
@@ -130,7 +130,7 @@ module FE_STAGE(
       total_branches <= 32'b0;
 
       for (i = 0; i < 256; i = i + 1) begin // initialize all entries in PHT to weakly NOT taken 
-        PHT[i] = 2'b01;
+        PHT[i] = 2'b10;
       end
 
       for (j = 0; j < 64; j = j + 1) begin // initialize all the valid bits in BTB to 0 
