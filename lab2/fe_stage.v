@@ -34,7 +34,8 @@ module FE_STAGE(
   /* pipeline latch */ 
   reg [`FE_latch_WIDTH-1:0] FE_latch;  // FE latch 
   wire valid_FE;
-   
+  assign valid_FE = !(reset || br_mispred_AGEX || stall_pipe_FE) && |inst_FE;
+
   `UNUSED_VAR(valid_FE)
   reg [`DBITS-1:0] PC_FE_latch; // PC latch in the FE stage   // you could use a part of FE_latch as a PC latch as well 
   
@@ -87,6 +88,9 @@ module FE_STAGE(
   wire [`DBITS-1:0] br_target_AGEX;  
   wire br_cond_AGEX;
   wire is_br_AGEX;
+  wire [7:0] hash_AGEX;
+  wire [31:0] PC_AGEX;
+  wire is_jmp_AGEX;
 
   assign {
     stall_pipe_FE
@@ -96,7 +100,10 @@ module FE_STAGE(
     br_mispred_AGEX,
     br_target_AGEX,
     br_cond_AGEX,
-    is_br_AGEX
+    is_br_AGEX,
+    hash_AGEX,
+    PC_AGEX,
+    is_jmp_AGEX
   } = from_AGEX_to_FE;
 
   integer i; // loop counter
@@ -117,11 +124,11 @@ module FE_STAGE(
       BHR <= 8'b00000000;
 
       for (i = 0; i < 256; i = i + 1) begin // initialize all entries in PHT to weakly NOT taken 
-        PHT[i] <= 2'b01;
+        PHT[i] = 2'b01;
       end
 
       for (j = 0; j < 16; j = j + 1) begin // initialize all the valid bits in BTB to 0 
-        BTB[j][58] <= 1'b0;
+        BTB[j][58] = 1'b0;
       end
 
       end 
@@ -142,23 +149,24 @@ module FE_STAGE(
   end
   
   always @ (posedge clk) begin 
-
+    if (!reset) begin
       if (is_br_AGEX) begin // updating PHT if instruction is a branch conditional
-        case (PHT[hash_FE]) 
-          2'b00: PHT[hash_FE] = br_cond_AGEX ? 2'b01 : 2'b00;
-          2'b01: PHT[hash_FE] = br_cond_AGEX ? 2'b10 : 2'b00;
-          2'b10: PHT[hash_FE] = br_cond_AGEX ? 2'b11 : 2'b01;
-          2'b11: PHT[hash_FE] = br_cond_AGEX ? 2'b11 : 2'b10;
+        case (PHT[hash_AGEX]) 
+          2'b00: PHT[hash_AGEX] <= br_cond_AGEX ? 2'b01 : 2'b00;
+          2'b01: PHT[hash_AGEX] <= br_cond_AGEX ? 2'b10 : 2'b00;
+          2'b10: PHT[hash_AGEX] <= br_cond_AGEX ? 2'b11 : 2'b01;
+          2'b11: PHT[hash_AGEX] <= br_cond_AGEX ? 2'b11 : 2'b10;
         endcase
 
         BHR <= {BHR[6:0], br_cond_AGEX}; // updating branch history register
       end
-
-      // updating the BTB for conditional and unconditional statements (both branches and jumps)
-      BTB[PC_FE_latch[5:2]][58] <= 1'b1; 
-      BTB[PC_FE_latch[5:2]][57:32] <= PC_FE_latch[31:6];
-      BTB[PC_FE_latch[5:2]][31:0] <= br_target_AGEX;
-
+      
+      if (is_br_AGEX || is_jmp_AGEX) begin // updating the BTB for conditional and unconditional statements (both branches and jumps)
+        BTB[PC_AGEX[5:2]][58] <= 1'b1; 
+        BTB[PC_AGEX[5:2]][57:32] <= PC_AGEX[31:6];
+        BTB[PC_AGEX[5:2]][31:0] <= br_target_AGEX;
+      end
+    end
   end
 
   always @ (posedge clk) begin

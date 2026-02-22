@@ -45,7 +45,7 @@ module AGEX_STAGE(
   reg [`DBITS-1:0] aluout_AGEX;
   reg [`DBITS-1:0] memaddr_AGEX;
   reg [`DBITS-1:0] br_target_AGEX;
-  wire br_mispred_AGEX;
+  reg br_mispred_AGEX;
 
   // hash, BTB index, and prediction from DE
   wire [7:0] hash_AGEX;
@@ -120,9 +120,23 @@ module AGEX_STAGE(
       br_target_AGEX = PC_AGEX + sxt_imm_AGEX; 
     else 
       br_target_AGEX = pcplus_AGEX;
+
+    if (op_I_AGEX == `JAL_I || op_I_AGEX == `JR_I || op_I_AGEX == `JALR_I) begin
+      br_mispred_AGEX = (br_target_AGEX != BTB_target_AGEX)? 1 : 0;
+    end else begin
+      if (is_br_AGEX) begin
+        if (prediction_AGEX) begin 
+          br_mispred_AGEX = (prediction_AGEX != br_cond_AGEX) || (br_target_AGEX != BTB_target_AGEX)? 1 : 0; // checking if flush is necessary for misprediction
+        end else begin
+          br_mispred_AGEX = (prediction_AGEX != br_cond_AGEX) ? 1 : 0;
+        end
+      end else begin
+        br_mispred_AGEX = 1'b0;
+      end 
+    end
+    
   end
 
-  assign br_mispred_AGEX = (prediction_AGEX != br_cond_AGEX) || (br_target_AGEX != BTB_target_AGEX) ? 1 : 0; // checking if flush is necessary for misprediction
 
     assign  {                     
                                   valid_AGEX,
@@ -178,7 +192,10 @@ module AGEX_STAGE(
     br_mispred_AGEX, 
     br_target_AGEX,
     br_cond_AGEX,
-    is_br_AGEX
+    is_br_AGEX,
+    hash_AGEX,
+    PC_AGEX,
+    is_jmp_AGEX
   };
 
   // forward signals to DE stage
