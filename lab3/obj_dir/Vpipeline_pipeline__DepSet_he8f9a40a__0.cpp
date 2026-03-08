@@ -316,15 +316,15 @@ VL_INLINE_OPT void Vpipeline_pipeline___nba_sequent__TOP__pipeline__1(Vpipeline_
                             >> 5U));
         }
     }
-    if ((0x40U & vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[0U])) {
+    if ((0x800U & vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[0U])) {
         vlSelf->__Vdlyvval__my_MEM_stage__DOT__dmem__v0 
             = ((vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[1U] 
-                << 0x18U) | (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[0U] 
-                             >> 8U));
+                << 0x13U) | (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[0U] 
+                             >> 0xdU));
         vlSelf->__Vdlyvset__my_MEM_stage__DOT__dmem__v0 = 1U;
         vlSelf->__Vdlyvdim0__my_MEM_stage__DOT__dmem__v0 
             = (0x3fffU & (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[1U] 
-                          >> 0xaU));
+                          >> 0xfU));
     }
     if (((((((((0U == (IData)(vlSelf->__PVT__my_FU_stage__DOT__fpu__DOT__mult0__DOT__state)) 
                | (1U == (IData)(vlSelf->__PVT__my_FU_stage__DOT__fpu__DOT__mult0__DOT__state))) 
@@ -1118,48 +1118,49 @@ VL_INLINE_OPT void Vpipeline_pipeline___nba_sequent__TOP__pipeline__2(Vpipeline_
             = (((IData)((((QData)((IData)(vlSelf->__PVT__my_MEM_stage__DOT__dmem
                                           [(0x3fffU 
                                             & (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[1U] 
-                                               >> 0xaU))])) 
+                                               >> 0xfU))])) 
                           << 0x20U) | (QData)((IData)(
                                                       ((vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[1U] 
-                                                        << 0x18U) 
+                                                        << 0x13U) 
                                                        | (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[0U] 
-                                                          >> 8U)))))) 
-                << 6U) | (0x3fU & vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[0U]));
+                                                          >> 0xdU)))))) 
+                << 6U) | (0x3fU & (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[0U] 
+                                   >> 5U)));
         vlSelf->__PVT__my_MEM_stage__DOT__MEM_latch[1U] 
             = (((IData)((((QData)((IData)(vlSelf->__PVT__my_MEM_stage__DOT__dmem
                                           [(0x3fffU 
                                             & (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[1U] 
-                                               >> 0xaU))])) 
+                                               >> 0xfU))])) 
                           << 0x20U) | (QData)((IData)(
                                                       ((vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[1U] 
-                                                        << 0x18U) 
+                                                        << 0x13U) 
                                                        | (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[0U] 
-                                                          >> 8U)))))) 
+                                                          >> 0xdU)))))) 
                 >> 0x1aU) | ((IData)(((((QData)((IData)(
                                                         vlSelf->__PVT__my_MEM_stage__DOT__dmem
                                                         [
                                                         (0x3fffU 
                                                          & (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[1U] 
-                                                            >> 0xaU))])) 
+                                                            >> 0xfU))])) 
                                         << 0x20U) | (QData)((IData)(
                                                                     ((vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[1U] 
-                                                                      << 0x18U) 
+                                                                      << 0x13U) 
                                                                      | (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[0U] 
-                                                                        >> 8U))))) 
+                                                                        >> 0xdU))))) 
                                       >> 0x20U)) << 6U));
         vlSelf->__PVT__my_MEM_stage__DOT__MEM_latch[2U] 
             = (((vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[3U] 
-                 << 0x1eU) | (0x3fffffc0U & (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[2U] 
-                                             >> 2U))) 
+                 << 0x19U) | (0x1ffffc0U & (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[2U] 
+                                            >> 7U))) 
                | ((IData)(((((QData)((IData)(vlSelf->__PVT__my_MEM_stage__DOT__dmem
                                              [(0x3fffU 
                                                & (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[1U] 
-                                                  >> 0xaU))])) 
+                                                  >> 0xfU))])) 
                              << 0x20U) | (QData)((IData)(
                                                          ((vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[1U] 
-                                                           << 0x18U) 
+                                                           << 0x13U) 
                                                           | (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[0U] 
-                                                             >> 8U))))) 
+                                                             >> 0xdU))))) 
                            >> 0x20U)) >> 0x1aU));
     }
     if (vlSelf->__Vdlyvset__my_MEM_stage__DOT__dmem__v0) {
@@ -1336,48 +1337,49 @@ VL_INLINE_OPT void Vpipeline_pipeline___nba_sequent__TOP__pipeline__2(Vpipeline_
     } else {
         vlSelf->__PVT__my_MEM_stage__DOT__MEM_latch[3U] 
             = ((0x3fU & (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[3U] 
-                         >> 2U)) | ((vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[4U] 
-                                     << 0x1eU) | (0x3fffffc0U 
+                         >> 7U)) | ((vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[4U] 
+                                     << 0x19U) | (0x1ffffc0U 
                                                   & (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[3U] 
-                                                     >> 2U))));
+                                                     >> 7U))));
         vlSelf->__PVT__my_MEM_stage__DOT__MEM_latch[4U] 
             = ((0x3fU & (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[4U] 
-                         >> 2U)) | (0x1fc0U & (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[4U] 
-                                               >> 2U)));
+                         >> 7U)) | (0x1fc0U & (vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[4U] 
+                                               >> 7U)));
         vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[0U] 
             = (((IData)((((QData)((IData)(vlSelf->__PVT__my_AGEX_stage__DOT__memaddr_AGEX)) 
                           << 0x20U) | (QData)((IData)(vlSelf->__PVT__my_AGEX_stage__DOT__aluout_AGEX)))) 
-                << 8U) | (0xffU & (vlSelf->__PVT__my_DE_stage__DOT__DE_latch[0U] 
-                                   >> 0xdU)));
+                << 0xdU) | ((0x1fe0U & (vlSelf->__PVT__my_DE_stage__DOT__DE_latch[0U] 
+                                        >> 8U)) | (0x1fU 
+                                                   & vlSelf->__PVT__my_DE_stage__DOT__DE_latch[0U])));
         vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[1U] 
             = (((IData)((((QData)((IData)(vlSelf->__PVT__my_AGEX_stage__DOT__memaddr_AGEX)) 
                           << 0x20U) | (QData)((IData)(vlSelf->__PVT__my_AGEX_stage__DOT__aluout_AGEX)))) 
-                >> 0x18U) | ((IData)(((((QData)((IData)(vlSelf->__PVT__my_AGEX_stage__DOT__memaddr_AGEX)) 
+                >> 0x13U) | ((IData)(((((QData)((IData)(vlSelf->__PVT__my_AGEX_stage__DOT__memaddr_AGEX)) 
                                         << 0x20U) | (QData)((IData)(vlSelf->__PVT__my_AGEX_stage__DOT__aluout_AGEX))) 
-                                      >> 0x20U)) << 8U));
+                                      >> 0x20U)) << 0xdU));
         vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[2U] 
             = (((vlSelf->__PVT__my_DE_stage__DOT__DE_latch[6U] 
-                 << 0x11U) | (0x1c000U & (vlSelf->__PVT__my_DE_stage__DOT__DE_latch[5U] 
-                                          >> 0xfU))) 
-               | ((0x3f00U & (vlSelf->__PVT__my_DE_stage__DOT__DE_latch[3U] 
-                              >> 0xfU)) | ((IData)(
-                                                   ((((QData)((IData)(vlSelf->__PVT__my_AGEX_stage__DOT__memaddr_AGEX)) 
-                                                      << 0x20U) 
-                                                     | (QData)((IData)(vlSelf->__PVT__my_AGEX_stage__DOT__aluout_AGEX))) 
-                                                    >> 0x20U)) 
-                                           >> 0x18U)));
+                 << 0x16U) | (0x380000U & (vlSelf->__PVT__my_DE_stage__DOT__DE_latch[5U] 
+                                           >> 0xaU))) 
+               | ((0x7e000U & (vlSelf->__PVT__my_DE_stage__DOT__DE_latch[3U] 
+                               >> 0xaU)) | ((IData)(
+                                                    ((((QData)((IData)(vlSelf->__PVT__my_AGEX_stage__DOT__memaddr_AGEX)) 
+                                                       << 0x20U) 
+                                                      | (QData)((IData)(vlSelf->__PVT__my_AGEX_stage__DOT__aluout_AGEX))) 
+                                                     >> 0x20U)) 
+                                            >> 0x13U)));
         vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[3U] 
-            = ((0x3fffU & (vlSelf->__PVT__my_DE_stage__DOT__DE_latch[6U] 
-                           >> 0xfU)) | ((vlSelf->__PVT__my_DE_stage__DOT__DE_latch[7U] 
-                                         << 0x11U) 
-                                        | (0x1c000U 
-                                           & (vlSelf->__PVT__my_DE_stage__DOT__DE_latch[6U] 
-                                              >> 0xfU))));
+            = ((0x7ffffU & (vlSelf->__PVT__my_DE_stage__DOT__DE_latch[6U] 
+                            >> 0xaU)) | ((vlSelf->__PVT__my_DE_stage__DOT__DE_latch[7U] 
+                                          << 0x16U) 
+                                         | (0x380000U 
+                                            & (vlSelf->__PVT__my_DE_stage__DOT__DE_latch[6U] 
+                                               >> 0xaU))));
         vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch[4U] 
-            = ((0x3fffU & (vlSelf->__PVT__my_DE_stage__DOT__DE_latch[7U] 
-                           >> 0xfU)) | (0x4000U & (
-                                                   vlSelf->__PVT__my_DE_stage__DOT__DE_latch[7U] 
-                                                   >> 0xfU)));
+            = ((0x7ffffU & (vlSelf->__PVT__my_DE_stage__DOT__DE_latch[7U] 
+                            >> 0xaU)) | (0x80000U & 
+                                         (vlSelf->__PVT__my_DE_stage__DOT__DE_latch[7U] 
+                                          >> 0xaU)));
         if (vlSelf->__PVT__from_DE_to_FE) {
             vlSelf->__PVT__my_DE_stage__DOT__DE_latch[0U] 
                 = Vpipeline__ConstPool__CONST_h1df5b29d_0[0U];
