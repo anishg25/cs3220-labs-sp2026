@@ -14,7 +14,16 @@ module DE_STAGE(
   output wire [`DE_latch_WIDTH-1:0]       DE_latch_out
 );
 
-  `UNUSED_VAR (from_MEM_to_DE)
+  wire [31:0] aluop_DE;
+  wire [31:0] op1_DE;
+  wire [31:0] op2_DE;
+  wire [31:0] op3_DE;
+
+  assign { 
+    aluop_DE,
+    op1_DE,
+    op2_DE
+  } = from_MEM_to_DE;
 
   /* pipeline latch*/   
   reg [`DE_latch_WIDTH-1:0] DE_latch;
@@ -216,8 +225,6 @@ module DE_STAGE(
     pc_xor_bhr_DE
   } = from_FE_latch;  // based on the contents of the latch, you can decode the conten
   
-
-
   wire [`REGNOBITS-1:0] rs1_DE;
   wire [`REGNOBITS-1:0] rs2_DE;
   wire [`REGNOBITS-1:0] rd_DE;
@@ -363,8 +370,12 @@ module DE_STAGE(
     wr_reg_DE,
     rd_DE,
     pc_xor_bhr_DE,
+    is_aluop_DE,
+    is_op1_DE,
+    is_op2_DE,
     is_op3_DE,
-    is_alu_out_DE
+    is_alu_out_DE,
+    op3_DE
   };
 
   // Update DE latch
@@ -402,6 +413,14 @@ module DE_STAGE(
   reg [2:0] CSR_ALU_OUT_DE;
   reg [2:0] CSR_ALU_IN_DE;
 
+
+  assign from_DE_to_FU = {
+    aluop_DE[3:0],
+    op1_DE,
+    op2_DE,
+    CSR_ALU_IN_DE
+  };
+
   always @ (*) begin
 
     // resetting all the signals
@@ -429,4 +448,9 @@ module DE_STAGE(
     end 
   end
   
+  assign {
+    op3_DE,
+    CSR_ALU_OUT_DE
+  } = from_FU_to_DE;
+
 endmodule
