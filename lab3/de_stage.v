@@ -361,7 +361,12 @@ module DE_STAGE(
     wr_mem_DE,
     wr_reg_DE,
     rd_DE,
-    pc_xor_bhr_DE
+    pc_xor_bhr_DE,
+    is_aluop_DE,
+    is_op1_DE,
+    is_op2_DE,
+    is_op3_DE,
+    is_alu_out_DE
   };
 
   // Update DE latch
@@ -391,5 +396,41 @@ module DE_STAGE(
   //fetch status update from FU stage; 
   //Recommended states transition: load aluop --> load op1 --> load op2 --> alu processing --> store results to memory
   //Need to handle the stalls from part2 
+  reg is_op1_DE;
+  reg is_op2_DE;
+  reg is_op3_DE;
+  reg is_aluop_DE; 
+  reg is_alu_out_DE;
+  reg [2:0] CSR_ALU_OUT_DE;
+  reg [2:0] CSR_ALU_IN_DE;
+
+  always @ (*) begin
+
+    // resetting all the signals
+    is_op1_DE = 1'b0;
+    is_op2_DE = 1'b0;
+    is_op3_DE = 1'b0;
+    is_aluop_DE = 1'b0;
+    is_alu_out_DE = 1'b0;
+
+    // check if instruction is either LW or SW
+    if (rd_mem_DE) begin
+      // checking the destination register
+      if (rd_DE == 5'b11101) begin            // ALUOP
+        is_aluop_DE = 1'b1;
+      end else if (rd_DE == 5'b11110) begin   // OP1
+        is_op1_DE = 1'b1;
+      end else if (rd_DE == 5'b11111) begin   // OP2
+        is_op2_DE = 1'b1;
+      end
+    end else if (wr_mem_DE) begin             // checking the source register 
+      if (rs2_DE == 5'b11011) begin           // OP3
+        is_op3_DE = 1'b1;
+      end else if (rs2_DE == 5'b11010) begin  // CSR_ALU_OUT
+        is_alu_out_DE = 1'b1;
+      end 
+    end 
+  end
+  
 
 endmodule

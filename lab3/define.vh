@@ -28,7 +28,7 @@
 // address space is m 0x00000000 to 0x000fffff
 // [NOTICE] please note that both imem and dmem use the SAME "IDMEMINITFILE".
 // you need to change this line to change which test file to read 
-`define IDMEMINITFILE "/home/yz87/CS3220_TA/Fall_2023/cs3220-labs/lab5/test/part5/alutest0.mem"
+`define IDMEMINITFILE "/home/yz87/CS3220_TA/Fall_2023/cs3220-labs-sp2026/lab3/test/part5/alutest0.mem"
 `define IMEMADDRBITS    16
 `define IMEMWORDBITS    2
 `define IMEMWORDS	    (1 << (`IMEMADDRBITS - `IMEMWORDBITS))
@@ -202,8 +202,8 @@
 /** please update the following define with your own values */ 
 
 `define FE_latch_WIDTH          (1 + `INSTBITS + `DBITS + `DBITS + `DBITS + 8)
-`define DE_latch_WIDTH          (1 + `INSTBITS + `DBITS + `DBITS + `DBITS + `IOPBITS + `DBITS + `DBITS + `DBITS + 1 + 1 + 1 + 1 + 1 + `REGNOBITS + 8)
-`define AGEX_latch_WIDTH        (1 + `INSTBITS + `DBITS + `IOPBITS + `DBITS + `DBITS + 1 + 1 + `REGNOBITS + 1)
+`define DE_latch_WIDTH          (5 + 1 + `INSTBITS + `DBITS + `DBITS + `DBITS + `IOPBITS + `DBITS + `DBITS + `DBITS + 1 + 1 + 1 + 1 + 1 + `REGNOBITS + 8)
+`define AGEX_latch_WIDTH        (5 + 1 + `INSTBITS + `DBITS + `IOPBITS + `DBITS + `DBITS + 1 + 1 + `REGNOBITS + 1)
 `define MEM_latch_WIDTH         (1 + `INSTBITS + `DBITS + `IOPBITS + `DBITS + `DBITS  + 1 + `REGNOBITS)
 
 `define from_DE_to_FE_WIDTH     (1)

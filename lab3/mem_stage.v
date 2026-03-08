@@ -52,6 +52,12 @@ module MEM_STAGE(
 
   `UNUSED_VAR (rd_mem_MEM)
 
+  reg is_op1_MEM;
+  reg is_op2_MEM;
+  reg is_op3_MEM;
+  reg is_aluop_MEM; 
+  reg is_alu_out_MEM;
+
   assign {
     valid_MEM,
     inst_MEM,
@@ -62,7 +68,12 @@ module MEM_STAGE(
     rd_mem_MEM,
     wr_mem_MEM,
     wr_reg_MEM,
-    wregno_MEM
+    wregno_MEM,
+    is_aluop_MEM,
+    is_op1_MEM,
+    is_op2_MEM,
+    is_op3_MEM,
+    is_alu_out_MEM
   } = from_AGEX_latch;
    
   assign MEM_latch_contents = {

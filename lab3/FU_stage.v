@@ -8,8 +8,13 @@ module FU_STAGE(
 );
   /////////////////////////////////////////////////////////////////
   //TODO: add your code here to instantiate the external_alu module
+  wire [31:0] op1_FU;
+  wire [31:0] op2_FU;
+  wire [31:0] op3_FU;
+  wire [3:0] aluop_FU; 
+  wire [2:0] CSR_ALU_OUT_FU;
+  wire [2:0] CSR_ALU_IN_FU;
 
-
-
+  external_alu fpu (.clk(clk), .rst(reset), .OP1(op1_FU), .OP2(op2_FU), .OP3(op3_FU), .ALUOP(aluop_FU), .CSR_ALU_OUT(CSR_ALU_OUT_FU), .CSR_ALU_IN(CSR_ALU_IN_FU));
 
 endmodule
