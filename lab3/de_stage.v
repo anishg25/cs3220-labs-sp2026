@@ -247,7 +247,8 @@ module DE_STAGE(
   assign is_jmp_DE = ((op_I_DE == `JAL_I) || (op_I_DE == `JR_I) || (op_I_DE == `JALR_I)) ? 1 : 0;  
   assign rd_mem_DE = (op_I_DE == `LW_I) ? 1 :0 ;
   assign wr_mem_DE = (op_I_DE == `SW_I) ? 1 : 0 ; 
-  assign wr_reg_DE = ((op_I_DE == `CSRR_I) || 
+  assign wr_reg_DE = ((!is_aluop_DE && !is_op1_DE && !is_op2_DE) || 
+                      (op_I_DE == `CSRR_I) || 
                       (op_I_DE == `ADD_I) || 
                       (op_I_DE == `SUB_I) || 
                       (op_I_DE == `AND_I) || 
@@ -362,9 +363,6 @@ module DE_STAGE(
     wr_reg_DE,
     rd_DE,
     pc_xor_bhr_DE,
-    is_aluop_DE,
-    is_op1_DE,
-    is_op2_DE,
     is_op3_DE,
     is_alu_out_DE
   };
@@ -422,8 +420,7 @@ module DE_STAGE(
         is_op1_DE = 1'b1;
       end else if (rd_DE == 5'b11111) begin   // OP2
         is_op2_DE = 1'b1;
-      end
-    end else if (wr_mem_DE) begin             // checking the source register 
+      end end else if (wr_mem_DE) begin       // checking the source register 
       if (rs2_DE == 5'b11011) begin           // OP3
         is_op3_DE = 1'b1;
       end else if (rs2_DE == 5'b11010) begin  // CSR_ALU_OUT
@@ -432,5 +429,4 @@ module DE_STAGE(
     end 
   end
   
-
 endmodule

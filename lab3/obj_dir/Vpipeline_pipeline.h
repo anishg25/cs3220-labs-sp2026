@@ -42,6 +42,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vpipeline_pipeline final : public VerilatedMo
         CData/*2:0*/ __PVT__my_DE_stage__DOT__CSR_ALU_IN_DE;
         CData/*0:0*/ my_AGEX_stage__DOT____VdfgExtracted_h310f60f0__0;
         CData/*0:0*/ my_AGEX_stage__DOT____VdfgExtracted_h30f81faf__0;
+        CData/*0:0*/ __PVT__my_MEM_stage__DOT__is_op1_MEM;
+        CData/*0:0*/ __PVT__my_MEM_stage__DOT__is_op2_MEM;
+        CData/*0:0*/ __PVT__my_MEM_stage__DOT__is_aluop_MEM;
         CData/*3:0*/ __PVT__my_FU_stage__DOT__aluop_FU;
         CData/*2:0*/ __PVT__my_FU_stage__DOT__CSR_ALU_IN_FU;
         CData/*0:0*/ __PVT__my_FU_stage__DOT__fpu__DOT__div0__DOT__s_output_z_stb;
@@ -80,16 +83,16 @@ class alignas(VL_CACHE_LINE_BYTES) Vpipeline_pipeline final : public VerilatedMo
         IData/*31:0*/ __PVT__my_FE_stage__DOT__inst_FE;
         IData/*31:0*/ __PVT__my_FE_stage__DOT__pcnext_FE;
         IData/*31:0*/ __PVT__my_FE_stage__DOT__br_target_AGEX;
+    };
+    struct {
         IData/*31:0*/ __PVT__my_FE_stage__DOT__num_brjmp;
         IData/*31:0*/ __PVT__my_FE_stage__DOT__mis_pred;
         IData/*31:0*/ __PVT__my_FE_stage__DOT__unnamedblk1__DOT__i;
-    };
-    struct {
         IData/*31:0*/ __PVT__my_FE_stage__DOT__unnamedblk2__DOT__i;
-        VlWide<8>/*253:0*/ __PVT__my_DE_stage__DOT__DE_latch;
+        VlWide<8>/*250:0*/ __PVT__my_DE_stage__DOT__DE_latch;
         IData/*31:0*/ __PVT__my_DE_stage__DOT__in_use_regs;
         IData/*31:0*/ __PVT__my_DE_stage__DOT__unnamedblk1__DOT__i;
-        VlWide<5>/*147:0*/ __PVT__my_AGEX_stage__DOT__AGEX_latch;
+        VlWide<5>/*144:0*/ __PVT__my_AGEX_stage__DOT__AGEX_latch;
         IData/*31:0*/ __PVT__my_AGEX_stage__DOT__aluout_AGEX;
         IData/*31:0*/ __PVT__my_AGEX_stage__DOT__memaddr_AGEX;
         VlWide<5>/*140:0*/ __PVT__my_MEM_stage__DOT__MEM_latch;

@@ -41,7 +41,11 @@ module MEM_STAGE(
   // Write to D-MEM
   always @ (posedge clk) begin
     if (wr_mem_MEM) begin
-      dmem[memaddr_MEM[`DMEMADDRBITS-1:`DMEMWORDBITS]] <= aluout_MEM; 
+      if (is_op3_MEM) begin
+       // dmem[memaddr_MEM[`DMEMADDRBITS-1:`DMEMWORDBITS]] <= op3_MEM; 
+      end else begin
+        dmem[memaddr_MEM[`DMEMADDRBITS-1:`DMEMWORDBITS]] <= aluout_MEM;
+      end
     end
   end
   `UNUSED_VAR (memaddr_MEM)
@@ -52,11 +56,11 @@ module MEM_STAGE(
 
   `UNUSED_VAR (rd_mem_MEM)
 
-  reg is_op1_MEM;
-  reg is_op2_MEM;
-  reg is_op3_MEM;
-  reg is_aluop_MEM; 
-  reg is_alu_out_MEM;
+  wire is_op1_MEM;
+  wire is_op2_MEM;
+  wire is_op3_MEM;
+  wire is_aluop_MEM; 
+  wire is_alu_out_MEM;
 
   assign {
     valid_MEM,
@@ -69,9 +73,6 @@ module MEM_STAGE(
     wr_mem_MEM,
     wr_reg_MEM,
     wregno_MEM,
-    is_aluop_MEM,
-    is_op1_MEM,
-    is_op2_MEM,
     is_op3_MEM,
     is_alu_out_MEM
   } = from_AGEX_latch;
