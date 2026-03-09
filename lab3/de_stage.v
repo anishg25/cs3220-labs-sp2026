@@ -14,16 +14,7 @@ module DE_STAGE(
   output wire [`DE_latch_WIDTH-1:0]       DE_latch_out
 );
 
-  wire [31:0] aluop_DE;
-  wire [31:0] op1_DE;
-  wire [31:0] op2_DE;
-  wire [31:0] op3_DE;
-
-  assign { 
-    aluop_DE,
-    op1_DE,
-    op2_DE
-  } = from_MEM_to_DE;
+  `UNUSED_VAR (from_MEM_to_DE)
 
   /* pipeline latch*/   
   reg [`DE_latch_WIDTH-1:0] DE_latch;
@@ -225,6 +216,8 @@ module DE_STAGE(
     pc_xor_bhr_DE
   } = from_FE_latch;  // based on the contents of the latch, you can decode the conten
   
+
+
   wire [`REGNOBITS-1:0] rs1_DE;
   wire [`REGNOBITS-1:0] rs2_DE;
   wire [`REGNOBITS-1:0] rd_DE;
@@ -254,8 +247,7 @@ module DE_STAGE(
   assign is_jmp_DE = ((op_I_DE == `JAL_I) || (op_I_DE == `JR_I) || (op_I_DE == `JALR_I)) ? 1 : 0;  
   assign rd_mem_DE = (op_I_DE == `LW_I) ? 1 :0 ;
   assign wr_mem_DE = (op_I_DE == `SW_I) ? 1 : 0 ; 
-  assign wr_reg_DE = ((!is_aluop_DE && !is_op1_DE && !is_op2_DE) || 
-                      (op_I_DE == `CSRR_I) || 
+  assign wr_reg_DE = ((op_I_DE == `CSRR_I) || 
                       (op_I_DE == `ADD_I) || 
                       (op_I_DE == `SUB_I) || 
                       (op_I_DE == `AND_I) || 
@@ -369,13 +361,7 @@ module DE_STAGE(
     wr_mem_DE,
     wr_reg_DE,
     rd_DE,
-    pc_xor_bhr_DE,
-    is_aluop_DE,
-    is_op1_DE,
-    is_op2_DE,
-    is_op3_DE,
-    is_alu_out_DE,
-    op3_DE
+    pc_xor_bhr_DE
   };
 
   // Update DE latch
@@ -405,49 +391,55 @@ module DE_STAGE(
   //fetch status update from FU stage; 
   //Recommended states transition: load aluop --> load op1 --> load op2 --> alu processing --> store results to memory
   //Need to handle the stalls from part2 
-  reg is_op1_DE;
-  reg is_op2_DE;
-  reg is_op3_DE;
-  reg is_aluop_DE; 
-  reg is_alu_out_DE;
-  reg [2:0] CSR_ALU_OUT_DE;
+  reg [`DBITS-1:0] aluop_DE;
+  reg [`DBITS-1:0] op1_DE;
+  reg [`DBITS-1:0] op2_DE;
   reg [2:0] CSR_ALU_IN_DE;
+  wire [`DBITS-1:0] op3_DE;
+  wire [2:0] CSR_ALU_OUT_DE;
 
+  always @ (negedge clk) begin
+    if (reset) begin
+      aluop_DE <= 32'd0;
+      op1_DE <= 32'd0;
+      op2_DE <= 32'd0;
+      CSR_ALU_IN_DE <= 3'b001;
+    end else begin
+
+      CSR_ALU_IN_DE[1] <= 1'b0;
+      CSR_ALU_IN_DE[2] <= 1'b0;
+
+      if (wr_reg_WB && wregno_WB == 5'b11101) begin
+        aluop_DE <= regval_WB;
+      end
+      
+      if (wr_reg_WB && wregno_WB == 5'b11110) begin
+        op1_DE <= regval_WB;
+        CSR_ALU_IN_DE[1] <= 1'b1;
+      end
+      
+      if (wr_reg_WB && wregno_WB == 5'b11111) begin
+        op2_DE <= regval_WB;
+        CSR_ALU_IN_DE[2] <= 1'b1;
+        CSR_ALU_IN_DE[0] <= 1'b0;
+      end
+
+      if (CSR_ALU_OUT_DE[2] == 1'b1) begin
+        reg_file[5'd27] <= op3_DE;
+        reg_file[5'd26] <= {29'd0, CSR_ALU_OUT_DE};
+        CSR_ALU_IN_DE[0] <= 1'b1;
+      end
+    end
+
+  end
 
   assign from_DE_to_FU = {
-    aluop_DE[3:0],
     op1_DE,
     op2_DE,
+    aluop_DE[3:0],
     CSR_ALU_IN_DE
   };
 
-  always @ (*) begin
-
-    // resetting all the signals
-    is_op1_DE = 1'b0;
-    is_op2_DE = 1'b0;
-    is_op3_DE = 1'b0;
-    is_aluop_DE = 1'b0;
-    is_alu_out_DE = 1'b0;
-
-    // check if instruction is either LW or SW
-    if (rd_mem_DE) begin
-      // checking the destination register
-      if (rd_DE == 5'b11101) begin            // ALUOP
-        is_aluop_DE = 1'b1;
-      end else if (rd_DE == 5'b11110) begin   // OP1
-        is_op1_DE = 1'b1;
-      end else if (rd_DE == 5'b11111) begin   // OP2
-        is_op2_DE = 1'b1;
-      end end else if (wr_mem_DE) begin       // checking the source register 
-      if (rs2_DE == 5'b11011) begin           // OP3
-        is_op3_DE = 1'b1;
-      end else if (rs2_DE == 5'b11010) begin  // CSR_ALU_OUT
-        is_alu_out_DE = 1'b1;
-      end 
-    end 
-  end
-  
   assign {
     op3_DE,
     CSR_ALU_OUT_DE

@@ -36,6 +36,7 @@ void Vpipeline_pipeline___nba_sequent__TOP__pipeline__1(Vpipeline_pipeline* vlSe
 void Vpipeline_WB_STAGE___nba_sequent__TOP__pipeline__my_WB_stage__1(Vpipeline_WB_STAGE* vlSelf);
 void Vpipeline_pipeline___nba_sequent__TOP__pipeline__2(Vpipeline_pipeline* vlSelf);
 void Vpipeline_WB_STAGE___nba_sequent__TOP__pipeline__my_WB_stage__2(Vpipeline_WB_STAGE* vlSelf);
+void Vpipeline_pipeline___nba_comb__TOP__pipeline__0(Vpipeline_pipeline* vlSelf);
 
 void Vpipeline___024root___eval_nba(Vpipeline___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
@@ -53,5 +54,8 @@ void Vpipeline___024root___eval_nba(Vpipeline___024root* vlSelf) {
         Vpipeline_WB_STAGE___nba_sequent__TOP__pipeline__my_WB_stage__1((&vlSymsp->TOP__pipeline__my_WB_stage));
         Vpipeline_pipeline___nba_sequent__TOP__pipeline__2((&vlSymsp->TOP__pipeline));
         Vpipeline_WB_STAGE___nba_sequent__TOP__pipeline__my_WB_stage__2((&vlSymsp->TOP__pipeline__my_WB_stage));
+    }
+    if ((3ULL & vlSelf->__VnbaTriggered.word(0U))) {
+        Vpipeline_pipeline___nba_comb__TOP__pipeline__0((&vlSymsp->TOP__pipeline));
     }
 }

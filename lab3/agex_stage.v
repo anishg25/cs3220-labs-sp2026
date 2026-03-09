@@ -116,14 +116,7 @@ module AGEX_STAGE(
 
   assign is_brjmp_AGEX = is_br_AGEX || is_jmp_AGEX;
   assign do_brjmp_AGEX = (is_br_AGEX && br_cond_AGEX) || is_jmp_AGEX;
-
-  wire is_aluop_AGEX;
-  wire is_op1_AGEX;
-  wire is_op2_AGEX;
-  wire is_op3_AGEX;
-  wire is_alu_out_AGEX;
-  wire [31:0] op3_AGEX;
-
+  
   assign {
     valid_AGEX,
     inst_AGEX,
@@ -140,13 +133,7 @@ module AGEX_STAGE(
     wr_mem_AGEX,
     wr_reg_AGEX,
     wregno_AGEX,
-    pc_xor_bhr_AGEX,
-    is_aluop_AGEX,
-    is_op1_AGEX,
-    is_op2_AGEX,
-    is_op3_AGEX,
-    is_alu_out_AGEX,
-    op3_AGEX
+    pc_xor_bhr_AGEX
   } = from_DE_latch;    
  
   assign AGEX_latch_contents = {
@@ -159,13 +146,7 @@ module AGEX_STAGE(
     rd_mem_AGEX,
     wr_mem_AGEX,
     wr_reg_AGEX,
-    wregno_AGEX,
-    is_aluop_AGEX,
-    is_op1_AGEX,
-    is_op2_AGEX,
-    is_op3_AGEX,
-    is_alu_out_AGEX,
-    op3_AGEX
+    wregno_AGEX
   }; 
  
   // Update AGEX latch

@@ -3,7 +3,7 @@ TESTING: /Users/anish/Documents/cs3220-labs-sp2026/lab3/test/part6/alutest1.mem
 -- VERILATE ----------------
 /Users/anish/Documents/cs3220-labs-sp2026/lab3/test/part6/alutest1.mem
 /Users/anish/Documents/cs3220-labs-sp2026/lab3/define.vh
-sed -i'' -e 's|define IDMEMINITFILE.*|define IDMEMINITFILE "/Users/anish/Documents/cs3220-labs-sp2026/lab3/test/part6/alutest1.mem"|g'  /Users/anish/Documents/cs3220-labs-sp2026/lab3/define.vh
+sed -i '' 's|define IDMEMINITFILE.*|define IDMEMINITFILE "/Users/anish/Documents/cs3220-labs-sp2026/lab3/test/part6/alutest1.mem"|g'  /Users/anish/Documents/cs3220-labs-sp2026/lab3/define.vh
 verilator --exe -cc pipeline.v --top-module pipeline --trace --trace-structs --assert -Wpedantic -Wno-DECLFILENAME -Wno-UNUSED --x-initial unique --x-assign unique sim_main.cpp fe_stage.v de_stage.v mem_stage.v wb_stage.v agex_stage.v divider.v external_alu_wrapper.v FU_stage.v multiplier.v -CFLAGS '-DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab3/test/part6/alutest1.mem -DVCD_OUTPUT -DDPRINTF'
 -- COMPILE -----------------
 /Library/Developer/CommandLineTools/usr/bin/make -j 4 -C obj_dir -f Vpipeline.mk
@@ -12,10 +12,12 @@ g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/veril
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Qunused-arguments -Wno-bool-operation -Wno-tautological-bitwise-compare -Wno-parentheses-equality -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab3/test/part6/alutest1.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Qunused-arguments -Wno-bool-operation -Wno-tautological-bitwise-compare -Wno-parentheses-equality -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab3/test/part6/alutest1.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Qunused-arguments -Wno-bool-operation -Wno-tautological-bitwise-compare -Wno-parentheses-equality -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab3/test/part6/alutest1.mem -DVCD_OUTPUT -DDPRINTF   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
-/usr/bin/python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vpipeline.cpp Vpipeline___024root__DepSet_h509e9eb4__0.cpp Vpipeline___024root__DepSet_h42df2f97__0.cpp Vpipeline_pipeline__DepSet_he8f9a40a__0.cpp Vpipeline_WB_STAGE__DepSet_ha758a1a8__0.cpp Vpipeline__Dpi.cpp Vpipeline__Trace__0.cpp Vpipeline__ConstPool_0.cpp Vpipeline___024root__Slow.cpp Vpipeline___024root__DepSet_h509e9eb4__0__Slow.cpp Vpipeline___024root__DepSet_h42df2f97__0__Slow.cpp Vpipeline_pipeline__Slow.cpp Vpipeline_pipeline__DepSet_hdb0419e9__0__Slow.cpp Vpipeline_WB_STAGE__Slow.cpp Vpipeline_WB_STAGE__DepSet_hf25ad123__0__Slow.cpp Vpipeline__Syms.cpp Vpipeline__Trace__0__Slow.cpp > Vpipeline__ALL.cpp
+/usr/bin/python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vpipeline.cpp Vpipeline___024root__DepSet_h509e9eb4__0.cpp Vpipeline___024root__DepSet_h42df2f97__0.cpp Vpipeline_pipeline__DepSet_he8f9a40a__0.cpp Vpipeline_pipeline__DepSet_hdb0419e9__0.cpp Vpipeline_WB_STAGE__DepSet_ha758a1a8__0.cpp Vpipeline__Dpi.cpp Vpipeline__Trace__0.cpp Vpipeline__ConstPool_0.cpp Vpipeline___024root__Slow.cpp Vpipeline___024root__DepSet_h509e9eb4__0__Slow.cpp Vpipeline___024root__DepSet_h42df2f97__0__Slow.cpp Vpipeline_pipeline__Slow.cpp Vpipeline_pipeline__DepSet_hdb0419e9__0__Slow.cpp Vpipeline_WB_STAGE__Slow.cpp Vpipeline_WB_STAGE__DepSet_hf25ad123__0__Slow.cpp Vpipeline__Syms.cpp Vpipeline__Trace__0__Slow.cpp > Vpipeline__ALL.cpp
 g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fbracket-depth=4096 -fcf-protection=none -Qunused-arguments -Wno-bool-operation -Wno-tautological-bitwise-compare -Wno-parentheses-equality -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -DIDMEMINITFILE=/Users/anish/Documents/cs3220-labs-sp2026/lab3/test/part6/alutest1.mem -DVCD_OUTPUT -DDPRINTF   -c -o Vpipeline__ALL.o Vpipeline__ALL.cpp
+echo "" > Vpipeline__ALL.verilator_deplist.tmp
 Archive ar -rcs Vpipeline__ALL.a Vpipeline__ALL.o
 g++   -Wl,-U,__Z15vl_time_stamp64v,-U,__Z13sc_time_stampv   sim_main.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vpipeline__ALL.a    -pthread -lpthread   -o Vpipeline
+rm Vpipeline__ALL.verilator_deplist.tmp
 -- RUN ---------------------
 obj_dir/Vpipeline
 [28]  PC=0x200 Inst=0x93 Op=12 wr_reg=1 wregno=1 regval=0
@@ -176,7 +178,7 @@ obj_dir/Vpipeline
 [648]  PC=0x46c Inst=0x5a703 Op=23 wr_reg=1 wregno=14 regval=0
 [652]  PC=0x470 Inst=0x3f8003b7 Op=21 wr_reg=1 wregno=7 regval=1065353216
 [656]  PC=0x474 Inst=0x300193 Op=12 wr_reg=1 wregno=3 regval=3
-[668]  PC=0x478 Inst=0x6771e63 Op=29 wr_reg=1 wregno=28 regval=0
+[668]  PC=0x478 Inst=0x6771e63 Op=29
 [680]  PC=0x4f4 Inst=0x193 Op=12 wr_reg=1 wregno=3 regval=0
 [684]  PC=0x4f8 Inst=0x13 Op=12
 [688]  PC=0x4fc Inst=0x13 Op=12
@@ -349,7 +351,7 @@ obj_dir/Vpipeline
 [66068]  PC=0x1046c Inst=0x5a703 Op=23 wr_reg=1 wregno=14 regval=0
 [66072]  PC=0x10470 Inst=0x3f8003b7 Op=21 wr_reg=1 wregno=7 regval=1065353216
 [66076]  PC=0x10474 Inst=0x300193 Op=12 wr_reg=1 wregno=3 regval=3
-[66088]  PC=0x10478 Inst=0x6771e63 Op=29 wr_reg=1 wregno=28 regval=0
+[66088]  PC=0x10478 Inst=0x6771e63 Op=29
 [66100]  PC=0x104f4 Inst=0x193 Op=12 wr_reg=1 wregno=3 regval=0
 [66104]  PC=0x104f8 Inst=0x13 Op=12
 [66108]  PC=0x104fc Inst=0x13 Op=12

@@ -35,29 +35,13 @@ module MEM_STAGE(
   wire [`DBITS-1:0] aluout_MEM;  // memory write value 
   wire wr_mem_MEM;  // is this instruction writing a value into memory? 
 
-  wire [`DBITS-1:0] op1_MEM;
-  wire [`DBITS-1:0] op2_MEM;
-  wire [`DBITS-1:0] aluop_MEM; 
-  wire [`DBITS-1:0] op3_MEM; 
-  
-  // Read from D-MEM  (read code is completed if there is a correct memaddr_MEM )
-
-  assign aluop_MEM = is_aluop_MEM ? dmem[memaddr_MEM[`DMEMADDRBITS-1:`DMEMWORDBITS]] : 32'd0;
-    
-  assign op1_MEM = is_op1_MEM ? dmem[memaddr_MEM[`DMEMADDRBITS-1:`DMEMWORDBITS]] : 32'd0;
-  
-  assign op2_MEM = is_op2_MEM ? dmem[memaddr_MEM[`DMEMADDRBITS-1:`DMEMWORDBITS]] : 32'd0;
-
+  // Read from D-MEM  (read code is completed if there is a correct memaddr_MEM ) 
   assign rd_val_MEM = dmem[memaddr_MEM[`DMEMADDRBITS-1:`DMEMWORDBITS]];
-
+  
   // Write to D-MEM
   always @ (posedge clk) begin
     if (wr_mem_MEM) begin
-      if (is_op3_MEM) begin
-        dmem[memaddr_MEM[`DMEMADDRBITS-1:`DMEMWORDBITS]] <= op3_MEM; 
-      end else begin
-        dmem[memaddr_MEM[`DMEMADDRBITS-1:`DMEMWORDBITS]] <= aluout_MEM;
-      end
+      dmem[memaddr_MEM[`DMEMADDRBITS-1:`DMEMWORDBITS]] <= aluout_MEM; 
     end
   end
   `UNUSED_VAR (memaddr_MEM)
@@ -67,12 +51,6 @@ module MEM_STAGE(
   wire wr_reg_MEM;
 
   `UNUSED_VAR (rd_mem_MEM)
-
-  wire is_op1_MEM;
-  wire is_op2_MEM;
-  wire is_op3_MEM;
-  wire is_aluop_MEM; 
-  wire is_alu_out_MEM;
 
   assign {
     valid_MEM,
@@ -84,13 +62,7 @@ module MEM_STAGE(
     rd_mem_MEM,
     wr_mem_MEM,
     wr_reg_MEM,
-    wregno_MEM,
-    is_aluop_MEM,
-    is_op1_MEM,
-    is_op2_MEM,
-    is_op3_MEM,
-    is_alu_out_MEM,
-    op3_MEM
+    wregno_MEM
   } = from_AGEX_latch;
    
   assign MEM_latch_contents = {
@@ -119,11 +91,7 @@ module MEM_STAGE(
   assign from_MEM_to_AGEX = '0;
 
   // forward signals to DE stage
-  assign from_MEM_to_DE = {
-    aluop_MEM,
-    op1_MEM,
-    op2_MEM
-  };
+  assign from_MEM_to_DE = '0;
 
   // forward signals to FE stage
   assign from_MEM_to_FE = '0;
