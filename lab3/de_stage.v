@@ -313,8 +313,37 @@ module DE_STAGE(
   assign has_data_hazards = (use_rs1_DE && in_use_regs[rs1_DE]) 
                          || (use_rs2_DE && in_use_regs[rs2_DE]);
 
+  reg is_op2_DE;
+  reg is_op3_DE;
+
+  always @ (*) begin
+    // resetting
+    is_op2_DE = 1'b0;
+    is_op3_DE = 1'b0;
+    // check if instruction is LW 
+    if (rd_mem_DE && rd_DE == 5'b11111) begin   // OP2
+      is_op2_DE = 1'b1;
+    end else if (wr_mem_DE && rs2_DE == 5'b11011) begin
+      is_op3_DE = 1'b1;
+    end
+  end
+
+  // all the fsm states
+  localparam ALUOP = 3'd0;
+  localparam OP1_WB = 3'd1; 
+  localparam OP1_READY = 3'd2;
+  localparam OP2_WB = 3'd3;
+  localparam OP2_READY = 3'd4; 
+  localparam RESULT  = 3'd5;
+
+  reg [2:0] state;
+  
+  wire alu_stall;
+  assign alu_stall = (is_op2_DE && (state != OP2_WB) && (state != OP2_READY)) // stall lw for op2 until we reach the state when it can be latched
+  || (is_op3_DE && (state != ALUOP)); // stall sw for op3 until the latest value is written to register 27, which happens exactly right before entering default state
+  
   //TODO: part2/bonus modify as necessary
-  assign pipeline_stall_DE = has_data_hazards || br_mispred_AGEX;
+  assign pipeline_stall_DE = has_data_hazards || br_mispred_AGEX || alu_stall;
 
   always @(posedge clk) begin
     if (reset) begin
@@ -404,31 +433,61 @@ module DE_STAGE(
       op1_DE <= 32'd0;
       op2_DE <= 32'd0;
       CSR_ALU_IN_DE <= 3'b001;
+      state <= ALUOP;
     end else begin
 
       CSR_ALU_IN_DE[1] <= 1'b0;
       CSR_ALU_IN_DE[2] <= 1'b0;
 
-      if (wr_reg_WB && wregno_WB == 5'b11101) begin
-        aluop_DE <= regval_WB;
-      end
-      
-      if (wr_reg_WB && wregno_WB == 5'b11110) begin
-        op1_DE <= regval_WB;
-        CSR_ALU_IN_DE[1] <= 1'b1;
-      end
-      
-      if (wr_reg_WB && wregno_WB == 5'b11111) begin
-        op2_DE <= regval_WB;
-        CSR_ALU_IN_DE[2] <= 1'b1;
-        CSR_ALU_IN_DE[0] <= 1'b0;
-      end
+      case(state)
 
-      if (CSR_ALU_OUT_DE[2] == 1'b1) begin
-        reg_file[5'd27] <= op3_DE;
-        reg_file[5'd26] <= {29'd0, CSR_ALU_OUT_DE};
-        CSR_ALU_IN_DE[0] <= 1'b1;
-      end
+        ALUOP: begin  // loading aluop and transitioning to load op1
+          if (wr_reg_WB && wregno_WB == 5'b11101 && regval_WB != 0) begin
+            aluop_DE <= regval_WB;
+            CSR_ALU_IN_DE[0] <= 1'b0; 
+            state <= OP1_WB;
+          end
+        end
+
+        OP1_WB: begin // get op1 value from WB stage
+          if (wr_reg_WB && wregno_WB == 5'b11110) begin
+            op1_DE <= regval_WB;
+            state <= OP1_READY;
+          end
+        end
+
+        OP1_READY: begin  // if port NOT busy, then declare op1 as stable and transition to load op2
+          if (CSR_ALU_OUT_DE[0]) begin
+            CSR_ALU_IN_DE[1] <= 1'b1;
+            state <= OP2_WB;
+          end
+        end
+
+        OP2_WB: begin //  get op2 value from WB stage
+          if (wr_reg_WB && wregno_WB == 5'b11111) begin
+            op2_DE  <= regval_WB;
+            state <= OP2_READY;
+          end
+        end
+
+        OP2_READY: begin  // if port NOT busy, then declare op2 as stable and transition to alu processing + storing result
+          if (CSR_ALU_OUT_DE[1]) begin
+            CSR_ALU_IN_DE[2] <= 1'b1;
+            state <= RESULT;
+          end
+        end
+
+        RESULT: begin // if result is valid, then store op3 into register 27
+          if (CSR_ALU_OUT_DE[2]) begin
+            reg_file[5'b11011] <= op3_DE;
+            CSR_ALU_IN_DE[0] <= 1'b1; // acknowledge to alu that result was received
+            state <= ALUOP;
+          end
+        end
+
+        default: state <= ALUOP;
+
+      endcase
     end
 
   end

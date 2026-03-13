@@ -8,14 +8,14 @@
 #include "Vpipeline__Syms.h"
 #include "Vpipeline_pipeline.h"
 
-extern const VlWide<18>/*575:0*/ Vpipeline__ConstPool__CONST_ha91cecdd_0;
+extern const VlWide<18>/*575:0*/ Vpipeline__ConstPool__CONST_h5bd600b8_0;
 
 VL_ATTR_COLD void Vpipeline_pipeline___eval_initial__TOP__pipeline(Vpipeline_pipeline* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     Vpipeline__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+      Vpipeline_pipeline___eval_initial__TOP__pipeline\n"); );
     // Body
-    VL_READMEM_N(true, 32, 16384, 0, VL_CVT_PACK_STR_NW(18, Vpipeline__ConstPool__CONST_ha91cecdd_0)
+    VL_READMEM_N(true, 32, 16384, 0, VL_CVT_PACK_STR_NW(18, Vpipeline__ConstPool__CONST_h5bd600b8_0)
                  ,  &(vlSelf->__PVT__my_FE_stage__DOT__imem)
                  , 0, ~0ULL);
     vlSelf->__PVT__my_FE_stage__DOT__BHR = 0U;
@@ -108,7 +108,7 @@ VL_ATTR_COLD void Vpipeline_pipeline___eval_initial__TOP__pipeline(Vpipeline_pip
     vlSelf->__PVT__my_DE_stage__DOT__reg_file[0x1eU] = 0U;
     vlSelf->__PVT__my_DE_stage__DOT__reg_file[0x1fU] = 0U;
     vlSelf->__PVT__my_DE_stage__DOT__unnamedblk1__DOT__i = 0x20U;
-    VL_READMEM_N(true, 32, 16384, 0, VL_CVT_PACK_STR_NW(18, Vpipeline__ConstPool__CONST_ha91cecdd_0)
+    VL_READMEM_N(true, 32, 16384, 0, VL_CVT_PACK_STR_NW(18, Vpipeline__ConstPool__CONST_h5bd600b8_0)
                  ,  &(vlSelf->__PVT__my_MEM_stage__DOT__dmem)
                  , 0, ~0ULL);
 }
@@ -123,6 +123,8 @@ VL_ATTR_COLD void Vpipeline_pipeline___stl_sequent__TOP__pipeline__0(Vpipeline_p
     Vpipeline__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+      Vpipeline_pipeline___stl_sequent__TOP__pipeline__0\n"); );
     // Init
+    CData/*0:0*/ my_DE_stage__DOT____VdfgExtracted_he8b3582f__0;
+    my_DE_stage__DOT____VdfgExtracted_he8b3582f__0 = 0;
     CData/*0:0*/ my_DE_stage__DOT____VdfgTmp_hee75c7bd__0;
     my_DE_stage__DOT____VdfgTmp_hee75c7bd__0 = 0;
     CData/*0:0*/ my_DE_stage__DOT____VdfgTmp_h3be2a185__0;
@@ -145,6 +147,12 @@ VL_ATTR_COLD void Vpipeline_pipeline___stl_sequent__TOP__pipeline__0(Vpipeline_p
     vlSelf->__PVT__my_FE_stage__DOT__inst_FE = vlSelf->__PVT__my_FE_stage__DOT__imem
         [(0x3fffU & (vlSelf->__PVT__my_FE_stage__DOT__PC_FE_latch 
                      >> 2U))];
+    vlSelf->__PVT__my_DE_stage__DOT__op3_DE = ((1U 
+                                                == 
+                                                (0xfU 
+                                                 & vlSelf->__PVT__my_DE_stage__DOT__aluop_DE))
+                                                ? vlSelf->__PVT__my_FU_stage__DOT__fpu__DOT__div0__DOT__s_output_z
+                                                : vlSelf->__PVT__my_FU_stage__DOT__fpu__DOT__mult0__DOT__s_output_z);
     vlSelf->__PVT__my_DE_stage__DOT__CSR_ALU_OUT_DE 
         = ((((1U == (0xfU & vlSelf->__PVT__my_DE_stage__DOT__aluop_DE))
               ? (IData)(vlSelf->__PVT__my_FU_stage__DOT__fpu__DOT__div0__DOT__s_output_z_stb)
@@ -1003,6 +1011,9 @@ VL_ATTR_COLD void Vpipeline_pipeline___stl_sequent__TOP__pipeline__0(Vpipeline_p
                                                      (0x1fU 
                                                       & (vlSelf->__PVT__my_FE_stage__DOT__FE_latch[3U] 
                                                          >> 0xfU))));
+    my_DE_stage__DOT____VdfgExtracted_he8b3582f__0 
+        = (IData)(((0x17U == (IData)(vlSelf->__PVT__my_DE_stage__DOT__op_I_DE)) 
+                   & (0xf8000U == (0xf8000U & vlSelf->__PVT__my_FE_stage__DOT__FE_latch[3U]))));
     __Vtableidx1 = vlSelf->__PVT__my_DE_stage__DOT__op_I_DE;
     vlSelf->__PVT__my_DE_stage__DOT__type_I_DE = Vpipeline__ConstPool__TABLE_h8d162c29_0
         [__Vtableidx1];
@@ -1014,6 +1025,19 @@ VL_ATTR_COLD void Vpipeline_pipeline___stl_sequent__TOP__pipeline__0(Vpipeline_p
                                               << 8U) 
                                              | (vlSelf->__PVT__my_DE_stage__DOT__DE_latch[3U] 
                                                 >> 0x18U))));
+    vlSelf->__PVT__my_DE_stage__DOT__is_op2_DE = 0U;
+    if (my_DE_stage__DOT____VdfgExtracted_he8b3582f__0) {
+        vlSelf->__PVT__my_DE_stage__DOT__is_op2_DE = 1U;
+    }
+    vlSelf->__PVT__my_DE_stage__DOT__is_op3_DE = 0U;
+    if ((1U & (~ (IData)(my_DE_stage__DOT____VdfgExtracted_he8b3582f__0)))) {
+        if (((0x18U == (IData)(vlSelf->__PVT__my_DE_stage__DOT__op_I_DE)) 
+             & (0x1bU == (0x1fU & ((vlSelf->__PVT__my_FE_stage__DOT__FE_latch[4U] 
+                                    << 4U) | (vlSelf->__PVT__my_FE_stage__DOT__FE_latch[3U] 
+                                              >> 0x1cU)))))) {
+            vlSelf->__PVT__my_DE_stage__DOT__is_op3_DE = 1U;
+        }
+    }
     __Vtableidx2 = vlSelf->__PVT__my_DE_stage__DOT__type_I_DE;
     vlSelf->__PVT__my_DE_stage__DOT__use_rs1_DE = Vpipeline__ConstPool__TABLE_hd5e700a3_0
         [__Vtableidx2];
@@ -1031,7 +1055,14 @@ VL_ATTR_COLD void Vpipeline_pipeline___stl_sequent__TOP__pipeline__0(Vpipeline_p
                                                    << 4U) 
                                                   | (vlSelf->__PVT__my_FE_stage__DOT__FE_latch[3U] 
                                                      >> 0x1cU)))))) 
-                                    | (IData)(vlSelf->__PVT__from_AGEX_to_DE));
+                                    | ((IData)(vlSelf->__PVT__from_AGEX_to_DE) 
+                                       | (((IData)(vlSelf->__PVT__my_DE_stage__DOT__is_op2_DE) 
+                                           & ((3U != (IData)(vlSelf->__PVT__my_DE_stage__DOT__state)) 
+                                              & (4U 
+                                                 != (IData)(vlSelf->__PVT__my_DE_stage__DOT__state)))) 
+                                          | ((IData)(vlSelf->__PVT__my_DE_stage__DOT__is_op3_DE) 
+                                             & (0U 
+                                                != (IData)(vlSelf->__PVT__my_DE_stage__DOT__state))))));
 }
 
 VL_ATTR_COLD void Vpipeline_pipeline___ctor_var_reset(Vpipeline_pipeline* vlSelf) {
@@ -1083,10 +1114,14 @@ VL_ATTR_COLD void Vpipeline_pipeline___ctor_var_reset(Vpipeline_pipeline* vlSelf
     vlSelf->__PVT__my_DE_stage__DOT__use_rs1_DE = VL_RAND_RESET_I(1);
     vlSelf->__PVT__my_DE_stage__DOT__use_rs2_DE = VL_RAND_RESET_I(1);
     vlSelf->__PVT__my_DE_stage__DOT__in_use_regs = VL_RAND_RESET_I(32);
+    vlSelf->__PVT__my_DE_stage__DOT__is_op2_DE = VL_RAND_RESET_I(1);
+    vlSelf->__PVT__my_DE_stage__DOT__is_op3_DE = VL_RAND_RESET_I(1);
+    vlSelf->__PVT__my_DE_stage__DOT__state = VL_RAND_RESET_I(3);
     vlSelf->__PVT__my_DE_stage__DOT__aluop_DE = VL_RAND_RESET_I(32);
     vlSelf->__PVT__my_DE_stage__DOT__op1_DE = VL_RAND_RESET_I(32);
     vlSelf->__PVT__my_DE_stage__DOT__op2_DE = VL_RAND_RESET_I(32);
     vlSelf->__PVT__my_DE_stage__DOT__CSR_ALU_IN_DE = VL_RAND_RESET_I(3);
+    vlSelf->__PVT__my_DE_stage__DOT__op3_DE = VL_RAND_RESET_I(32);
     vlSelf->__PVT__my_DE_stage__DOT__CSR_ALU_OUT_DE = VL_RAND_RESET_I(3);
     vlSelf->__PVT__my_DE_stage__DOT__unnamedblk1__DOT__i = VL_RAND_RESET_I(32);
     VL_RAND_RESET_W(143, vlSelf->__PVT__my_AGEX_stage__DOT__AGEX_latch);
