@@ -46,7 +46,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_axis_fifo_tb_axis_fifo final : public Ver
     CData/*0:0*/ __PVT__axis_fifo_inst__DOT__mem_read_data_valid_next;
     CData/*0:0*/ __PVT__axis_fifo_inst__DOT__rd_axis_vld_reg;
     CData/*0:0*/ __PVT__axis_fifo_inst__DOT__rd_axis_vld_next;
-    CData/*0:0*/ __PVT__axis_fifo_inst__DOT__full;
     CData/*0:0*/ __PVT__axis_fifo_inst__DOT__empty;
     CData/*0:0*/ __PVT__axis_fifo_inst__DOT__write;
     CData/*0:0*/ __PVT__axis_fifo_inst__DOT__read;

@@ -78,24 +78,18 @@ VL_INLINE_OPT void Vtb_axis_fifo_tb_axis_fifo___nba_sequent__TOP__tb_axis_fifo__
         __Vdlyvdim0__axis_fifo_inst__DOT__mem__v0 = 
             (0xfU & (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_addr_reg));
     }
-    vlSelf->din_0_rsc_dat = vlSelf->__PVT__din_0_rsc_dat_reg;
-    if (vlSelf->__PVT__axis_fifo_inst__DOT__rd_rst_sync3_reg) {
-        vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_reg = 0U;
-        vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_sync2_reg = 0U;
-        vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_sync1_reg = 0U;
-    } else {
-        vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_reg 
-            = vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_next;
-        vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_sync2_reg 
-            = vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_sync1_reg;
-        vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_sync1_reg 
-            = vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg;
+    if (vlSelf->__PVT__axis_fifo_inst__DOT__store_output) {
+        vlSelf->__PVT__axis_fifo_inst__DOT__rd_data_reg 
+            = vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_reg;
     }
+    vlSelf->din_0_rsc_dat = vlSelf->__PVT__din_0_rsc_dat_reg;
+    vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_reg 
+        = ((~ (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_rst_sync3_reg)) 
+           & (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_next));
     if (vlSelf->__PVT__axis_fifo_inst__DOT__wr_rst_sync3_reg) {
         vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_reg = 0U;
         vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_sync2_reg = 0U;
         vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_sync1_reg = 0U;
-        vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg = 0U;
     } else {
         vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_reg 
             = vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_next;
@@ -103,18 +97,28 @@ VL_INLINE_OPT void Vtb_axis_fifo_tb_axis_fifo___nba_sequent__TOP__tb_axis_fifo__
             = vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_sync1_reg;
         vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_sync1_reg 
             = vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_reg;
-        vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg 
-            = vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_next;
     }
-    vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_reg 
-        = ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_rst_sync3_reg)
-            ? 0U : (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_next));
+    if (vlSelf->__PVT__axis_fifo_inst__DOT__rd_rst_sync3_reg) {
+        vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_reg = 0U;
+        vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_sync2_reg = 0U;
+        vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_sync1_reg = 0U;
+        vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_reg = 0U;
+    } else {
+        vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_reg 
+            = vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_next;
+        vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_sync2_reg 
+            = vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_sync1_reg;
+        vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_sync1_reg 
+            = vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg;
+        vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_reg 
+            = vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_next;
+    }
+    vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg 
+        = ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_rst_sync3_reg)
+            ? 0U : (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_next));
     vlSelf->__PVT__axis_fifo_inst__DOT__rd_axis_vld_reg 
         = ((~ (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_rst_sync3_reg)) 
            & (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_axis_vld_next));
-    vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_reg 
-        = ((~ (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_rst_sync3_reg)) 
-           & (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_next));
     vlSelf->__PVT__axis_fifo_inst__DOT__mem_write_data 
         = ((0x100000000ULL & vlSelf->__PVT__axis_fifo_inst__DOT__mem_write_data) 
            | (IData)((IData)(vlSelf->__PVT__din_0_rsc_dat_reg)));
@@ -130,10 +134,6 @@ VL_INLINE_OPT void Vtb_axis_fifo_tb_axis_fifo___nba_sequent__TOP__tb_axis_fifo__
                                          & VL_LTE_W(5, __Vtemp_hba4040d8__0, vlSelf->__PVT__cycle_count_reg));
     vlSelf->__PVT__axis_fifo_inst__DOT__wr_addr_reg 
         = vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_next;
-    if (vlSelf->__PVT__axis_fifo_inst__DOT__store_output) {
-        vlSelf->__PVT__axis_fifo_inst__DOT__rd_data_reg 
-            = vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_reg;
-    }
     vlSelf->dout_0_rsc_dat = (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_data_reg);
     if (vlSelf->__PVT__axis_fifo_inst__DOT__read) {
         vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_reg 
@@ -154,41 +154,15 @@ VL_INLINE_OPT void Vtb_axis_fifo_tb_axis_fifo___nba_sequent__TOP__tb_axis_fifo__
     vlSelf->dout_0_rsc_rdy = vlSelf->__PVT__dout_0_rsc_rdy_reg;
     vlSelf->__PVT__axis_fifo_inst__DOT__rd_addr_reg 
         = vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_next;
+    vlSelf->__PVT__axis_fifo_inst__DOT__store_output = 0U;
     vlSelf->__PVT__axis_fifo_inst__DOT__rd_axis_vld_next 
         = vlSelf->__PVT__axis_fifo_inst__DOT__rd_axis_vld_reg;
-    vlSelf->__PVT__axis_fifo_inst__DOT__store_output = 0U;
-    if ((1U & ((~ (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_axis_vld_reg)) 
-               | (IData)(vlSelf->dout_0_rsc_rdy)))) {
-        vlSelf->__PVT__axis_fifo_inst__DOT__rd_axis_vld_next 
-            = vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_reg;
-        vlSelf->__PVT__axis_fifo_inst__DOT__store_output 
-            = vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_reg;
-    }
+    vlSelf->__PVT__axis_fifo_inst__DOT__wr_rst_sync3_reg 
+        = ((IData)(vlSymsp->TOP.reset) | (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_rst_sync2_reg));
     vlSelf->__PVT__axis_fifo_inst__DOT__empty = ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_reg) 
                                                  == (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_sync2_reg));
     vlSelf->__PVT__axis_fifo_inst__DOT__rd_rst_sync3_reg 
         = ((IData)(vlSymsp->TOP.reset) | (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_rst_sync2_reg));
-    vlSelf->__PVT__axis_fifo_inst__DOT__full = (((1U 
-                                                  & ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg) 
-                                                     >> 4U)) 
-                                                 != 
-                                                 (1U 
-                                                  & ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_sync2_reg) 
-                                                     >> 4U))) 
-                                                & (((1U 
-                                                     & ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg) 
-                                                        >> 3U)) 
-                                                    != 
-                                                    (1U 
-                                                     & ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_sync2_reg) 
-                                                        >> 3U))) 
-                                                   & ((7U 
-                                                       & (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg)) 
-                                                      == 
-                                                      (7U 
-                                                       & (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_sync2_reg)))));
-    vlSelf->__PVT__axis_fifo_inst__DOT__wr_rst_sync3_reg 
-        = ((IData)(vlSymsp->TOP.reset) | (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_rst_sync2_reg));
     vlSelf->__PVT__axis_fifo_inst__DOT__read = 0U;
     vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_next 
         = vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_reg;
@@ -196,7 +170,10 @@ VL_INLINE_OPT void Vtb_axis_fifo_tb_axis_fifo___nba_sequent__TOP__tb_axis_fifo__
         = vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_reg;
     vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_next 
         = vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_reg;
-    if (vlSelf->__PVT__axis_fifo_inst__DOT__store_output) {
+    if ((1U & ((IData)(vlSelf->dout_0_rsc_rdy) | (~ (IData)(vlSelf->dout_0_rsc_vld))))) {
+        vlSelf->__PVT__axis_fifo_inst__DOT__store_output = 1U;
+        vlSelf->__PVT__axis_fifo_inst__DOT__rd_axis_vld_next 
+            = vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_reg;
         if ((1U & (~ (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__empty)))) {
             vlSelf->__PVT__axis_fifo_inst__DOT__read = 1U;
             vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_next 
@@ -210,14 +187,31 @@ VL_INLINE_OPT void Vtb_axis_fifo_tb_axis_fifo___nba_sequent__TOP__tb_axis_fifo__
             vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_next = 0U;
         }
     }
-    vlSelf->din_0_rsc_rdy = (1U & (~ (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__full)));
+    vlSelf->din_0_rsc_rdy = (1U & (~ ((((1U & ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg) 
+                                               >> 4U)) 
+                                        != (1U & ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_sync2_reg) 
+                                                  >> 4U))) 
+                                       & (((1U & ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg) 
+                                                  >> 3U)) 
+                                           != (1U & 
+                                               ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_sync2_reg) 
+                                                >> 3U))) 
+                                          & ((7U & (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg)) 
+                                             == (7U 
+                                                 & (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_sync2_reg))))) 
+                                      | (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_rst_sync3_reg))));
+    vlSelf->__PVT__axis_fifo_inst__DOT__wr_rst_sync2_reg 
+        = ((IData)(vlSymsp->TOP.reset) | ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_rst_sync1_reg) 
+                                          | (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_rst_sync1_reg)));
+    vlSelf->__PVT__axis_fifo_inst__DOT__rd_rst_sync2_reg 
+        = ((IData)(vlSymsp->TOP.reset) | ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_rst_sync1_reg) 
+                                          | (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_rst_sync1_reg)));
     vlSelf->__PVT__axis_fifo_inst__DOT__write = 0U;
     vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_next 
         = vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_reg;
     vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_next 
         = vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg;
-    if (((~ (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__full)) 
-         & (IData)(vlSelf->din_0_rsc_vld))) {
+    if (((IData)(vlSelf->din_0_rsc_rdy) & (IData)(vlSelf->din_0_rsc_vld))) {
         vlSelf->__PVT__axis_fifo_inst__DOT__write = 1U;
         vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_next 
             = (0x1fU & ((IData)(1U) + (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_reg)));
@@ -226,12 +220,6 @@ VL_INLINE_OPT void Vtb_axis_fifo_tb_axis_fifo___nba_sequent__TOP__tb_axis_fifo__
                         ^ ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_next) 
                            >> 1U)));
     }
-    vlSelf->__PVT__axis_fifo_inst__DOT__rd_rst_sync2_reg 
-        = ((IData)(vlSymsp->TOP.reset) | ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_rst_sync1_reg) 
-                                          | (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_rst_sync1_reg)));
-    vlSelf->__PVT__axis_fifo_inst__DOT__wr_rst_sync2_reg 
-        = ((IData)(vlSymsp->TOP.reset) | ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_rst_sync1_reg) 
-                                          | (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_rst_sync1_reg)));
     vlSelf->__PVT__axis_fifo_inst__DOT__wr_rst_sync1_reg 
         = vlSymsp->TOP.reset;
     vlSelf->__PVT__axis_fifo_inst__DOT__rd_rst_sync1_reg 

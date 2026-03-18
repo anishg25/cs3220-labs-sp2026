@@ -79,7 +79,16 @@ void Vtb_axis_fifo___024root__trace_chg_sub_0(Vtb_axis_fifo___024root* vlSelf, V
         bufp->chgQData(oldp+70,(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__mem_write_data),33);
         bufp->chgQData(oldp+72,(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__rd_data_reg),33);
         bufp->chgBit(oldp+74,(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__rd_axis_vld_reg));
-        bufp->chgBit(oldp+75,(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__full));
+        bufp->chgBit(oldp+75,((((1U & ((IData)(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg) 
+                                       >> 4U)) != (1U 
+                                                   & ((IData)(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__rd_ptr_gray_sync2_reg) 
+                                                      >> 4U))) 
+                               & (((1U & ((IData)(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg) 
+                                          >> 3U)) != 
+                                   (1U & ((IData)(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__rd_ptr_gray_sync2_reg) 
+                                          >> 3U))) 
+                                  & ((7U & (IData)(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg)) 
+                                     == (7U & (IData)(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__rd_ptr_gray_sync2_reg)))))));
         bufp->chgBit(oldp+76,(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__empty));
     }
     bufp->chgBit(oldp+77,(vlSelf->clk));

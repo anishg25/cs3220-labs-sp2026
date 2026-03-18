@@ -14,14 +14,17 @@ VL_INLINE_OPT void Vtb_axis_fifo_tb_axis_fifo___ico_sequent__TOP__tb_axis_fifo__
     VL_DEBUG_IF(VL_DBG_MSGF("+      Vtb_axis_fifo_tb_axis_fifo___ico_sequent__TOP__tb_axis_fifo__0\n"); );
     // Body
     vlSelf->__PVT__axis_fifo_inst__DOT__write = 0U;
+    vlSelf->__PVT__axis_fifo_inst__DOT__store_output = 0U;
+    vlSelf->__PVT__axis_fifo_inst__DOT__read = 0U;
+    vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_next 
+        = vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_reg;
     vlSelf->__PVT__axis_fifo_inst__DOT__rd_axis_vld_next 
         = vlSelf->__PVT__axis_fifo_inst__DOT__rd_axis_vld_reg;
     vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_next 
         = vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_reg;
     vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_next 
         = vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg;
-    if (((~ (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__full)) 
-         & (IData)(vlSelf->din_0_rsc_vld))) {
+    if (((IData)(vlSelf->din_0_rsc_rdy) & (IData)(vlSelf->din_0_rsc_vld))) {
         vlSelf->__PVT__axis_fifo_inst__DOT__write = 1U;
         vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_next 
             = (0x1fU & ((IData)(1U) + (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_reg)));
@@ -30,22 +33,12 @@ VL_INLINE_OPT void Vtb_axis_fifo_tb_axis_fifo___ico_sequent__TOP__tb_axis_fifo__
                         ^ ((IData)(vlSelf->__PVT__axis_fifo_inst__DOT__wr_ptr_next) 
                            >> 1U)));
     }
-    vlSelf->__PVT__axis_fifo_inst__DOT__store_output = 0U;
-    if ((1U & ((~ (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__rd_axis_vld_reg)) 
-               | (IData)(vlSelf->dout_0_rsc_rdy)))) {
-        vlSelf->__PVT__axis_fifo_inst__DOT__rd_axis_vld_next 
-            = vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_reg;
-        vlSelf->__PVT__axis_fifo_inst__DOT__store_output 
-            = vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_reg;
-    }
-    vlSelf->__PVT__axis_fifo_inst__DOT__read = 0U;
-    vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_next 
-        = vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_reg;
     vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_next 
         = vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_reg;
     vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_next 
         = vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_gray_reg;
-    if (vlSelf->__PVT__axis_fifo_inst__DOT__store_output) {
+    if ((1U & ((IData)(vlSelf->dout_0_rsc_rdy) | (~ (IData)(vlSelf->dout_0_rsc_vld))))) {
+        vlSelf->__PVT__axis_fifo_inst__DOT__store_output = 1U;
         if ((1U & (~ (IData)(vlSelf->__PVT__axis_fifo_inst__DOT__empty)))) {
             vlSelf->__PVT__axis_fifo_inst__DOT__read = 1U;
             vlSelf->__PVT__axis_fifo_inst__DOT__rd_ptr_next 
@@ -58,5 +51,7 @@ VL_INLINE_OPT void Vtb_axis_fifo_tb_axis_fifo___ico_sequent__TOP__tb_axis_fifo__
         } else {
             vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_next = 0U;
         }
+        vlSelf->__PVT__axis_fifo_inst__DOT__rd_axis_vld_next 
+            = vlSelf->__PVT__axis_fifo_inst__DOT__mem_read_data_valid_reg;
     }
 }

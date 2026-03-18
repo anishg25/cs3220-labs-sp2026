@@ -188,7 +188,16 @@ VL_ATTR_COLD void Vtb_axis_fifo___024root__trace_full_sub_0(Vtb_axis_fifo___024r
     bufp->fullQData(oldp+71,(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__mem_write_data),33);
     bufp->fullQData(oldp+73,(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__rd_data_reg),33);
     bufp->fullBit(oldp+75,(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__rd_axis_vld_reg));
-    bufp->fullBit(oldp+76,(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__full));
+    bufp->fullBit(oldp+76,((((1U & ((IData)(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg) 
+                                    >> 4U)) != (1U 
+                                                & ((IData)(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__rd_ptr_gray_sync2_reg) 
+                                                   >> 4U))) 
+                            & (((1U & ((IData)(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg) 
+                                       >> 3U)) != (1U 
+                                                   & ((IData)(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__rd_ptr_gray_sync2_reg) 
+                                                      >> 3U))) 
+                               & ((7U & (IData)(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__wr_ptr_gray_reg)) 
+                                  == (7U & (IData)(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__rd_ptr_gray_sync2_reg)))))));
     bufp->fullBit(oldp+77,(vlSymsp->TOP__tb_axis_fifo.__PVT__axis_fifo_inst__DOT__empty));
     bufp->fullBit(oldp+78,(vlSelf->clk));
     bufp->fullBit(oldp+79,(vlSelf->reset));
