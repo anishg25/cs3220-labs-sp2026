@@ -36,7 +36,7 @@ VERILATOR = $(VERILATOR_ROOT)/bin/verilator
 endif
 
 
-PYTHON = python
+PYTHON = python3
 VL_FLAGS_TEST_AXIS_FIFO += --exe -cc tb_axis_fifo.v --top-module tb_axis_fifo --trace --trace-structs
 VL_FLAGS_TEST_AXI4_RAM += --exe -cc tb_axi4_ram.v --top-module tb_axi4_ram --trace --trace-structs --timing 
 VL_FLAGS_TEST_AXI4_RAM_BURST += --exe -cc tb_axi4_ram_burst.v --top-module tb_axi4_ram_burst --trace --trace-structs --timing
