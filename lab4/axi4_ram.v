@@ -172,7 +172,21 @@ always @* begin
             //  set the state to ready to accept write data
             //else:
             //  set the state to idle
+            s_axi_awready_next = 1'b1;
+            write_state_next = WRITE_STATE_IDLE;
 
+            if (s_axi_awready && s_axi_awvalid) begin
+                write_id_next = s_axi_awid;
+                write_addr_next = s_axi_awaddr;
+                write_count_next = s_axi_awlen;
+                write_size_next = s_axi_awsize;
+                write_burst_next = s_axi_awburst;
+
+                s_axi_awready_next = 1'b0;
+                s_axi_wready_next = 1'b1;
+                write_state_next = WRITE_STATE_WDATA;
+            end
+           
         end
         WRITE_STATE_WDATA: begin
             //TODO: Finish the following code 
@@ -185,11 +199,36 @@ always @* begin
             //  otherwise go the response state t wait for response to be ready
             //Note: we don't do much about the response here, other than propagating the metadata in a synchronous manner
 
+            s_axi_wready_next = 1'b1;
+            write_state_next = WRITE_STATE_WDATA;
+
+            if (s_axi_wready && s_axi_wvalid) begin
+                mem_wr_en = 1'b1;
+
+                if (write_burst_reg == 2'b01) begin
+                    write_addr_next = write_addr_reg + (1 << write_size_reg);
+                end
+
+                if (write_count_reg > 0) begin
+                    write_count_next = write_count_reg - 1;
+                end else begin
+                    s_axi_wready_next = 1'b0;
+                    s_axi_bid_next = write_id_reg;
+                    s_axi_bvalid_next = 1'b1;
+                    write_state_next = WRITE_STATE_RESP;
+                end
+            end
         end
         WRITE_STATE_RESP: begin
             //TODO: Finish the following code
             //Handle the response
+            write_state_next = WRITE_STATE_RESP;
 
+            if (s_axi_bready) begin
+                s_axi_bvalid_next = 1'b0;
+                s_axi_awready_next = 1'b1;
+                write_state_next = WRITE_STATE_IDLE;
+            end
         end
     endcase
 end
@@ -244,12 +283,37 @@ always @* begin
         READ_STATE_IDLE: begin
             //TODO: Finish the following code
             //similar manner as the write state machine
-
-        end
+            s_axi_arready_next = 1'b1;
+            if (s_axi_arready && s_axi_arvalid) begin
+                read_id_next = s_axi_arid;
+                read_addr_next = s_axi_araddr;
+                read_count_next = s_axi_arlen;
+                read_size_next = s_axi_arsize;
+                read_burst_next = s_axi_arburst;
+                s_axi_arready_next = 1'b0;
+                read_state_next = READ_STATE_RDATA;
+            end
+        end 
         READ_STATE_RDATA: begin
             //TODO: Finish the following code
             //similar manner as the write state machine
-
+            if (!(s_axi_rvalid_reg && !s_axi_rready && !(PIPELINE_OUTPUT && !s_axi_rvalid_pipe_reg))) begin
+                mem_rd_en = 1'b1;
+                s_axi_rvalid_next = 1'b1;
+                s_axi_rid_next = read_id_reg;
+                s_axi_rlast_next = (read_count_reg == 0);
+                
+                if (read_count_reg > 0) begin
+                    read_count_next = read_count_reg - 1;
+                    if (read_burst_reg == 2'b01)
+                        read_addr_next = read_addr_reg + (1 << read_size_reg);
+                    read_state_next = READ_STATE_RDATA;
+                end else begin
+                    read_state_next = READ_STATE_IDLE; 
+                end
+            end else begin
+                read_state_next = READ_STATE_RDATA; 
+            end
         end
 
         //Note: don't worry about the read response for now. 
