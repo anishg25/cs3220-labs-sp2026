@@ -27,18 +27,32 @@ module systolic_array #(
 );
     //TODO: Signal declarations
     // register inputs // something todo with verilator timing issue
-    reg       rst;
-    reg       rst_accumulator_rdy;
-    reg       stream_out_rdy;
-    reg [IN_WIDTH*ROWS-1:0] row_data_in;
-    reg [IN_WIDTH*COLS-1:0] col_data_in;
+    reg       rst_new;
+    reg       rst_accumulator_rdy_new;
+    reg       stream_out_rdy_new;
+    reg [IN_WIDTH*ROWS-1:0] row_data_in_new;
+    reg [IN_WIDTH*COLS-1:0] col_data_in_new;
+
+    assign row_data_in_rdy = 1'b1;
+    assign col_data_in_rdy = 1'b1;
 
     always @(posedge clk) begin
-        rst <= rst_in;
-        rst_accumulator_rdy <= rst_accumulator_rdy_in;
-        stream_out_rdy <= stream_out_rdy_in_in;
-        row_data_in <= row_data_in_in;
-        col_data_in <= col_data_in_in;
+        rst_new <= rst;
+        rst_accumulator_rdy_new <= rst_accumulator_rdy;
+        stream_out_rdy_new <= stream_out_rdy;
+
+        if (rst) begin
+            row_data_in_new <= 0;
+            col_data_in_new <= 0;
+        end else begin
+            if (row_data_in_vld && row_data_in_rdy) begin
+                row_data_in_new <= row_data_in;
+            end
+
+            if (col_data_in_vld && col_data_in_rdy) begin
+                col_data_in_new <= col_data_in;
+            end
+        end
     end
 
 
@@ -73,15 +87,35 @@ module systolic_array #(
 
     // wires receiving bypass data
     wire [OUT_WIDTH*ROWS-1:0] row_data_out_tmp;
-    
+    reg [OUT_WIDTH*ROWS-1:0] row_data_out_reg;
 
 
     //TODO: MAC units instantiation
     // - Image you are drawing a spatial diagram of the MAC units; how should you connect the wires of them?
     // - Use generate block to realize the spatial diagram (You are not required to use generate block though)
+    always @ (posedge clk) begin
+        if(rst) begin
+            row_data_out_reg <= 0;
+        end else if (stream_out_rdy_new) begin
+            row_data_out_reg <= row_data_out_tmp;
+        end 
+    end
 
-    assign row_data_out = row_data_out_tmp;
+    assign row_data_out = row_data_out_reg;
 
+    reg row_data_out_vld_reg;
+
+    always @ (posedge clk) begin
+        if (rst) begin
+            row_data_out_vld_reg <= 1'b0;
+        end else if (stream_out_rdy_new) begin
+            row_data_out_vld_reg <= 1'b1;
+        end else if (row_data_out_vld_reg && row_data_out_rdy) begin
+            row_data_out_vld_reg <= 1'b0;
+        end
+    end
+
+    assign row_data_out_vld = row_data_out_vld_reg;
     
     generate
         genvar row, col;
@@ -90,7 +124,7 @@ module systolic_array #(
         for (row = 0; row < ROWS; row = row + 1) begin: assign_row_data_in
             for (col = 0; col < COLS; col = col + 1) begin: assign_col_data_in
                 if (row == 0) begin
-                    assign mac_col_data_in[0][col]     = col_data_in[IN_WIDTH*col +: IN_WIDTH];
+                    assign mac_col_data_in[0][col]     = col_data_in_new[IN_WIDTH*col +: IN_WIDTH];
                     assign rst_accumulator_in[0][col]  = control_rst_accumulator_rdy[col];
                     assign stream_out_rdy_in[0][col]   = control_stream_out_rdy[col];
                 end else begin
@@ -99,7 +133,7 @@ module systolic_array #(
                     assign stream_out_rdy_in[row][col]   = stream_out_rdy_out[row-1][col];
                 end
                 if (col == 0) begin
-                    assign mac_row_data_in[0][row] =  row_data_in[IN_WIDTH*row +: IN_WIDTH];
+                    assign mac_row_data_in[0][row] =  row_data_in_new[IN_WIDTH*row +: IN_WIDTH];
                 end else begin
                     assign mac_row_data_in[col][row] = mac_row_data_out[col-1][row];
                 end
@@ -124,7 +158,7 @@ module systolic_array #(
                     .ROWS_IDX(row)
                 ) mac (
                     .clk(clk),
-                    .rst(rst),
+                    .rst(rst_new),
                     .rst_accumulator_in(rst_accumulator_in[row][col]),
                     .stream_out_rdy_in(stream_out_rdy_in[row][col]),
                     .row_data_in(mac_row_data_in[col][row]),
@@ -157,9 +191,9 @@ module systolic_array #(
         .ACC_LAT(ACC_LAT)
     ) ctrl_0(
         .clk(clk),
-        .rst(rst),
-        .input_rst_accumulator(rst_accumulator_rdy),
-        .input_stream_out_rdy(stream_out_rdy),
+        .rst(rst_new),
+        .input_rst_accumulator(rst_accumulator_rdy_new),
+        .input_stream_out_rdy(stream_out_rdy_new),
         .rst_accumulator(control_rst_accumulator_rdy),
         .stream_out_rdy(control_stream_out_rdy)
     );
